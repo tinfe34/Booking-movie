@@ -1,0 +1,12 @@
+.ant-btn {
+  height: 50px;
+
+  .ant-btn-primary {
+    background-color: #fb4226;
+  }
+  &.ant-btn-dangerous.ant-btn-primary[disabled] {
+    color: #fff;
+    background-color: #fb4226;
+    opacity: 0.7;
+  }
+}

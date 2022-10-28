@@ -1,0 +1,28 @@
+.seat {
+    width: 30px;
+    height: 30px;
+    border: none !important;
+    outline: none !important;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: rgba(34, 34, 96, 1);
+    color: white;
+
+}
+
+.seatBooked {
+    background-color: #ccc !important;
+    cursor: no-drop !important;
+}
+
+.seatVIP {
+    background-color: #f7b500 !important;
+}
+
+.seatBooking {
+    background-color: #1e7e34 !important;
+}
+
+.seatVIPBooked {
+    background-color: #ef533b !important;
+}
