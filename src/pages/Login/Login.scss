@@ -1,0 +1,81 @@
+.login {
+    background: url("../../assets/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 7% 0;
+  }
+  
+  .login .loginForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: auto;
+    padding: 20px 20px 0 20px;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  
+  .login .loginForm .input__line {
+    background: none;
+    border-bottom: 1.5px solid #fb4226;
+    font-size: 15px;
+    font-weight: 600;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  
+  .login .loginForm .input__line::after {
+    content: '';
+    width: 100px;
+    height: 3px;
+    display: block;
+    background: -webkit-gradient(linear, left top, right top, from(#f8a193), to(#fb4226));
+    background: linear-gradient(to right, #f8a193, #fb4226);
+    -webkit-box-shadow: 0 0 20px 0 #f8a193;
+    box-shadow: 0 0 20px 0 #f8a193;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  
+  .login .loginForm .input__line:hover::after {
+    width: 100%;
+  }
+  
+  .login .loginForm .forgotPassword {
+    color: #fb4226;
+    font-weight: 500;
+  }
+  
+  .login .loginForm .registerLink {
+    color: #fb4226;
+    font-weight: 500;
+  }
+  
+  .login .loginForm .buttonLogin {
+    width: 100%;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 5px 30px;
+    outline: none;
+    border: 1px solid #fb4226;
+    color: #fff;
+    background-color: #fb4226;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  
+  .login .loginForm .buttonLogin:hover {
+    border: 1px solid #9b9b9b;
+    color: #9b9b9b;
+    background-color: #fff;
+  }
+  
+  .login .loginForm input {
+    border: none;
+  }
+  

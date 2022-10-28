@@ -1,0 +1,58 @@
+@use "variables/fonts";
+
+@mixin font-face($name, $pathNotIncludeExt, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $name;
+    src: url("#{$pathNotIncludeExt}.woff") format("woff");
+    font-weight: $weight;
+    font-style: $style;
+    font-display: block;
+  }
+}
+
+@mixin font-smooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin mq($width, $type: min) {
+  @if unitless($width) {
+    $width: $width * 1px;
+  }
+
+  @if $type == max {
+    $width: $width - 1px;
+  }
+
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}
+
+@mixin no-touch {
+  html.no-touch & {
+    @content;
+  }
+}
+
+@mixin icons {
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  @include font-smooth;
+}
+
+@mixin transparent-btn {
+  appearance: none;
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: inherit;
+  line-height: 1;
+  cursor: pointer;
+}

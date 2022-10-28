@@ -1,0 +1,134 @@
+.register {
+    background: url("../../assets/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 4% 0;
+  }
+  
+  .register .registerForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: auto;
+    padding: 20px 20px 0 20px;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  
+  .register .registerForm input {
+    border: none;
+  }
+  
+  .register .registerForm .input__line {
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid #fb4226;
+    font-size: 15px;
+    font-weight: 600;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  
+  .register .registerForm .input__line::after {
+    content: '';
+    width: 100px;
+    height: 3px;
+    display: block;
+    background: -webkit-gradient(linear, left top, right top, from(#f8a193), to(#fb4226));
+    background: linear-gradient(to right, #f8a193, #fb4226);
+    -webkit-box-shadow: 0 0 20px 0 #f8a193;
+    box-shadow: 0 0 20px 0 #f8a193;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  
+  .register .registerForm .input__line:hover::after {
+    width: 100%;
+  }
+  
+  .register .registerForm .buttonRegister {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 5px 30px;
+    outline: none;
+    border: 1px solid #fb4226;
+    color: #fff;
+    background-color: #fb4226;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  
+  .register .registerForm .buttonRegister:hover {
+    border: 1px solid #9b9b9b;
+    color: #9b9b9b;
+    background-color: #fff;
+  }
+  
+  .register .registerForm .registerLink {
+    color: #fb4226;
+    font-weight: 500;
+  }
+  
+  .register .registerForm .ant-picker-input>input {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  .register .registerForm ::-webkit-input-placeholder {
+    color: #495057;
+  }
+  
+  .register .registerForm :-ms-input-placeholder {
+    color: #495057;
+  }
+  
+  .register .registerForm ::-ms-input-placeholder {
+    color: #495057;
+  }
+  
+  .register .registerForm ::placeholder {
+    color: #495057;
+  }
+  
+  .register .registerForm .ant-picker {
+    border: none;
+    border-bottom: 1px solid #fb4226;
+    padding: 7px 11px 4px;
+  }
+  
+  .register .registerForm .ant-picker-focused {
+    border: 0 !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 1px solid #fb4226 !important;
+  }
+  
+  .register .registerForm .text-danger {
+    font-size: 13px;
+    margin: 0 !important;
+  }
+  
+  .register .form-group.row {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+  
+  .register .ant-alert-message {
+    font-size: 12px;
+    color: #dc2003;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .register .form-group {
+      margin-bottom: 0 !important;
+    }
+  }
+  

@@ -1,0 +1,47 @@
+@use "sass:string";
+@use "variables/fonts";
+@use "variables/icons";
+
+//_____________________________________________________
+//                              CONVERT PIXELS TO UNITS
+$unit-range: (
+  'px': 1px,
+  'em': 1em,
+  'rem': 1rem,
+);
+
+@function addUnit($value, $unit) {
+  @if type-of($unit) != 'string' {
+    @error 'Value for unit should be a string.';
+  }
+
+  $matched-unit: map-get($unit-range, $unit);
+
+  @if $matched-unit {
+    @return $value * $matched-unit;
+  } @else {
+    @error 'Value for unit not a valid unit.';
+  }
+}
+
+@function px2unit($unit, $pixels, $context) {
+  @if $unit {
+    @if (unitless($pixels)) {
+      $pixels: $pixels * 1px;
+    }
+
+    @if (unitless($context)) {
+      $context: $context * 1px;
+    }
+
+    @return addUnit($pixels / $context, $unit);
+  }
+}
+
+@function em($pixels, $context) {
+  @return px2unit('em', $pixels, $context);
+}
+
+@function rem($pixels, $context: $default-rem) {
+  @return px2unit('rem', $pixels, $context);
+}

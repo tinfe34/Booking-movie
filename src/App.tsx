@@ -4,7 +4,8 @@ import { lazy, Suspense } from "react";
 //css
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/main.css";
+import "./scss/main.scss";
+
 // template
 import HomeTemplate from "templates/HomeTemplate";
 

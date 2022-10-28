@@ -8,7 +8,11 @@ import "./Carousel.scss";
 
 //slice
 import { getBanner } from "slices/bannerSlice";
+import Slider from "react-slick";
 
+//img
+import imgPlay from '../../assets/images/play-video.png'
+import Image from "ui/Image/Image";
 const Carousel = () => {
   const { banners, isLoading, error } = useAppSelector((state) => state.banner);
 
@@ -26,65 +30,29 @@ const Carousel = () => {
     return <h1>{error}</h1>;
   }
 
+  const settings = {
+    dots: true,
+    fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
-    <section
-      id="carouselExampleIndicators"
-      className="carousel slide movie__carousel"
-      data-ride="carousel"
-    >
-      <ol
-        className="carousel-indicators carousel__button"
-        style={{ zIndex: "1" }}
-      >
-        <li
-          data-target="#carouselExampleIndicators"
-          data-slide-to={0}
-          className="active"
-        />
-        <li data-target="#carouselExampleIndicators" data-slide-to={1} />
-        <li data-target="#carouselExampleIndicators" data-slide-to={2} />
-      </ol>
-      <div
-        className="carousel-inner movie__carousel__item"
-        style={{ maxHeight: "700px" }}
-      >
+    <section className="movie__carousel">
+      <Slider {...settings}>
         {banners.map((banner, index) => {
           return (
             <div
-              className={cn(index === 0 ? "active" : "", "carousel-item")}
               key={banner.maBanner}
             >
-              <img src={banner.hinhAnh} className="d-block w-100" />
+              <img src={banner.hinhAnh} className="banner w-100" />
             </div>
           );
         })}
-      </div>
-      <a
-        className="carousel-control-prev "
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="prev"
-      >
-        <span aria-hidden="true">
-          <i
-            className="fa-solid fa-caret-left"
-            style={{ fontSize: "50px" }}
-          ></i>
-        </span>
-      </a>
-      <a
-        className="carousel-control-next"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="next"
-      >
-        <span aria-hidden="true">
-          <i
-            className="fa-solid fa-caret-right"
-            style={{ fontSize: "50px" }}
-          ></i>
-        </span>
-      </a>
+        
+      </Slider>
     </section>
   );
 };

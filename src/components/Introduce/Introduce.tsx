@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
-
+//scss
+import './Introduce.scss'
 const Introduce = () => {
   const settings = {
     dots: true,

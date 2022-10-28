@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "SF Regular" !important;
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
+a {
+  text-decoration: none !important;
+  color: initial;
+}
+
+.text-primary {
+  color: #fb4226 !important;
+}
+
+.slick-slider.slick-initialized {
+  z-index: 1 !important;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .hideOnMobile {
+    display: none !important;
+  }
+}
+
+.btnLoadMore {
+  margin: 0 auto;
+  margin-top: 30px;
+  text-transform: uppercase;
+  outline: none !important;
+  padding: 10px 30px;
+  color: #9b9b9b;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #9b9b9b;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.btnLoadMore:hover {
+  border: 1px solid #fb4226;
+  color: #fff;
+  background-color: #fb4226;
+}
+
+.ant-modal-footer button.ant-btn.ant-btn-primary {
+  background-color: #fb4226 !important;
+  border: none;
+  outline: none;
+}

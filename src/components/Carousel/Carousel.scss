@@ -1,53 +1,46 @@
 .movie__carousel {
   position: relative;
   margin-top: 60px;
-}
+  overflow: hidden;
+  max-height: 700px;
 
-.movie__carousel .carousel__button {
-  position: absolute;
-  bottom: 100px;
-}
+  img {
+    object-fit: cover;
+  }
 
-.movie__carousel .carousel__button li {
-  margin-left: 3px;
-  opacity: 1;
-  border-radius: 50%;
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-}
+  .slick-slider.slick-initialized {
+    overflow: hidden;
+    max-height: 700px;
+  }
+  
+  .slick-dots {
+    bottom: 20%;
 
-.movie__carousel .carousel__button li.active {
-  background-color: #fb4226;
-}
+    li button:before {
+      font-size: 13px;
+      color: white;
+      opacity: 1;
+    }
 
-.movie__carousel .movie__carousel__item .carousel-item img {
-  height: 100% !important;
-  display: block;
-}
+    li.slick-active button:before {
+      font-size: 17px;
+      color: #fb4226;
+    }
+  }
 
-.movie__carousel .carousel-control-prev span img,
-.movie__carousel .carousel-control-next span img {
-  height: 50px;
-  width: 50px;
-}
+  .slick-arrow.slick-next,
+  .slick-arrow.slick-prev {
+    &::before {
+      font-size: 40px;
+    }
+    z-index: 5 !important;
+  }
 
-.movie__carousel .carousel-control-prev {
-  margin-left: 20px;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
+  .slick-arrow.slick-next {
+    right: 50px;
+  }
 
-.movie__carousel .carousel-control-next {
-  margin-right: 20px;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
-
-@media screen and (max-width: 768px) {
-  .carousel__button {
-    display: none !important;
+  .slick-arrow.slick-prev {
+    left: 50px;
   }
 }

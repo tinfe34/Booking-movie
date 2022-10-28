@@ -68,7 +68,7 @@
     }
 
     img {
-      width: 30px;
+      width: rem(30);
       height: auto;
       border-radius: 25px;
       margin-right: 10px;
@@ -85,7 +85,6 @@
     &:focus {
       outline: none;
       box-shadow: none;
-  
     }
   }
 

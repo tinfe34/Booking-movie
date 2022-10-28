@@ -260,7 +260,7 @@ const FormGetSticket = () => {
               <Space className="d-flex p-3 justify-content-between">
                 {showTimeWatch.ngayChieuGioChieu
                   ? showTimeWatch.ngayChieuGioChieu
-                  : "Xuất Chiếu"}
+                  : "Suất Chiếu"}
                 <DownOutlined />
               </Space>
             </Dropdown>

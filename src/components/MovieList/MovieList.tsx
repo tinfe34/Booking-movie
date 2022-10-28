@@ -10,14 +10,13 @@ const MovieList = () => {
   const { movies, totalPages, isLoading, error } = useAppSelector(
     (state) => state.movie
   );
-
+  console.log(movies);
   const dispatch = useAppDispatch();
 
   const [pagState, changePagState] = useState(0);
 
   function toggleActive(index: number) {
     changePagState(index);
-    console.log(pagState);
   }
 
   function toggleActiveStyles(index: number) {
@@ -37,60 +36,41 @@ const MovieList = () => {
     return countPage;
   };
 
-  if (isLoading) {
-    dispatch(showLoading());
-    return <div></div>;
-  }
-
   if (error) {
     return <h1>{error}</h1>;
   }
-
-  dispatch(hideLoading());
 
   return (
     <div className="movie-list">
       <div className="container">
         <div className="row">
-          <div className="col-sm-12" id="film-header">
-            <h1 className="text-center">Danh sách phim</h1>
-          </div>
-
+          <h1 className="text-center text-primary">Danh sách phim</h1>
           {movies.map((movie) => {
             return <MovieItem key={movie.maPhim} movie={movie} />;
           })}
-
-          <div className="col-sm-12">
-            <ul className="pagination justify-content-center mt-3">
-              {renderPagination(totalPages).map((pag, index) => {
-                return (
-                  <li
-                    className={toggleActiveStyles(index)}
-                    key={pag}
-                    onClick={() => toggleActive(index)}
+          <ul className="pagination justify-content-center mt-3">
+            {renderPagination(totalPages).map((pag, index) => {
+              return (
+                <li
+                  className={toggleActiveStyles(index)}
+                  key={pag}
+                  onClick={() => toggleActive(index)}
+                >
+                  <a
+                    className="page-link"
+                    role="button"
+                    href="#film-header"
+                    onClick={() => {
+                      dispatch(getMovieShowing(pag));
+                    }}
                   >
-                    <a
-                      className="page-link"
-                      role="button"
-                      href="#film-header"
-                      onClick={() => {
-                        dispatch(getMovieShowing(pag));
-                      }}
-                    >
-                      {pag}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+                    {pag}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-        <div
-          className="container back__news"
-          style={{
-            backgroundImage: "url('./images/icons/back-news.png')",
-          }}
-        ></div>
       </div>
     </div>
   );

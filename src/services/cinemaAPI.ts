@@ -7,7 +7,7 @@ const cinemaAPI = {
     getSystemCinemas: () => {
         return axiosClient.get<SysCinema[]>("QuanLyRap/LayThongTinLichChieuHeThongRap", {
             params: {
-                maNhom: "GP05",
+                maNhom: "GP02",
             },
         });
     },

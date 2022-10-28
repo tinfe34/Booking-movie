@@ -24,6 +24,10 @@ import facebook from "./../../assets/images/icons/facebook-logo.png";
 import zalo from "./../../assets/images/icons/zalo-logo.png";
 import bocongthuong from "./../../assets/images/icons/bocongthuong.png";
 
+
+//scss
+import './Footer.scss'
+
 const Footer = () => {
   return (
     <div className="footer" id="footer">

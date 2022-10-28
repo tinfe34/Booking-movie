@@ -26,7 +26,7 @@ const HeaderLocation = ({}: HeaderLocationProps) => {
     <Menu>
       {listLocation.map((value, index) => {
         return (
-          <Menu.Item>
+          <Menu.Item key={index}>
             <a
               href="#"
               className="dropdown-item"

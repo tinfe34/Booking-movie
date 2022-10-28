@@ -1,0 +1,79 @@
+.listComment {
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.listComment .comment {
+  position: relative;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.listComment .comment .comment__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.listComment .comment .comment__header .avatar__user {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.listComment .comment .comment__header .comment__info {
+  margin-left: 10px;
+}
+
+.listComment .comment .comment__header .comment__info .username__user {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.listComment .comment .comment__user {
+  padding: 30px 0 !important;
+  color: #4a4a4a !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.listComment .comment .interactLike {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.listComment .comment .interactLike .imgLike {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.listComment .comment .rate {
+  position: absolute;
+  top: 10px;
+  right: 2%;
+  text-align: center;
+}
+
+.listComment .comment .rate .ratePoint {
+  color: #91d25a;
+  font-size: 16px;
+  margin: 0;
+}
+
+.listComment .comment .rate .rateStar {
+  width: 15px;
+  height: 15px;
+}

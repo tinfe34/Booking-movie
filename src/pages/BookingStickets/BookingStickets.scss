@@ -1,0 +1,639 @@
+.seat {
+  width: 30px;
+  height: 30px;
+  border: none !important;
+  outline: none !important;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: rgba(34, 34, 96, 1);
+  color: white;
+}
+
+.seatBooked {
+  background-color: #ccc !important;
+  cursor: no-drop !important;
+}
+
+.seatVIP {
+  background-color: #f7b500 !important;
+}
+
+.seatBooking {
+  background-color: #1e7e34 !important;
+}
+
+.seatVIPBooked {
+  background-color: #ef533b !important;
+}
+
+.getSticketModal .ant-modal-body .getSticketMobileInfo .filmInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.getSticketModal .ant-modal-body .getSticketMobileInfo .filmInfo .imgFilm {
+  border-radius: 10px;
+  width: 100px !important;
+  height: 100px !important;
+  margin-left: auto;
+}
+
+.getSticketModal .ant-modal-body .getSticketMobileInfo .filmInfo .nameFilm {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.getSticketModal
+  .ant-modal-body
+  .getSticketMobileInfo
+  .filmInfo
+  .nameFilm
+  .typeFilm {
+  margin-right: 5px;
+  padding: 2px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #fb4226;
+}
+
+.getSticketModal .ant-modal-body .getSticketMobileInfo .seatBookings {
+  height: 40px;
+  color: #fb4226;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.getSticketModal
+  .ant-modal-body
+  .getSticketMobileInfo
+  .seatBookings
+  .seatNameBooking {
+  font-size: 1rem;
+}
+
+.getSticketModal .ant-modal-body .getSticketMobileInfo .seatBookings .title {
+  font-weight: 600;
+}
+
+.getSticketModal
+  .ant-modal-body
+  .getSticketMobileInfo
+  .seatBookings
+  .totalMoney {
+  margin-left: auto;
+  color: #44c020;
+}
+
+.getSticketModal .ant-modal-body .getSticketMobileInfo .total {
+  color: #44c020;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.getSticketModal .ant-modal-body .getSticketMobileInfo .infoBookingFilm,
+.getSticketModal .ant-modal-body .getSticketMobileInfo .infoUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px ridge #9b9b9b;
+}
+
+.getSticketModal .ant-modal-body .getSticketMobileInfo .infoBookingFilm .title,
+.getSticketModal .ant-modal-body .getSticketMobileInfo .infoUser .title {
+  color: #9b9b9b;
+}
+
+.getSticketModal
+  .ant-modal-body
+  .getSticketMobileInfo
+  .infoBookingFilm
+  .content,
+.getSticketModal .ant-modal-body .getSticketMobileInfo .infoUser .content {
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.getSticketModal .ant-modal-body .getSticketMobileInfo .infoUser .title {
+  color: black;
+}
+@media screen and (max-width: 992px) {
+  /* .bookingSticket .bookingSeat {
+      width: 100%;
+      overflow-x: scroll;
+    } */
+
+  .bookingSticket .bookingSeat .listSeatRow {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 600px !important;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .bookingSticket .seat {
+    width: 35px !important;
+    height: 20px !important;
+  }
+
+  .bookingSticket .bookingNav .bookingNavItems {
+    width: 100% !important;
+  }
+
+  .bookingSticket .bookingNav .bookingNavItems .nav-link {
+    font-size: 13px !important;
+  }
+
+  .bookingSticket .bookingInfo .infoCinema .infoCinemaDetail .nameCinema {
+    font-size: 14px !important;
+    font-weight: 600;
+  }
+
+  .bookingSticket .bookingInfo .infoCinema .infoCinemaDetail .cinemaTime {
+    font-size: 13px !important;
+    color: #9b9b9b;
+  }
+
+  .bookingSticket .bookingInfo .infoCinema .timeCountDown {
+    position: absolute;
+    right: 0;
+    top: 0 !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    text-align: center;
+  }
+
+  .bookingSticket .bookingInfo .infoCinema .timeCountDown .timeTitle {
+    font-size: 14px !important;
+  }
+
+  .bookingSticket .bookingInfo .infoCinema .timeCountDown .timeDown h1 {
+    font-size: 17px !important;
+    color: #fb4226 !important;
+    margin: 0;
+  }
+
+  .bookingSticket .bookingInfo .infoCinema img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .bookingSticket .hideOnMobile {
+    display: none !important;
+  }
+
+  .bookingSticket .buttonContinue {
+    display: inline !important;
+  }
+}
+
+.bookingSticket {
+  height: 100%;
+}
+
+.bookingSticket .bookingNav {
+  height: 100%;
+}
+
+.bookingSticket .bookingNav .bookingNavItems {
+  position: fixed;
+  top: -1px;
+  z-index: 10;
+  width: 75%;
+  border-radius: 10px;
+  border: none;
+  background-color: #fff;
+  height: 80px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-shadow: 0 0 5px 0 #9b9b9b;
+  box-shadow: 0 0 5px 0 #9b9b9b;
+}
+
+.bookingSticket .bookingNav .bookingNavItems .nav-item .nav-link {
+  border: none;
+  color: black;
+  font-size: 1.3rem;
+}
+
+.bookingSticket .bookingNav .bookingNavItems .nav-item .nav-link::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  display: block;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#fb4226),
+    to(#dc2003)
+  );
+  background: linear-gradient(to right, #fb4226, #dc2003);
+  -webkit-box-shadow: 0 0 2px 0 #fb4226;
+  box-shadow: 0 0 2px 0 #fb4226;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.bookingSticket .bookingNav .bookingNavItems .nav-item .nav-link:hover {
+  color: #dc2003;
+}
+
+.bookingSticket .bookingNav .bookingNavItems .nav-item .nav-link:hover::after {
+  width: 100%;
+}
+
+.bookingSticket .bookingNav .bookingNavItems .nav-item .nav-link.active {
+  color: #dc2003;
+}
+
+.bookingSticket .bookingNav .bookingNavItems .nav-item .nav-link.active::after {
+  width: 100%;
+}
+
+.bookingSticket .bookingNav .bookingNavItems .user {
+  margin: 0 10px 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.bookingSticket .bookingNav .bookingNavItems .user .ant-btn:hover,
+.bookingSticket .bookingNav .bookingNavItems .user .ant-btn:focus {
+  color: #fb4226;
+  background: #fff;
+  border-color: #fb4226;
+}
+
+.bookingSticket .bookingNav .bookingNavItems .user .nav-link {
+  margin-left: 5px;
+  padding: 0;
+  border: none;
+  font-size: 14px;
+  color: #9b9b9b;
+}
+
+.bookingNavLogo {
+  width: 50px;
+  height: 50px;
+}
+
+.bookingSticket .bookingNav #bookingTab {
+  /* margin-top: 80px !important; */
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bookingSticket .bookingNav #bookingTab .bookingTitle {
+  position: relative;
+}
+
+.bookingSticket .bookingNav #bookingTab .bookingTitle .bookingInfo .infoCinema {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.bookingSticket
+  .bookingNav
+  #bookingTab
+  .bookingTitle
+  .bookingInfo
+  .infoCinema
+  .infoCinemaDetail {
+  margin-left: 10px;
+}
+
+.bookingSticket
+  .bookingNav
+  #bookingTab
+  .bookingTitle
+  .bookingInfo
+  .infoCinema
+  .infoCinemaDetail
+  .nameCinema {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.bookingSticket
+  .bookingNav
+  #bookingTab
+  .bookingTitle
+  .bookingInfo
+  .infoCinema
+  .infoCinemaDetail
+  .cinemaTime {
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+
+.bookingSticket
+  .bookingNav
+  #bookingTab
+  .bookingTitle
+  .bookingInfo
+  .infoCinema
+  .timeCountDown {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  text-align: center;
+}
+
+.bookingSticket
+  .bookingNav
+  #bookingTab
+  .bookingTitle
+  .bookingInfo
+  .infoCinema
+  .timeCountDown
+  .timeTitle {
+  font-size: 15px;
+}
+
+.bookingSticket
+  .bookingNav
+  #bookingTab
+  .bookingTitle
+  .bookingInfo
+  .infoCinema
+  .timeCountDown
+  .timeDown
+  h1 {
+  color: #fb4226 !important;
+  margin: 0;
+}
+
+.bookingSticket
+  .bookingNav
+  #bookingTab
+  .bookingTitle
+  .bookingInfo
+  .infoCinema
+  img {
+  width: 70px;
+  height: 70px;
+}
+
+.bookingSticket .bookingNav #bookingTab .screenBooking img {
+  width: 100%;
+}
+
+.bookingSticket .bookingNav #bookingTab .bookingSeat {
+  /* width: auto !important; */
+  /* overflow-y: 500px; */
+}
+
+.bookingSticket .bookingNav #bookingTab .bookingSeat .listSeatRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.bookingSticket .bookingNav #bookingTab .typeSeat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bookingSticket .bookingNav #bookingTab .typeSeat .typeSeatItem .colorSeat {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  margin: 0 auto;
+  height: 15px;
+  width: 15px;
+}
+
+.bookingSticket .bookingNav #bookingTab .typeSeat .typeSeatItem .seatNote {
+  text-align: center;
+}
+
+.bookingSticket .bookingNav #bookingTab .buttonContinue {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+  width: 100%;
+  font-size: 17px;
+  border-radius: 5px;
+  outline: none;
+  padding: 5px 30px;
+  border: 1px solid #fb4226;
+  color: #fff;
+  background-color: #fb4226;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.bookingSticket .bookingNav #bookingTab .buttonContinue:hover {
+  border: 1px solid #9b9b9b;
+  color: #9b9b9b;
+  background-color: #fff;
+}
+
+.bookingSticket .buySticket {
+  background-color: #fff;
+  position: fixed;
+  z-index: 10;
+  margin-left: 75%;
+  height: 100% !important;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 5px 0 #9b9b9b;
+  box-shadow: 0 0 5px 0 #9b9b9b;
+  margin-top: -90px;
+}
+
+.bookingSticket .buySticket .total {
+  color: #44c020;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.bookingSticket .buySticket .filmInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.bookingSticket .buySticket .filmInfo .imgFilm {
+  border-radius: 10px;
+  width: 80px;
+  height: 80px;
+  margin-left: auto;
+}
+
+.bookingSticket .buySticket .filmInfo .nameFilm {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.bookingSticket .buySticket .filmInfo .nameFilm .typeFilm {
+  margin-right: 5px;
+  padding: 2px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #fb4226;
+}
+
+.bookingSticket .buySticket .seatBookings {
+  height: 40px;
+  color: #fb4226;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.bookingSticket .buySticket .seatBookings .seatNameBooking {
+  font-size: 1rem;
+}
+
+.bookingSticket .buySticket .seatBookings .title {
+  font-weight: 600;
+}
+
+.bookingSticket .buySticket .seatBookings .totalMoney {
+  margin-left: auto;
+  color: #44c020;
+}
+
+.bookingSticket .buySticket .infoBookingFilm,
+.bookingSticket .buySticket .infoUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px ridge #9b9b9b;
+}
+
+.bookingSticket .buySticket .infoBookingFilm .title,
+.bookingSticket .buySticket .infoUser .title {
+  color: #9b9b9b;
+}
+
+.bookingSticket .buySticket .infoBookingFilm .content,
+.bookingSticket .buySticket .infoUser .content {
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.bookingSticket .buySticket .infoUser .title {
+  color: black;
+}
+
+.bookingSticket .buySticket .btnGetSticket {
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 10px;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(223deg, #b4ec51, #429321);
+  outline: none;
+  text-align: center;
+  z-index: 4;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.bookingSticket .buySticket .btnGetSticket:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: -2;
+}
+
+.bookingSticket .buySticket .btnGetSticket:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #265513;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.bookingSticket .buySticket .btnGetSticket:hover {
+  color: #fff;
+}
+
+.bookingSticket .buySticket .btnGetSticket:hover:before {
+  width: 100%;
+}
+.modalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.modalTitle .modalImg {
+  width: 70px;
+  height: 70px;
+}
+
+.modalTitle .modalInform {
+  margin-left: 10px;
+  font-size: 1.5rem;
+}

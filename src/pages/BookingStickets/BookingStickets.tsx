@@ -24,11 +24,11 @@ import screen from "./../../assets/images/screen.png";
 import ListBooked from "./ListBooked/ListBooked";
 import Swal from "sweetalert2";
 
-import "./BookingStickets.css";
 import { userLogout } from "slices/auth";
 import _ from "lodash";
 import { hideLoading, showLoading } from "slices/loadingSlice";
-
+//scss
+import "./BookingStickets.scss";
 const { TabPane } = Tabs;
 
 const onChange = (key: string) => {
