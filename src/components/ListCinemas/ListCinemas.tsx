@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 import { USERLOGIN } from "utill/setting";
 
 //scss
-import './ListCinemas.scss'
+import "./ListCinemas.scss";
 
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
@@ -124,11 +124,6 @@ const ListCinemas = () => {
                                     >
                                       <a
                                         target="_blank"
-                                        // onClick={() => {
-                                        //     dispatch({
-                                        //         type: "RESET_LOADING_BOOKING",
-                                        //     });
-                                        // }}
                                         href={`/datve/${ds.maLichChieu}`}
                                       >
                                         <Alert
@@ -317,7 +312,7 @@ const ListCinemas = () => {
   };
 
   return (
-    <div className="container movie__listCinemas" id="listCinema">
+    <section className="container movie__listCinemas my-5" id="listCinema">
       <Row className="listCinemas hideOnMobile">
         <Col span={24}>
           <Tabs tabPosition="left">{renderListCinema()}</Tabs>
@@ -332,7 +327,7 @@ const ListCinemas = () => {
           backgroundImage: "url('./images/icons/back-news.png')",
         }}
       ></div>
-    </div>
+    </section>
   );
 };
 

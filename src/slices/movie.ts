@@ -6,6 +6,8 @@ import movieAPI from "../services/movieAPI";
 interface State {
   movies: Movie[];
   totalPages: number;
+  totalCount: number;
+  currentPage: number;
   isLoading: boolean;
   error?: string;
   filmDetail: Movie | null;
@@ -13,7 +15,9 @@ interface State {
 
 const initialState: State = {
   movies: [],
-  totalPages: 1,
+  totalPages: 0,
+  totalCount: 0,
+  currentPage: 0,
   isLoading: false,
   error: undefined,
   filmDetail: null,
@@ -52,9 +56,13 @@ const movieSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(getMovieShowing.fulfilled, (state, { payload }) => {
+      
       state.isLoading = false;
       state.movies = payload.items;
       state.totalPages = payload.totalPages;
+      state.totalCount = payload.totalCount;
+      state.currentPage = payload.currentPage;
+
     });
     builder.addCase(getMovieShowing.rejected, (state, { error }) => {
       state.isLoading = false;

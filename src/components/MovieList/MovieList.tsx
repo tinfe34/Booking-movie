@@ -1,40 +1,28 @@
 import MovieItem from "components/MovieItem/MovieItem";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ModalVideo from "react-modal-video";
 
 //store
 import { getMovieShowing } from "slices/movie";
 import { useAppDispatch, useAppSelector } from "hooks/store";
+import { Pagination } from "antd";
 
 const MovieList = () => {
-  const { movies, totalPages, isLoading, error } = useAppSelector(
-    (state) => state.movie
-  );
+  const { movies, totalPages, totalCount, currentPage, isLoading, error } =
+    useAppSelector((state) => state.movie);
   const dispatch = useAppDispatch();
 
-  // const [pagState, changePagState] = useState(0);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [movieId, setMovieId] = useState("");
 
-  // function toggleActive(index: number, pag: number) {
-  //   changePagState(index);
-  //   dispatch(getMovieShowing(pag));
-  // }
-
-  // function toggleActiveStyles(index: number) {
-  //   if (pagState === index) return "page-item active";
-  //   else return "page-item";
-  // }
-  // const renderPagination = (currentPage: number) => {
-  //   const countPage = [];
-  //   for (let index = 1; index <= currentPage; index++) {
-  //     countPage.push(index);
-  //   }
-  //   return countPage;
-  // };
   useEffect(() => {
+    //Get movie page 1
     dispatch(getMovieShowing(1));
   }, []);
+
+  const onChangePage = (page: number) => {
+    dispatch(getMovieShowing(page));
+  };
 
   const handleOpenMovie = (trailer: string) => {
     setIsOpenModal(true);
@@ -44,7 +32,7 @@ const MovieList = () => {
   if (error) {
     return <h1>{error}</h1>;
   }
-  console.log(movies);
+
   return (
     <section className="movie-list">
       <div className="container">
@@ -69,24 +57,17 @@ const MovieList = () => {
             onClose={() => setIsOpenModal(false)}
             youtube={{
               autoplay: 1,
-              mute: 1
+              mute: 1,
             }}
           />
-          {/* <ul className="pagination justify-content-center mt-3">
-            {renderPagination(totalPages).map((pag, index) => {
-              return (
-                <li
-                  className={toggleActiveStyles(index)}
-                  key={pag}
-                  onClick={() => toggleActive(index, pag)}
-                >
-                  <button className="page-link" role="button">
-                    {pag}
-                  </button>
-                </li>
-              );
-            })}
-          </ul> */}
+          <Pagination
+            style={{
+              textAlign: "center",
+            }}
+            current={currentPage}
+            total={totalCount}
+            onChange={(page) => onChangePage(page)}
+          />
         </div>
       </div>
     </section>
