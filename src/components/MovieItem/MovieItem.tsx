@@ -1,71 +1,37 @@
-import { Modal } from "antd";
+import { Avatar, Card, Modal } from "antd";
+import Meta from "antd/lib/card/Meta";
 import { Movie } from "interface/movie";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 //scss
-import'./MovieItem.scss'
+import "./MovieItem.scss";
 
-type Props = {
+//img
+import playImg from "../../assets/images/play-video.png";
+import ButtonCustom from "ui/ButtonCustom/ButtonCustom";
+type MovieItemProps = {
   movie: Movie;
+  openModal: Function
 };
 
-const MovieItem = (props: Props) => {
-  const { movie } = props;
-
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [urlVideo, setUrlVideo] = useState("");
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+const MovieItem = (props: MovieItemProps) => {
+  const { movie, openModal } = props;
+  
 
   return (
-    <div className="col-sm-6 col-md-4 col-lg-3 mt-3">
-      <div className="card position-relative card-film mb-3">
-        <img
-          className="card-img-top"
-          src={movie.hinhAnh}
-          alt={movie.hinhAnh}
-          width="100%"
-          height="300px"
-        />
+    <Card
+      className="card-custom"
+      cover={<img alt={movie.hinhAnh} src={movie.hinhAnh} />}
+    >
+      <img src={playImg} alt="" className="play-video" onClick={() => openModal()} />
 
-        <div className="card-body bottom-0 w-100 justify-content-between position-absolute card-film-body">
-          <button
-            className="btn btn-danger py-2 px-3 mr-2"
-            onClick={() => {
-              setIsModalVisible(true);
-              setUrlVideo(movie.trailer);
-            }}
-          >
-            Trailer
-          </button>
-          <button className="btn btn-danger py-2 px-3 btnGetTicket">
-            <NavLink to={`/detail/${movie.maPhim}`}>Mua vé</NavLink>
-          </button>
-        </div>
-        <Modal
-          title={movie.tenPhim}
-          className="movie__modal"
-          visible={isModalVisible}
-          footer
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <iframe
-            className="iframe__modal"
-            width="520px"
-            height="400px"
-            src={urlVideo}
-          ></iframe>
-        </Modal>
-      </div>
-    </div>
+      <NavLink to={`/detail/${movie.maPhim}`}>
+        <ButtonCustom className="card-btn" width="200px">
+          Mua vé
+        </ButtonCustom>
+      </NavLink>
+    </Card>
   );
 };
 

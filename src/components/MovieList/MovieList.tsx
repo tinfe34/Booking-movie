@@ -1,78 +1,95 @@
 import MovieItem from "components/MovieItem/MovieItem";
 import { useEffect, useState } from "react";
+import ModalVideo from "react-modal-video";
 
 //store
 import { getMovieShowing } from "slices/movie";
-import { hideLoading, showLoading } from "slices/loadingSlice";
 import { useAppDispatch, useAppSelector } from "hooks/store";
 
 const MovieList = () => {
   const { movies, totalPages, isLoading, error } = useAppSelector(
     (state) => state.movie
   );
-  console.log(movies);
   const dispatch = useAppDispatch();
 
-  const [pagState, changePagState] = useState(0);
+  // const [pagState, changePagState] = useState(0);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [movieId, setMovieId] = useState("");
 
-  function toggleActive(index: number) {
-    changePagState(index);
-  }
+  // function toggleActive(index: number, pag: number) {
+  //   changePagState(index);
+  //   dispatch(getMovieShowing(pag));
+  // }
 
-  function toggleActiveStyles(index: number) {
-    if (pagState === index) return "page-item active";
-    else return "page-item";
-  }
-
+  // function toggleActiveStyles(index: number) {
+  //   if (pagState === index) return "page-item active";
+  //   else return "page-item";
+  // }
+  // const renderPagination = (currentPage: number) => {
+  //   const countPage = [];
+  //   for (let index = 1; index <= currentPage; index++) {
+  //     countPage.push(index);
+  //   }
+  //   return countPage;
+  // };
   useEffect(() => {
     dispatch(getMovieShowing(1));
   }, []);
 
-  const renderPagination = (currentPage: number) => {
-    const countPage = [];
-    for (let index = 1; index <= currentPage; index++) {
-      countPage.push(index);
-    }
-    return countPage;
+  const handleOpenMovie = (trailer: string) => {
+    setIsOpenModal(true);
+    setMovieId(trailer.replace("https://youtu.be/", "").toString());
   };
 
   if (error) {
     return <h1>{error}</h1>;
   }
-
+  console.log(movies);
   return (
-    <div className="movie-list">
+    <section className="movie-list">
       <div className="container">
         <div className="row">
-          <h1 className="text-center text-primary">Danh sách phim</h1>
+          <h1 className="text-center text-primary my-5">Danh sách phim</h1>
           {movies.map((movie) => {
-            return <MovieItem key={movie.maPhim} movie={movie} />;
+            return (
+              <div className="col-sm-6 col-md-4 col-lg-3 ">
+                <MovieItem
+                  key={movie.maPhim}
+                  movie={movie}
+                  openModal={() => handleOpenMovie(movie.trailer)}
+                />
+              </div>
+            );
           })}
-          <ul className="pagination justify-content-center mt-3">
+
+          <ModalVideo
+            channel="youtube"
+            isOpen={isOpenModal}
+            videoId={movieId}
+            onClose={() => setIsOpenModal(false)}
+            youtube={{
+              autoplay: 1,
+              mute: 1
+            }}
+          />
+          {/* <ul className="pagination justify-content-center mt-3">
             {renderPagination(totalPages).map((pag, index) => {
               return (
                 <li
                   className={toggleActiveStyles(index)}
                   key={pag}
-                  onClick={() => toggleActive(index)}
+                  onClick={() => toggleActive(index, pag)}
                 >
-                  <a
-                    className="page-link"
-                    role="button"
-                    href="#film-header"
-                    onClick={() => {
-                      dispatch(getMovieShowing(pag));
-                    }}
-                  >
+                  <button className="page-link" role="button">
                     {pag}
-                  </a>
+                  </button>
                 </li>
               );
             })}
-          </ul>
+          </ul> */}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -52,7 +52,7 @@ const FormGetSticket = () => {
   const renderFilm = () => {
     return (
       <Menu>
-        {listFilm.map((film, index) => {
+        {listFilm.map((film) => {
           return (
             <Menu.Item
               key={film.maPhim}

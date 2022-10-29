@@ -8,6 +8,7 @@ const defaultProps = {
   disabled: false,
   width: "100%",
   onClick: () => {},
+  className: "",
 };
 
 type ButtonCustomProps = typeof defaultProps & {
@@ -16,6 +17,7 @@ type ButtonCustomProps = typeof defaultProps & {
   children?: React.ReactNode;
   width: string;
   onClick: Function;
+  className: string;
 };
 
 const ButtonCustom = ({
@@ -23,6 +25,7 @@ const ButtonCustom = ({
   disabled,
   width,
   onClick,
+  className,
 }: ButtonCustomProps) => {
   const handleClick = () => {
     onClick();
@@ -37,6 +40,7 @@ const ButtonCustom = ({
         width: width,
       }}
       onClick={() => handleClick()}
+      className={className}
     >
       {children}
     </Button>

@@ -40,7 +40,7 @@ const Carousel = () => {
   };
 
   return (
-    <section className="movie__carousel">
+    <section className="movie-carousel">
       <Slider {...settings}>
         {banners.map((banner, index) => {
           return (
