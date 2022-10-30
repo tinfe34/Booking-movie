@@ -21,21 +21,21 @@
   display: none;
 }
 
-.footer .footer__info .footer__partner .row {
+
+
+.footer .footer__info .footer__partner  a {
+  margin-right: 20px;
   margin-bottom: 20px;
+  display: inline-block;
 }
 
-.footer .footer__info .footer__partner .row a {
-  padding-right: 20px;
-}
-
-.footer .footer__info .footer__partner .row a img {
+.footer .footer__info .footer__partner a img {
   width: 30px;
   height: 30px;
   border-radius: 30px;
 }
 
-.footer .footer__info .footer__partner .row a img:hover {
+.footer .footer__info .footer__partner a img:hover {
   opacity: 0.7;
 }
 

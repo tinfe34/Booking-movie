@@ -8,20 +8,11 @@ const Loading = () => {
   return (
     <Fragment>
       {isLoading ? (
-        <div className="loadingio-spinner-spinner-hd458l8xbrs ">
-          <div className="ldio-engoxtquu0e">
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
+        <div className="loader --global">
+          <div className="lds-facebook">
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </div>
       ) : (

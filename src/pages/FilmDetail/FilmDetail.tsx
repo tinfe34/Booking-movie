@@ -11,14 +11,19 @@ import avatar from "./../../assets/images/avatar.png";
 import starList from "./../../assets/images/icons/listStar.png";
 import Comment from "./Comment/Comment";
 import { getListCinemaForm } from "slices/getSticketSlice";
-import { Tabs } from "antd";
+import { Collapse, Tabs } from "antd";
 import { NavLink } from "react-router-dom";
 import { setCurrentLogoCinema } from "slices/cinemaSlice";
 import { hideLoading, showLoading } from "slices/loadingSlice";
 
 //scss
-import './FilmDetail.scss';
+import "./FilmDetail.scss";
+import CollapsePanel from "antd/lib/collapse/CollapsePanel";
+//hooks
+import { useDesktop, useTablet } from "hooks/media";
+//antd
 const { TabPane } = Tabs;
+const { Panel } = Collapse;
 
 const FilmDetail = () => {
   const { maPhim } = useParams();
@@ -29,7 +34,7 @@ const FilmDetail = () => {
 
   const myRef = useRef<HTMLAnchorElement>(null);
   const executeScroll = () => myRef.current?.scrollIntoView();
-
+  const isDesktop = useDesktop();
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -76,39 +81,60 @@ const FilmDetail = () => {
           tab={<img src={cinema.logo} width={50} height={50} />}
           key={`cine-${index}`}
         >
-          <span className="tab__info">
-            {cinema.cumRapChieu.map((rap) => {
-              return (
-                <div key={rap.maCumRap}>
-                  <h1>{rap.tenCumRap}</h1>
-                  <div className="row">
-                    {rap.lichChieuPhim.map((lc, idx) => {
-                      if (idx < 9) {
-                        return (
-                          <div className="col-12 col-md-4" key={`lc-${idx}`}>
-                            <NavLink
-                              to={`/datve/${lc.maLichChieu}`}
-                              className="btn btn-outline-info m-2 w-100"
-                              onClick={() => {
-                                dispatch(setCurrentLogoCinema(cinema.logo));
-                              }}
-                            >{`${moment(lc.ngayChieuGioChieu).format(
-                              "DD-MM-YYYY"
-                            )} ~ ${moment(lc.ngayChieuGioChieu).format(
-                              "h:mm A"
-                            )}`}</NavLink>
-                          </div>
-                        );
-                      }
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </span>
+          {menu(cinema)}
         </TabPane>
       );
     });
+  };
+
+  const menu = (cinema: any) => {
+    console.log(cinema);
+    return (
+      <Collapse>
+        {cinema.cumRapChieu?.map((rap: any, id: any) => {
+          return (
+            <Panel
+              header={
+                <div className="cinema">
+                  <img
+                    className="cinema-image"
+                    src={rap.hinhAnh}
+                    style={{
+                      objectFit: "cover",
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "5px",
+                    }}
+                  />
+                  <div className="cinema-wrap">
+                    <div className="cinema-name">{rap.tenCumRap}</div>
+                    <div className="cinema-address">{rap.diaChi}</div>
+                  </div>
+                </div>
+              }
+              key={id}
+            >
+              {rap.lichChieuPhim.map((lc: any, idx: any) => {
+                if (idx < 6) {
+                  return (
+                    <NavLink
+                      className="ticket-btn "
+                      key={`lc-${idx}`}
+                      to={`/datve/${lc.maLichChieu}`}
+                      onClick={() => {
+                        dispatch(setCurrentLogoCinema(cinema.logo));
+                      }}
+                    >{`${moment(lc.ngayChieuGioChieu).format(
+                      "h:mm A"
+                    )}`}</NavLink>
+                  );
+                }
+              })}
+            </Panel>
+          );
+        })}
+      </Collapse>
+    );
   };
 
   if (isLoading) {
@@ -253,8 +279,9 @@ const FilmDetail = () => {
                 role="tabpanel"
                 aria-labelledby="nav-lichChieu-tab"
               >
-                {/* <MovieShedule listFilm={filmDetail} /> */}
-                <Tabs tabPosition="left">{renderListCinema()}</Tabs>
+                <Tabs tabPosition= {isDesktop ?  'left' : 'top'}
+          centered ={isDesktop ? false : true}
+          destroyInactiveTabPane={true}>{renderListCinema()}</Tabs>
               </div>
               <div
                 className="tab-pane fade list__film "

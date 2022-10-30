@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 // hook
 import { useAppDispatch, useAppSelector } from "hooks/store";
-
+import { useDesktop, useTablet } from "hooks/media";
 //slice
 import { getSystemCinemas } from "slices/cinemaSlice";
 
@@ -22,7 +22,7 @@ import SubMenu from "antd/lib/menu/SubMenu";
 
 //scss
 import "./ListCinemas.scss";
-import { useDesktop, useTablet } from "hooks/media";
+
 
 const { TabPane } = Tabs;
 const { Panel } = Collapse;

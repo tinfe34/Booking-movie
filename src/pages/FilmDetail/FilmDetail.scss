@@ -1,3 +1,17 @@
+
+.cinema {
+  display: flex;
+  align-items: center;
+ 
+
+  &-wrap {
+    margin-left: 15px;
+  }
+  &-name {
+    color: rgb(139, 197, 65);
+  }
+}
+
 .tix-tab {
   color: black;
   border: 0;

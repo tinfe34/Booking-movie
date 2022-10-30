@@ -113,7 +113,6 @@ const BookingStickets = () => {
     navigate("/");
   };
 
-  // console.log(listSeatBooked);
   const renderSeats = () => {
     return bookingSticket?.danhSachGhe.map((seat, index) => {
       let classSeatBooked = seat.daDat ? "seatBooked" : "";
@@ -150,7 +149,6 @@ const BookingStickets = () => {
               }}
             >
               <br />
-              {/* {listChar[index / 16]?.char} */}
             </span>
           ) : (
             ""
@@ -207,7 +205,6 @@ const BookingStickets = () => {
                     <div className="bookingNav">
                       <div>
                         <div className="tab-content" id="bookingTab">
-                          {/* DANH SÁCH GHẾ */}
                           <div
                             className="tab-pane fade show active"
                             id="choose"
@@ -541,7 +538,6 @@ const BookingStickets = () => {
               }
               key="2"
             >
-              {/* DANH SÁCH GHẾ ĐÃ ĐẶT*/}
               <ListBooked />
 
               <div className="text-center px-3 py-5">

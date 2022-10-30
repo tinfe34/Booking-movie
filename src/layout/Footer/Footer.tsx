@@ -24,13 +24,12 @@ import facebook from "./../../assets/images/icons/facebook-logo.png";
 import zalo from "./../../assets/images/icons/zalo-logo.png";
 import bocongthuong from "./../../assets/images/icons/bocongthuong.png";
 
-
 //scss
-import './Footer.scss'
+import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <div className="footer" id="footer">
+    <footer className="footer" id="footer">
       <div className="container">
         <div className="row footer__info">
           <div className="col-12 col-sm-12 col-md-4 footer__detail">
@@ -60,7 +59,7 @@ const Footer = () => {
           </div>
           <div className="col-4 footer__partner hideOnMobile">
             <p className="footer__title">ĐỐI TÁC</p>
-            <div className="col-12 row">
+            <div>
               <a href="#">
                 <img src={cgv} style={{ backgroundColor: "white" }} />
               </a>
@@ -77,7 +76,7 @@ const Footer = () => {
                 <img src={lotte} />
               </a>
             </div>
-            <div className="col-12 row">
+            <div>
               <a href="#">
                 <img src={megags} />
               </a>
@@ -94,7 +93,7 @@ const Footer = () => {
                 <img src={cnx} />
               </a>
             </div>
-            <div className="col-12 row">
+            <div>
               <a href="#">
                 <img src={STARLIGHT} />
               </a>
@@ -111,7 +110,7 @@ const Footer = () => {
                 <img src={zion} />
               </a>
             </div>
-            <div className="col-12 row">
+            <div>
               <a href="#">
                 <img src={payoo} />
               </a>
@@ -150,7 +149,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <hr id="hrFooter" />
         <div className="row footer__add">
           <div className="col-12 col-sm-12 col-md-1 p-0">
             <img
@@ -193,7 +191,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
