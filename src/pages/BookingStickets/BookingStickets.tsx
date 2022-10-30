@@ -160,7 +160,7 @@ const BookingStickets = () => {
 
   const menu = (
     <Menu>
-      <Menu.Item icon={<OrderedListOutlined />}>Danh sách vé đã đặt</Menu.Item>
+      <Menu.Item icon={<OrderedListOutlined />}>Danh sách vé</Menu.Item>
       <Menu.Item onClick={handleMenuClick} icon={<LogoutOutlined />}>
         Logout
       </Menu.Item>

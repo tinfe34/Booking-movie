@@ -75,16 +75,20 @@ const FilmDetail = () => {
   };
 
   const renderListCinema = () => {
-    return listCinema.map((cinema, index) => {
-      return (
-        <TabPane
-          tab={<img src={cinema.logo} width={50} height={50} />}
-          key={`cine-${index}`}
-        >
-          {menu(cinema)}
-        </TabPane>
-      );
-    });
+    return listCinema.length ? (
+      listCinema.map((cinema, index) => {
+        return (
+          <TabPane
+            tab={<img src={cinema.logo} width={50} height={50} />}
+            key={`cine-${index}`}
+          >
+            {menu(cinema)}
+          </TabPane>
+        );
+      })
+    ) : (
+      <div>Hiện tại chưa có rạp chiếu</div>
+    );
   };
 
   const menu = (cinema: any) => {
@@ -279,9 +283,13 @@ const FilmDetail = () => {
                 role="tabpanel"
                 aria-labelledby="nav-lichChieu-tab"
               >
-                <Tabs tabPosition= {isDesktop ?  'left' : 'top'}
-          centered ={isDesktop ? false : true}
-          destroyInactiveTabPane={true}>{renderListCinema()}</Tabs>
+                <Tabs
+                  tabPosition={isDesktop ? "left" : "top"}
+                  centered={isDesktop ? false : true}
+                  destroyInactiveTabPane={true}
+                >
+                  {renderListCinema()}
+                </Tabs>
               </div>
               <div
                 className="tab-pane fade list__film "
