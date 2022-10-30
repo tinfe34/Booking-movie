@@ -6,16 +6,16 @@ import ListCinemas from "components/ListCinemas/ListCinemas";
 import MovieList from "components/MovieList/MovieList";
 
 const HomePage = () => {
-    return (
-        <div>
-            <Carousel />
-            <FormGetSticket />
-            <MovieList />
-            <ListCinemas />
-            <Article />
-            <Introduce />
-        </div>
-    );
+  return (
+    <div>
+      <Carousel />
+      <FormGetSticket />
+      <MovieList />
+      <ListCinemas />
+      <Article />
+      <Introduce />
+    </div>
+  );
 };
 
 export default HomePage;

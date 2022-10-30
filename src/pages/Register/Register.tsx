@@ -8,7 +8,7 @@ import { registerUser } from "slices/auth";
 import Swal from "sweetalert2";
 
 //scss
-import './Register.scss'
+import "./Register.scss";
 const Register = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();

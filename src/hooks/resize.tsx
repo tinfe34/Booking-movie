@@ -20,10 +20,8 @@ function useWindowSize(): WindowSize {
 
   window.addEventListener("resize", handleSize);
 
-  // Set size at the first client-side load
   useLayoutEffect(() => {
     handleSize()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return windowSize

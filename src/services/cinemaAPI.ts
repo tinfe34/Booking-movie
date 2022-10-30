@@ -3,20 +3,25 @@ import { SysCinema } from "interface/movie";
 import axiosClient from "./axiosClient";
 
 const cinemaAPI = {
-    // lấy danh sách hệ thống cụm rạp
-    getSystemCinemas: () => {
-        return axiosClient.get<SysCinema[]>("QuanLyRap/LayThongTinLichChieuHeThongRap", {
-            params: {
-                maNhom: "GP02",
-            },
-        });
-    },
-    getListCinemaForm: (MaPhim: number) => {
-        return axiosClient.get<SysCinemaForm>("QuanLyRap/LayThongTinLichChieuPhim", {
-            params: {
-                MaPhim: MaPhim || null,
-            },
-        });
-    },
+  getSystemCinemas: () => {
+    return axiosClient.get<SysCinema[]>(
+      "QuanLyRap/LayThongTinLichChieuHeThongRap",
+      {
+        params: {
+          maNhom: "GP02",
+        },
+      }
+    );
+  },
+  getListCinemaForm: (MaPhim: number) => {
+    return axiosClient.get<SysCinemaForm>(
+      "QuanLyRap/LayThongTinLichChieuPhim",
+      {
+        params: {
+          MaPhim: MaPhim || null,
+        },
+      }
+    );
+  },
 };
 export default cinemaAPI;

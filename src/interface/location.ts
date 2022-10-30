@@ -1,4 +1,4 @@
 export interface Location {
-    location: string;
-    listLocation: string[];
+  location: string;
+  listLocation: string[];
 }
