@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { User, UserLogin } from "interface/user";
-import { USERLOGIN } from "utill/setting";
+import { USERLOGIN } from "ultis/setting";
 
 let userLogin = "";
 

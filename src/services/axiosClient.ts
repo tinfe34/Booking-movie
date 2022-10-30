@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { TOKEN } from "utill/setting";
+import { TOKEN } from "ultis/setting";
 import store from "../configStore";
 
 const axiosClient = axios.create({

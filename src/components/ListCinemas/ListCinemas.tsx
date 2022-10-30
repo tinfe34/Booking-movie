@@ -1,332 +1,166 @@
-import { Alert, Col, Collapse, Menu, MenuProps, Row, Tabs } from "antd";
-import SubMenu from "antd/lib/menu/SubMenu";
-import { AppDispatch, RootState } from "configStore";
-import moment from "moment";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { getSystemCinemas } from "slices/cinemaSlice";
+
+import moment from "moment";
+
 import Swal from "sweetalert2";
-import { USERLOGIN } from "utill/setting";
+
+import { useNavigate } from "react-router-dom";
+
+// hook
+import { useAppDispatch, useAppSelector } from "hooks/store";
+
+//slice
+import { getSystemCinemas } from "slices/cinemaSlice";
+
+//ultil
+import { formatNum, createRandomNumber } from "../../ultis";
+import { USERLOGIN } from "ultis/setting";
+
+//antd
+import { Alert, Collapse, Menu, MenuProps, Row, Tabs } from "antd";
+import SubMenu from "antd/lib/menu/SubMenu";
 
 //scss
 import "./ListCinemas.scss";
+import { useDesktop, useTablet } from "hooks/media";
 
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
 
 const ListCinemas = () => {
-  const { SysCinemas } = useSelector((state: RootState) => state.cinema);
-
-  const dispatch = useDispatch<AppDispatch>();
-
+  const { SysCinemas } = useAppSelector((state) => state.cinema);
+  const { user } = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
+  const isDesktop = useDesktop();
+  
   useEffect(() => {
     dispatch(getSystemCinemas());
   }, []);
 
-  const createRandomNumber = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min)) + min;
+  const clickMovie = (maLichChieu: any) => {
+    if (user) {
+      window.open(`${window.location}datve/${maLichChieu}`, "_blank");
+    } else {
+      Swal.fire({
+        icon: "warning",
+        text: "Bạn chưa đăng nhập! Hãy đăng nhập để tiếp tục",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Đồng Ý!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
+    }
   };
 
-  const formatNum = (num: number) => {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  };
-
-  const clickMovie = () => {
-    Swal.fire({
-      icon: "warning",
-      text: "Bạn chưa đăng nhập! Hãy đăng nhập để tiếp tục",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Đồng Ý!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        navigate("/login");
-      }
-    });
-  };
-
-  const renderListCinema = () => {
-    return SysCinemas?.map((sysCinema, index) => {
-      return (
-        <TabPane
-          tab={<img src={sysCinema.logo} width={50} height={50} />}
-          key={index}
-        >
-          <span className="tab__info">
-            <Tabs tabPosition="left">
-              {sysCinema.lstCumRap?.map((lstCinema, idx) => {
-                return (
-                  <TabPane
-                    tab={
-                      <div className="info__cinema">
-                        <img src={sysCinema.logo} width={50} height={50} />
-                        <div className="wrapInfo">
-                          <div className="infoTitle">{lstCinema.tenCumRap}</div>
-                          <div className="infoAdd">{lstCinema.diaChi}</div>
-                          <div className="infoDetail">[chi tiết]</div>
-                        </div>
-                      </div>
-                    }
-                    key={idx}
-                  >
-                    <Menu
-                      style={{
-                        paddingLeft: "10px",
-                        width: "100%",
-                      }}
-                      key={idx + 100}
-                      mode="inline"
-                    >
-                      {lstCinema.danhSachPhim?.map((phim, id) => {
-                        return (
-                          <SubMenu
-                            key={id}
-                            icon={
-                              <img
-                                src={phim.hinhAnh}
-                                width={40}
-                                height={40}
-                                style={{
-                                  borderRadius: "40px",
-                                }}
-                              />
-                            }
-                            title={
-                              <div className="movie__listCinema">
-                                <div className="typeAgeMovieCinema">
-                                  C{createRandomNumber(18, 12)}
-                                </div>
-                                <div className="infoFilmDetail">
-                                  <div className="nameMovieCinema">
-                                    {phim.tenPhim}
-                                  </div>
-                                  <div className="infoFilmMovieCinema">
-                                    {createRandomNumber(120, 90)} phút -{" "}
-                                    {createRandomNumber(9.7, 3.4).toFixed(1)}{" "}
-                                    IMDb
-                                  </div>
-                                </div>
-                              </div>
-                            }
-                          >
-                            {phim.lstLichChieuTheoPhim.map((ds, indexssss) => {
-                              if (indexssss < 6) {
-                                let maRap =
-                                  sysCinema.maHeThongRap.toLowerCase();
-                                if (localStorage.getItem(USERLOGIN)) {
-                                  return (
-                                    <Menu.Item
-                                      key={createRandomNumber(120000, 90)}
-                                    >
-                                      <a
-                                        target="_blank"
-                                        href={`/datve/${ds.maLichChieu}`}
-                                      >
-                                        <Alert
-                                          message={`Giờ Chiếu: ${moment(
-                                            ds.ngayChieuGioChieu
-                                          ).format(
-                                            "hh:mm A"
-                                          )}, Giá Vé: ${formatNum(
-                                            ds.giaVe
-                                          )} VNĐ`}
-                                          type="info"
-                                          showIcon
-                                        />
-                                      </a>
-                                    </Menu.Item>
-                                  );
-                                } else {
-                                  return (
-                                    <Menu.Item
-                                      key={createRandomNumber(120000, 90)}
-                                    >
-                                      <a target="_blank" onClick={clickMovie}>
-                                        <Alert
-                                          message={`Giờ Chiếu: ${moment(
-                                            ds.ngayChieuGioChieu
-                                          ).format(
-                                            "hh:mm A"
-                                          )}, Giá Vé: ${formatNum(
-                                            ds.giaVe
-                                          )} VNĐ`}
-                                          type="error"
-                                          showIcon
-                                        />
-                                      </a>
-                                    </Menu.Item>
-                                  );
-                                }
-                              }
-                            })}
-                          </SubMenu>
-                        );
-                      })}
-                    </Menu>
-                  </TabPane>
-                );
-              })}
-            </Tabs>
-          </span>
-        </TabPane>
-      );
-    });
-  };
-
-  const renderCinemasMobile = () => {
-    return SysCinemas.map((sysCinema, index) => {
-      return (
-        <Collapse expandIconPosition="end" key={index}>
-          <Panel
-            header={
-              <div className="titleCinemaMobile">
-                <img className="logoCinemasMobile" src={sysCinema.logo} />
-                <div className="nameCinemasMobile">
-                  {sysCinema.maHeThongRap}
+  const tabChidren = (sysCinema: any) => {
+    return (
+      <Tabs tabPosition={isDesktop ?  'left' : 'top' } destroyInactiveTabPane={true}>
+        {sysCinema.lstCumRap?.map((lstCinema: any, idx: any) => {
+          return (
+            <TabPane
+              tab={
+                <div className="info" style={{ width: "300px" }}>
+                  <img
+                    className="info__logo"
+                    src={sysCinema.logo}
+                  />
+                  <div className="info__wrap">
+                    <div className="title">{lstCinema.tenCumRap}</div>
+                    <div className="address">{lstCinema.diaChi}</div>
+                    <div className="detail">[chi tiết]</div>
+                  </div>
                 </div>
-              </div>
-            }
-            key={index}
-          >
-            {sysCinema.lstCumRap.map((cinema, inde) => {
-              return (
-                <Collapse expandIconPosition="end" key={inde}>
-                  <Panel
-                    header={
-                      <div className="titleCinemasChildMobile">
-                        <img
-                          className="logoCinemasChildMobile"
-                          src={sysCinema.logo}
-                        />
-                        <div className="infoCinemasChildMobile">
-                          <div className="nameCinemasChildMobile">
-                            {cinema.tenCumRap}
-                          </div>
-                          <div className="addCinemasChildMobile">
-                            {cinema.diaChi}
-                          </div>
-                        </div>
-                      </div>
-                    }
-                    key={inde}
-                  >
-                    {cinema.danhSachPhim.map((movie, ind) => {
-                      return (
-                        <Collapse expandIconPosition="end" key={ind}>
-                          <Panel
-                            header={
-                              <div className="infoFilmCinemaMobile">
-                                <img
-                                  className="imgFilmMobile"
-                                  src={movie.hinhAnh}
-                                />
-                                <div className="infoFilmMobileDetail">
-                                  <span className="typeAgeMobile">
-                                    C{createRandomNumber(18, 12)}
-                                  </span>
-                                  <span className="nameFilmCinemaMobile">
-                                    {movie.tenPhim}
-                                  </span>
-                                  <div className="timeReviewFilmMobile">
-                                    {createRandomNumber(120, 90)} phút -{" "}
-                                    {createRandomNumber(9.7, 3.4).toFixed(1)}{" "}
-                                    IMDb
-                                  </div>
-                                </div>
-                              </div>
-                            }
-                            key={ind}
-                          >
-                            <div
-                              className="ml-2"
-                              style={{
-                                fontWeight: "600",
-                              }}
-                            >
-                              {createRandomNumber(3, 2)}D Digital
-                            </div>
-                            <div key={ind + 300} className="row ml-2">
-                              {movie.lstLichChieuTheoPhim.map(
-                                (ds, indexssss) => {
-                                  if (indexssss <= 6) {
-                                    let maRap =
-                                      sysCinema.maHeThongRap.toLowerCase();
-                                    if (localStorage.getItem(USERLOGIN)) {
-                                      return (
-                                        <a
-                                          key={indexssss + 200}
-                                          target="_blank"
-                                          href={`/dat-ve/${maRap}/${ds.maLichChieu}`}
-                                          className="movieTime "
-                                        >
-                                          <span className="mainTime">
-                                            {moment(
-                                              ds.ngayChieuGioChieu
-                                            ).format("hh:mm ")}
-                                          </span>
-                                          -
-                                          {moment(ds.ngayChieuGioChieu)
-                                            .add(2, "hours")
-                                            .format("hh:mm ")}
-                                        </a>
-                                      );
-                                    } else {
-                                      return (
-                                        <a
-                                          key={indexssss + 200}
-                                          onClick={clickMovie}
-                                          className="movieTime "
-                                        >
-                                          <span className="mainTime">
-                                            {moment(
-                                              ds.ngayChieuGioChieu
-                                            ).format("hh:mm ")}
-                                          </span>
-                                          -
-                                          {moment(ds.ngayChieuGioChieu)
-                                            .add(2, "hours")
-                                            .format("hh:mm ")}
-                                        </a>
-                                      );
-                                    }
-                                  }
-                                }
-                              )}
-                            </div>
-                          </Panel>
-                        </Collapse>
-                      );
-                    })}
-                  </Panel>
-                </Collapse>
-              );
-            })}
-          </Panel>
-        </Collapse>
-      );
-    });
+              }
+              key={idx}
+            >
+              {menu(lstCinema, sysCinema, idx)}
+            </TabPane>
+          );
+        })}
+      </Tabs>
+    );
+  };
+
+  const menu = (lstCinema: any, sysCinema: any, idx: any) => {
+    return (
+      <Collapse>
+        {lstCinema.danhSachPhim?.map((phim: any, id: any) => {
+          return (
+            <Panel
+              header={
+                <div className="movie-header">
+                  <img
+                    className="movie-image"
+                    src={phim.hinhAnh}
+                    style={{
+                      objectFit: "cover",
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "5px",
+                    }}
+                  />
+                  <div className="movie-info">
+                    <div className="name">{phim.tenPhim}</div>
+                    <div className="date">
+                      {createRandomNumber(120, 90)} phút -
+                      {createRandomNumber(9.7, 3.4).toFixed(1)} IMDb
+                    </div>
+                  </div>
+                </div>
+              }
+              key={id}
+            >
+              {phim.lstLichChieuTheoPhim.map((ds: any, indexssss: any) => {
+                if (indexssss < 6) {
+                  return (
+                    <div
+                      className="ticket-btn"
+                      style={{ marginBottom: "10px" }}
+                      onClick={() => clickMovie(ds.maLichChieu)}
+                    >
+                      {moment(ds.ngayChieuGioChieu).format("hh:mm A")}
+                    </div>
+                  );
+                }
+              })}
+            </Panel>
+          );
+        })}
+      </Collapse>
+    );
   };
 
   return (
-    <section className="container movie__listCinemas my-5" id="listCinema">
-      <Row className="listCinemas hideOnMobile">
-        <Col span={24}>
-          <Tabs tabPosition="left">{renderListCinema()}</Tabs>
-        </Col>
-      </Row>
-      <div className="listCinemasMobile hideOnPC">
-        <div className="col-12 p-0">{renderCinemasMobile()}</div>
+    <section className="movie__listCinemas my-5" id="listCinema">
+      <div className="container">
+        <Tabs
+          className="tab-list"
+          tabPosition= {isDesktop ?  'left' : 'top'}
+          centered ={isDesktop ? false : true}
+          destroyInactiveTabPane={true}
+          
+        >
+          {SysCinemas?.map((sysCinema, index) => {
+            return (
+              <TabPane
+                tab={
+                  <div className="tab-parent logo-cinemas">
+                    <img src={sysCinema.logo} width={50} height={50} />
+                  </div>
+                }
+                key={index}
+              >
+                {tabChidren(sysCinema)}
+              </TabPane>
+            );
+          })}
+        </Tabs>
       </div>
-      <div
-        className="container back__news"
-        style={{
-          backgroundImage: "url('./images/icons/back-news.png')",
-        }}
-      ></div>
     </section>
   );
 };

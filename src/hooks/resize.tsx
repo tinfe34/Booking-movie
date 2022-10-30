@@ -1,32 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from 'react'
 
-interface Size {
-  width: number | undefined;
-  height: number | undefined;
+interface WindowSize {
+  width: number
+  height: number
 }
 
-function useWindowSize(): Size {
-  const [windowSize, setWindowSize] = useState<Size>({
-    width: undefined,
-    height: undefined,
-  });
-  useEffect(() => {
-    // Handler to call on window resize
-    function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-    // Call handler right away so state gets updated with initial window size
-    handleResize();
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
-  return windowSize;
+function useWindowSize(): WindowSize {
+  const [windowSize, setWindowSize] = useState<WindowSize>({
+    width: 0,
+    height: 0,
+  })
+
+  const handleSize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    })
+  }
+
+  window.addEventListener("resize", handleSize);
+
+  // Set size at the first client-side load
+  useLayoutEffect(() => {
+    handleSize()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return windowSize
 }
 
-export { useWindowSize };
+export default useWindowSize

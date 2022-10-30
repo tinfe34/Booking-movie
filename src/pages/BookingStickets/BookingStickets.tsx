@@ -11,7 +11,7 @@ import {
   getInfoBooked,
   getSticketAction,
 } from "slices/bookingSlice";
-import { STICKETINFO, TOKEN, TYPE_USER, USERLOGIN } from "utill/setting";
+import { STICKETINFO, TOKEN, TYPE_USER, USERLOGIN } from "ultis/setting";
 
 import {
   OrderedListOutlined,

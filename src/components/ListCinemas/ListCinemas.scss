@@ -1,309 +1,545 @@
-.back__news {
-  padding-top: 120px;
-  background-repeat: no-repeat;
-  background-size: 100%;
-}
-.info__cinema {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  width: 200px;
-  cursor: pointer;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
+// .back__news {
+//   padding-top: 120px;
+//   background-repeat: no-repeat;
+//   background-size: 100%;
+// }
+// .info__cinema {
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   position: relative;
+//   width: 200px;
+//   cursor: pointer;
+//   -webkit-transition: all 0.2s;
+//   transition: all 0.2s;
+// }
 
-.info__cinema.active {
-  opacity: 1;
-}
+// .info__cinema.active {
+//   opacity: 1;
+// }
 
-.info__cinema:hover {
-  opacity: 1;
-}
+// .info__cinema:hover {
+//   opacity: 1;
+// }
 
-.info__cinema .wrapInfo {
-  width: 100%;
-  padding-left: 10px;
-  position: relative;
-  cursor: pointer;
-  text-align: left;
-}
+// .info__cinema .wrapInfo {
+//   width: 100%;
+//   padding-left: 10px;
+//   position: relative;
+//   cursor: pointer;
+//   text-align: left;
+// }
 
-.info__cinema .wrapInfo .infoTitle {
-  color: black;
-  width: 90%;
-  font-size: 14px;
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+// .movie__listCinemas .ant-collapse {
+//   background-color: #fff;
+// }
 
-.info__cinema .wrapInfo .infoAdd {
-  width: 90%;
-  font-size: 13px;
-  color: #9b9b9b;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+// .movie__listCinemas .hideOnPC {
+//   display: none;
+// }
 
-.info__cinema .wrapInfo .infoDetail {
-  color: #fb4226 !important;
-  font-size: 13px;
-}
+// .movie__listCinemas .listCinemasMobile .titleCinemaMobile {
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -webkit-box-align: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+// }
 
-.movie__listCinemas .ant-collapse {
-  background-color: #fff;
-}
+// .movie__listCinemas .listCinemasMobile .titleCinemaMobile .logoCinemasMobile {
+//   width: 50px;
+//   height: 50px;
+//   margin-right: 10px;
+// }
 
-.movie__listCinemas .hideOnPC {
-  display: none;
-}
+// .movie__listCinemas .listCinemasMobile .titleCinemaMobile .nameCinemasMobile {
+//   font-size: 17px;
+// }
 
-.movie__listCinemas .listCinemasMobile .titleCinemaMobile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
+// .movie__listCinemas .listCinemasMobile .titleCinemasChildMobile {
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -webkit-box-align: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+// }
 
-.movie__listCinemas .listCinemasMobile .titleCinemaMobile .logoCinemasMobile {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-}
+// .movie__listCinemas
+//   .listCinemasMobile
+//   .titleCinemasChildMobile
+//   .logoCinemasChildMobile {
+//   width: 40px;
+//   height: 40px;
+//   margin-right: 10px;
+// }
 
-.movie__listCinemas .listCinemasMobile .titleCinemaMobile .nameCinemasMobile {
-  font-size: 17px;
-}
+// .movie__listCinemas
+//   .listCinemasMobile
+//   .titleCinemasChildMobile
+//   .nameCinemasChildMobile {
+//   color: black;
+//   font-weight: 600;
+// }
 
-.movie__listCinemas .listCinemasMobile .titleCinemasChildMobile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
+// .movie__listCinemas
+//   .listCinemasMobile
+//   .titleCinemasChildMobile
+//   .addCinemasChildMobile {
+//   font-size: 13px;
+//   color: #9b9b9b;
+// }
 
-.movie__listCinemas
-  .listCinemasMobile
-  .titleCinemasChildMobile
-  .logoCinemasChildMobile {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
+// .movie__listCinemas .listCinemasMobile .infoFilmCinemaMobile {
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -webkit-box-align: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+// }
 
-.movie__listCinemas
-  .listCinemasMobile
-  .titleCinemasChildMobile
-  .nameCinemasChildMobile {
-  color: black;
-  font-weight: 600;
-}
+// .movie__listCinemas .listCinemasMobile .infoFilmCinemaMobile .imgFilmMobile {
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 3px;
+//   margin-right: 10px;
+// }
 
-.movie__listCinemas
-  .listCinemasMobile
-  .titleCinemasChildMobile
-  .addCinemasChildMobile {
-  font-size: 13px;
-  color: #9b9b9b;
-}
+// .movie__listCinemas
+//   .listCinemasMobile
+//   .infoFilmCinemaMobile
+//   .infoFilmMobileDetail
+//   .typeAgeMobile {
+//   color: #fff;
+//   background-color: #fb4226;
+//   border-radius: 4px;
+//   min-width: 33px;
+//   text-align: center;
+//   display: inline-block;
+//   margin-right: 8px;
+// }
 
-.movie__listCinemas .listCinemasMobile .infoFilmCinemaMobile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
+// .movie__listCinemas
+//   .listCinemasMobile
+//   .infoFilmCinemaMobile
+//   .infoFilmMobileDetail
+//   .nameFilmCinemaMobile {
+//   font-weight: 600;
+// }
 
-.movie__listCinemas .listCinemasMobile .infoFilmCinemaMobile .imgFilmMobile {
-  width: 40px;
-  height: 40px;
-  border-radius: 3px;
-  margin-right: 10px;
-}
+// .movie__listCinemas
+//   .listCinemasMobile
+//   .infoFilmCinemaMobile
+//   .infoFilmMobileDetail
+//   .timeReviewFilmMobile {
+//   font-size: 12px;
+//   color: #9b9b9b;
+// }
 
-.movie__listCinemas
-  .listCinemasMobile
-  .infoFilmCinemaMobile
-  .infoFilmMobileDetail
-  .typeAgeMobile {
-  color: #fff;
-  background-color: #fb4226;
+// .movie__listCinemas .listCinemasMobile .movieTime {
+//   width: calc(50% - 10px) !important;
+//   padding: 5px 10px;
+//   border: 1px solid #9b9b9b;
+//   text-align: center;
+//   border-radius: 7px;
+//   color: #9b9b9b;
+//   background-color: #fafafa;
+//   border: 1px solid #e4e4e4;
+//   cursor: pointer;
+//   margin: 0 10px 10px 0 !important;
+// }
+
+// .movie__listCinemas .listCinemasMobile .movieTime .mainTime {
+//   font-size: 1.2rem;
+//   color: #00ac4d;
+// }
+
+// .movie__listCinemas .listCinemasMobile .movieTime .mainTime:hover {
+//   color: #fb4226;
+// }
+
+// .movie__listCinemas
+//   .listCinemasMobile
+//   .cinemaChildMobile
+//   .ant-collapse-content
+//   > .ant-collapse-content-box {
+//   padding: 10px 0;
+//   border: 0;
+// }
+
+// .movie__listCinemas
+//   .listCinemasMobile
+//   .cinemaChildMobile
+//   .ant-collapse.ant-collapse-icon-position-right.filmMobile {
+//   border: none;
+// }
+
+// .movie__listCinemas
+//   .listCinemasMobile
+//   .ant-collapse.ant-collapse-icon-position-right.cinemaChildMobile {
+//   border: none;
+//   border-radius: 20px !important;
+// }
+
+// .ant-row.listCinemas {
+//   border: 1px solid #ebebec;
+// }
+
+// .ant-row.listCinemas .ant-tabs-nav-list div#rc-tabs-0-panel-0 {
+//   padding: 0 !important;
+// }
+
+// .ant-row.listCinemas .ant-col.ant-col-24 {
+//   border-left: 1px solid #ebebec;
+// }
+
+// .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-tab {
+//   opacity: 0.5;
+// }
+
+// .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-tab::after {
+//   content: "";
+//   position: absolute;
+//   bottom: 0px;
+//   left: 50%;
+//   width: calc(100% - 40px);
+//   -webkit-transform: translateX(-50%);
+//   transform: translateX(-50%);
+//   border-bottom: 1px solid #ebebec;
+//   border-color: rgba(238, 238, 238, 0.88);
+// }
+
+// .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-tab:hover {
+//   opacity: 1;
+//   color: black;
+// }
+
+// .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-tab.ant-tabs-tab-active {
+//   color: black;
+//   opacity: 1;
+// }
+
+// .ant-row.listCinemas .ant-col.ant-col-24 .ant-menu-submenu-title {
+//   height: 50px;
+// }
+
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-menu-submenu-title
+//   .movie__listCinema {
+//   display: -webkit-box !important;
+//   display: -ms-flexbox !important;
+//   display: flex !important;
+//   max-width: 40px;
+// }
+
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-menu-submenu-title
+//   .movie__listCinema
+//   .typeAgeMovieCinema {
+//   color: #fff;
+//   background-color: #fb4226;
+//   border-radius: 4px;
+//   min-width: 33px;
+//   text-align: center;
+//   display: inline-block;
+//   margin-right: 8px;
+// }
+
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-menu-submenu-title
+//   .movie__listCinema
+//   .infoFilmDetail {
+//   position: relative;
+// }
+
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-menu-submenu-title
+//   .movie__listCinema
+//   .infoFilmDetail
+//   .nameMovieCinema {
+//   position: absolute;
+//   top: -10px;
+//   height: 20px;
+//   font-weight: 500;
+// }
+
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-menu-submenu-title
+//   .movie__listCinema
+//   .infoFilmDetail
+//   .infoFilmMovieCinema {
+//   position: absolute;
+//   top: 10px;
+//   height: 20px;
+//   font-size: 12px;
+//   color: #9b9b9b;
+// }
+
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-tabs-left
+//   > .ant-tabs-nav
+//   .ant-tabs-tab
+//   + .ant-tabs-tab,
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-tabs-right
+//   > .ant-tabs-nav
+//   .ant-tabs-tab
+//   + .ant-tabs-tab,
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-tabs-left
+//   > div
+//   > .ant-tabs-nav
+//   .ant-tabs-tab
+//   + .ant-tabs-tab,
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-tabs-right
+//   > div
+//   > .ant-tabs-nav
+//   .ant-tabs-tab
+//   + .ant-tabs-tab {
+//   margin: 10px 0 0 0;
+// }
+
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-tabs-left
+//   > .ant-tabs-content-holder
+//   > .ant-tabs-content
+//   > .ant-tabs-tabpane,
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-tabs-left
+//   > div
+//   > .ant-tabs-content-holder
+//   > .ant-tabs-content
+//   > .ant-tabs-tabpane {
+//   padding-left: 0 !important;
+// }
+
+// .ant-row.listCinemas
+//   .ant-col.ant-col-24
+//   .ant-menu.ant-menu-sub.ant-menu-inline
+//   li.ant-menu-item.ant-menu-item-only-child {
+//   padding: 0 10px !important;
+// }
+
+// .ant-row.listCinemas .ant-card-body {
+//   display: -webkit-box !important;
+//   display: -ms-flexbox !important;
+//   display: flex !important;
+// }
+
+.tab-list {
+  border: 1px solid #ebebec;
+  margin: auto;
+  height: 705px;
   border-radius: 4px;
-  min-width: 33px;
-  text-align: center;
-  display: inline-block;
-  margin-right: 8px;
-}
+  overflow: hidden;
 
-.movie__listCinemas
-  .listCinemasMobile
-  .infoFilmCinemaMobile
-  .infoFilmMobileDetail
-  .nameFilmCinemaMobile {
-  font-weight: 600;
-}
+  .ant-tabs-nav-operations {
+    display: none !important;
+  }
 
-.movie__listCinemas
-  .listCinemasMobile
-  .infoFilmCinemaMobile
-  .infoFilmMobileDetail
-  .timeReviewFilmMobile {
-  font-size: 12px;
-  color: #9b9b9b;
-}
+  .ant-tabs-nav-list,
+  .ant-menu {
+    max-height: 700px;
+    overflow: auto;
 
-.movie__listCinemas .listCinemasMobile .movieTime {
-  width: calc(50% - 10px) !important;
-  padding: 5px 10px;
-  border: 1px solid #9b9b9b;
-  text-align: center;
-  border-radius: 7px;
-  color: #9b9b9b;
-  background-color: #fafafa;
-  border: 1px solid #e4e4e4;
-  cursor: pointer;
-  margin: 0 10px 10px 0 !important;
-}
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc9c9;
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      border: 2px solid #ffffff;
+    }
 
-.movie__listCinemas .listCinemasMobile .movieTime .mainTime {
-  font-size: 1.2rem;
-  color: #00ac4d;
-}
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 8px;
+    }
+  }
+  .ant-collapse {
+    max-height: 486px;
+    overflow: auto;
 
-.movie__listCinemas .listCinemasMobile .movieTime .mainTime:hover {
-  color: #fb4226;
-}
+    @media screen and (min-width: 992px) {
+      max-height: 700px;
+    }
 
-.movie__listCinemas
-  .listCinemasMobile
-  .cinemaChildMobile
-  .ant-collapse-content
-  > .ant-collapse-content-box {
-  padding: 10px 0;
-  border: 0;
-}
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc9c9;
+      width: 5px;
+      border-radius: 10px;
+      border: 3px solid #ffffff;
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+  }
 
-.movie__listCinemas
-  .listCinemasMobile
-  .cinemaChildMobile
-  .ant-collapse.ant-collapse-icon-position-right.filmMobile {
-  border: none;
-}
+  .ant-tabs-tab {
+    opacity: 0.3;
+    transition: all 0.3s;
+    padding: 12px 15px;
 
-.movie__listCinemas
-  .listCinemasMobile
-  .ant-collapse.ant-collapse-icon-position-right.cinemaChildMobile {
-  border: none;
-  border-radius: 20px !important;
-}
+    &:hover,
+    &-active {
+      opacity: 1;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      background: rgba(238, 238, 238, 0.88);
+      width: 1px;
+      height: 80%;
+      right: 0;
+  
+      @media screen and (min-width: 992px) {
+        width: 80%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        transform: translateX(10%);
+      }
+    }
+  }
+  .ant-tabs-ink-bar {
+    background: none;
+  }
+
+  .ant-tabs-tab + .ant-tabs-tab {
+    margin-left: 0 ;
+  }
 
 
-.ant-row.listCinemas {
-    border: 1px solid #ebebec;
+  //tab cinema
+  .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab {
+    text-align: left;
   }
-  
-  .ant-row.listCinemas .ant-tabs-nav-list div#rc-tabs-0-panel-0 {
-    padding: 0 !important;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 {
-    border-left: 1px solid #ebebec;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-tab {
-    opacity: 0.5;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-tab::after {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    width: calc(100% - 40px);
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    border-bottom: 1px solid #ebebec;
-    border-color: rgba(238, 238, 238, 0.88);
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-tab:hover {
-    opacity: 1;
-    color: black;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-tab.ant-tabs-tab-active {
-    color: black;
-    opacity: 1;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-menu-submenu-title {
-    height: 50px;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-menu-submenu-title .movie__listCinema {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    max-width: 40px;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-menu-submenu-title .movie__listCinema .typeAgeMovieCinema {
-    color: #fff;
-    background-color: #fb4226;
-    border-radius: 4px;
-    min-width: 33px;
-    text-align: center;
-    display: inline-block;
-    margin-right: 8px;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-menu-submenu-title .movie__listCinema .infoFilmDetail {
-    position: relative;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-menu-submenu-title .movie__listCinema .infoFilmDetail .nameMovieCinema {
-    position: absolute;
-    top: -10px;
-    height: 20px;
-    font-weight: 500;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-menu-submenu-title .movie__listCinema .infoFilmDetail .infoFilmMovieCinema {
-    position: absolute;
-    top: 10px;
-    height: 20px;
-    font-size: 12px;
-    color: #9b9b9b;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-left>.ant-tabs-nav .ant-tabs-tab+.ant-tabs-tab,
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-right>.ant-tabs-nav .ant-tabs-tab+.ant-tabs-tab,
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-left>div>.ant-tabs-nav .ant-tabs-tab+.ant-tabs-tab,
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-right>div>.ant-tabs-nav .ant-tabs-tab+.ant-tabs-tab {
-    margin: 10px 0 0 0;
-  }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-left>.ant-tabs-content-holder>.ant-tabs-content>.ant-tabs-tabpane,
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-tabs-left>div>.ant-tabs-content-holder>.ant-tabs-content>.ant-tabs-tabpane {
+  .ant-tabs-tabpane {
     padding-left: 0 !important;
   }
-  
-  .ant-row.listCinemas .ant-col.ant-col-24 .ant-menu.ant-menu-sub.ant-menu-inline li.ant-menu-item.ant-menu-item-only-child {
-    padding: 0 10px !important;
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    &__logo {
+      height: 35px;
+      width: 35px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    &__wrap {
+      margin-left: 17px;
+    }
+    .detail {
+      color: #fb4226 !important;
+      font-size: 13px;
+    }
+    .title {
+      font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 5px 0;
+      color: rgba(0, 0, 0, 0.85);
+    }
+
+    .address {
+      width: 90%;
+      font-size: 10px;
+      color: #9b9b9b;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 5px;
+    }
+
+    @media screen and (min-width: 992px) {
+      justify-content: flex-start;
+
+      .detail {
+        color: #fb4226 !important;
+        font-size: 13px;
+      }
+      .title {
+        font-size: 15px;
+        margin: 5px 0;
+      }
+
+      .address {
+        width: 90%;
+        font-size: 13px;
+        color: #9b9b9b;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-bottom: 5px;
+      }
+    }
   }
-  
-  .ant-row.listCinemas .ant-card-body {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
+
+  //tab content movie
+  .movie-header {
+    display: flex;
+    align-items: center;
   }
+  .movie-info {
+    padding: 10px;
+
+    .name {
+      font-weight: bold;
+    }
+  }
+
+  .ticket-btn {
+    display: inline-block;
+    color: #108f3e;
+    border: 1px solid #e4e4e4;
+    padding: 5px 5px;
+    font-size: 14px;
+    transition: all 0.2s;
+    font-weight: 400;
+    border-radius: 7px;
+    background-color: rgba(246, 246, 246, 0.5);
+    margin-right: 10px;
+  }
+
+  .ant-collapse {
+    border: none;
+    background-color: initial !important;
+  }
+
+  .ant-collapse-header {
+    align-items: center !important;
+  }
+
+  .ant-collapse-arrow {
+    color: #fc6048;
+  }
+
+  .ant-collapse-item {
+    border-bottom: none;
+  }
+
+  .ant-collapse > .ant-collapse-item:not(:last-child) {
+    border-bottom: 1px solid #d9d9d9 !important;
+  }
+}

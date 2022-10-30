@@ -13,7 +13,7 @@ import next from "./../../assets/images/icons/next-session.png";
 import "./Header.scss";
 
 //utill
-import { STICKETINFO, TOKEN, TYPE_USER, USERLOGIN } from "utill/setting";
+import { STICKETINFO, TOKEN, TYPE_USER, USERLOGIN } from "ultis/setting";
 
 //component
 import HeaderLogo from "components/Header/HeaderLogo/HeaderLogo";

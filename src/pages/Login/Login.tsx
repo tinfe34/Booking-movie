@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import { getLogin } from "slices/auth";
 import Swal from "sweetalert2";
-import { USERLOGIN } from "utill/setting";
+import { USERLOGIN } from "ultis/setting";
 
 //scss
 import './Login.scss';

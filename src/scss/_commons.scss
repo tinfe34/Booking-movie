@@ -1,29 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  font-family: "SF Regular" !important;
-  font-size: 14px;
-  scroll-behavior: smooth;
-}
-
-html,
-body,
-#root,
-.App {
-  height: 100%;
-}
-
 a {
   text-decoration: none !important;
   color: initial;
 }
-
+img {
+  object-fit: cover;
+}
 .text-primary {
   color: #fb4226 !important;
 }
@@ -31,8 +12,6 @@ a {
 .slick-slider.slick-initialized {
   z-index: 1 !important;
 }
-
-
 
 @media screen and (max-width: 768px) {
   .hideOnMobile {
