@@ -9,16 +9,16 @@ import { useNavigate } from "react-router-dom";
 // hook
 import { useAppDispatch, useAppSelector } from "hooks/store";
 import { useDesktop, useTablet } from "hooks/media";
+
 //slice
 import { getSystemCinemas } from "slices/cinemaSlice";
 
 //ultil
-import { formatNum, createRandomNumber } from "../../ultis";
-import { USERLOGIN } from "ultis/setting";
+import { createRandomNumber } from "../../ultis";
+
 
 //antd
-import { Alert, Collapse, Menu, MenuProps, Row, Tabs } from "antd";
-import SubMenu from "antd/lib/menu/SubMenu";
+import {Collapse, Tabs } from "antd";
 
 //scss
 import "./ListCinemas.scss";

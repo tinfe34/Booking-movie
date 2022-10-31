@@ -12,7 +12,7 @@
   .ant-tabs-nav-list,
   .ant-menu {
     max-height: 700px;
-    overflow: auto;
+
 
     &::-webkit-scrollbar-thumb {
       background-color: #ccc9c9;
@@ -166,6 +166,7 @@
   background-color: rgba(246, 246, 246, 0.5);
   margin-right: 10px;
 }
+
 .ant-tabs-tab {
   opacity: 0.3;
   transition: all 0.3s;
@@ -201,4 +202,21 @@
 
 .ant-collapse-content {
   border-top: none;
+}
+
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap {
+  overflow: auto !important;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc9c9;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+  }
 }
