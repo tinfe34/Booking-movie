@@ -10,7 +10,7 @@ interface State {
   error?: string;
 }
 
-// state
+// initial state
 const initialState: State = {
   user: JSON.parse(localStorage.getItem("userLogin") as string) || null,
   isLoading: false,

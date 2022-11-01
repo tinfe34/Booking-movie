@@ -1,7 +1,8 @@
-import { AppDispatch, RootState } from "configStore";
+import React, { useEffect } from "react";
+
 import { useAppDispatch, useAppSelector } from "hooks/store";
 import moment from "moment";
-import React, { useEffect } from "react";
+
 import { Navigate, useNavigate } from "react-router-dom";
 
 //slice

@@ -4,7 +4,7 @@ import { lazy, Suspense } from "react";
 //css
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'react-modal-video/scss/modal-video.scss';
+import "react-modal-video/scss/modal-video.scss";
 import "./scss/main.scss";
 
 // template

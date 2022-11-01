@@ -29,4 +29,5 @@ const HeaderNav = ({ menu, className }: HeaderNavProps) => {
 };
 
 HeaderNav.defaultProps = defaultProps;
+
 export default HeaderNav;

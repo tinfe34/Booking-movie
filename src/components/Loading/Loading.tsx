@@ -1,10 +1,11 @@
 import { RootState } from "configStore";
+import { useAppSelector } from "hooks/store";
 import { Fragment } from "react";
-import { useSelector } from "react-redux";
 import "./Loading.scss";
 
 const Loading = () => {
-  const { isLoading } = useSelector((state: RootState) => state.loading);
+  const { isLoading } = useAppSelector((state) => state.loading);
+
   return (
     <Fragment>
       {isLoading ? (

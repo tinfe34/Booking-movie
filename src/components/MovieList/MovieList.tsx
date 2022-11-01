@@ -1,5 +1,5 @@
 import MovieItem from "components/MovieItem/MovieItem";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ModalVideo from "react-modal-video";
 
 //store
@@ -8,8 +8,9 @@ import { useAppDispatch, useAppSelector } from "hooks/store";
 import { Pagination } from "antd";
 
 const MovieList = () => {
-  const { movies, totalPages, totalCount, currentPage, isLoading, error } =
-    useAppSelector((state) => state.movie);
+  const { movies, totalCount, currentPage, error } = useAppSelector(
+    (state) => state.movie
+  );
   const dispatch = useAppDispatch();
 
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -24,10 +25,10 @@ const MovieList = () => {
     dispatch(getMovieShowing(page));
   };
 
-  const handleOpenMovie = (trailer: string) => {
+  const handleOpenMovie = useCallback((trailer: string) => {
     setIsOpenModal(true);
     setMovieId(trailer.replace("https://youtu.be/", "").toString());
-  };
+  }, []);
 
   if (error) {
     return <h1>{error}</h1>;

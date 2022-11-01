@@ -13,6 +13,7 @@ import Slider from "react-slick";
 //img
 import imgPlay from '../../assets/images/play-video.png'
 import Image from "ui/Image/Image";
+
 const Carousel = () => {
   const { banners, isLoading, error } = useAppSelector((state) => state.banner);
 

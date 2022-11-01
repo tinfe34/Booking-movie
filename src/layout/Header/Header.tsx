@@ -1,19 +1,7 @@
-import { AppDispatch, RootState } from "configStore";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-
-//img
-
-import avatar from "./../../assets/images/avatar.png";
-import button from "./../../assets/images/icons/menu-options.png";
-import next from "./../../assets/images/icons/next-session.png";
+import { useState } from "react";
 
 // scss
 import "./Header.scss";
-
-//utill
-import { STICKETINFO, TOKEN, TYPE_USER, USERLOGIN } from "ultis/setting";
 
 //component
 import HeaderLogo from "components/Header/HeaderLogo/HeaderLogo";
@@ -45,7 +33,12 @@ const Header = () => {
         </div>
         <div className="d-lg-none">
           <AlignLeftOutlined className="heder__toggle" onClick={handleShow} />
-          <Offcanvas show={show} onHide={handleClose} responsive="lg" className="header__canvas">
+          <Offcanvas
+            show={show}
+            onHide={handleClose}
+            responsive="lg"
+            className="header__canvas"
+          >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title></Offcanvas.Title>
             </Offcanvas.Header>

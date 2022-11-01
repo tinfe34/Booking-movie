@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 // hook
@@ -21,8 +20,10 @@ type Props = {};
 
 const HeaderLogin = ({}: Props) => {
   const { user } = useAppSelector((state) => state.auth);
+  
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
   const menu = (
     <Menu>
       <Menu.Item onClick={() => handleGoToPage()}>Danh Sách Vé</Menu.Item>

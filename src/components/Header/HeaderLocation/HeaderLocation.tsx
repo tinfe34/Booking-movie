@@ -17,11 +17,13 @@ type HeaderLocationProps = typeof defaultProps & {};
 
 const HeaderLocation = ({}: HeaderLocationProps) => {
   const { location, listLocation } = useAppSelector((state) => state.location);
+
   const dispatch = useAppDispatch();
 
   const handleChangeLocation = (val: string) => {
     dispatch(setLocation(val));
   };
+  
   const menu = (
     <Menu>
       {listLocation.map((value, index) => {

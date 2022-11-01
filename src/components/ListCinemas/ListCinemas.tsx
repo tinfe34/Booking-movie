@@ -16,13 +16,11 @@ import { getSystemCinemas } from "slices/cinemaSlice";
 //ultil
 import { createRandomNumber } from "../../ultis";
 
-
 //antd
-import {Collapse, Tabs } from "antd";
+import { Collapse, Tabs } from "antd";
 
 //scss
 import "./ListCinemas.scss";
-
 
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
@@ -30,10 +28,11 @@ const { Panel } = Collapse;
 const ListCinemas = () => {
   const { SysCinemas } = useAppSelector((state) => state.cinema);
   const { user } = useAppSelector((state) => state.auth);
+  const isDesktop = useDesktop();
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const isDesktop = useDesktop();
-  
+
   useEffect(() => {
     dispatch(getSystemCinemas());
   }, []);
@@ -59,16 +58,16 @@ const ListCinemas = () => {
 
   const tabChidren = (sysCinema: any) => {
     return (
-      <Tabs tabPosition={isDesktop ?  'left' : 'top' } destroyInactiveTabPane={true}>
+      <Tabs
+        tabPosition={isDesktop ? "left" : "top"}
+        destroyInactiveTabPane={true}
+      >
         {sysCinema.lstCumRap?.map((lstCinema: any, idx: any) => {
           return (
             <TabPane
               tab={
                 <div className="info" style={{ width: "300px" }}>
-                  <img
-                    className="info__logo"
-                    src={sysCinema.logo}
-                  />
+                  <img className="info__logo" src={sysCinema.logo} />
                   <div className="info__wrap">
                     <div className="title">{lstCinema.tenCumRap}</div>
                     <div className="address">{lstCinema.diaChi}</div>
@@ -140,10 +139,9 @@ const ListCinemas = () => {
       <div className="container">
         <Tabs
           className="tab-list"
-          tabPosition= {isDesktop ?  'left' : 'top'}
-          centered ={isDesktop ? false : true}
+          tabPosition={isDesktop ? "left" : "top"}
+          centered={isDesktop ? false : true}
           destroyInactiveTabPane={true}
-          
         >
           {SysCinemas?.map((sysCinema, index) => {
             return (

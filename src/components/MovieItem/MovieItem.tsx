@@ -1,7 +1,7 @@
 import { Avatar, Card, Modal } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { Movie } from "interface/movie";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 //scss
@@ -35,4 +35,4 @@ const MovieItem = (props: MovieItemProps) => {
   );
 };
 
-export default MovieItem;
+export default memo(MovieItem);

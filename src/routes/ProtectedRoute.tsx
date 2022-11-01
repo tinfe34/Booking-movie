@@ -1,6 +1,4 @@
-import { RootState } from "configStore";
-import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "hooks/store";
 import { Navigate } from "react-router-dom";
 
 interface Props {
@@ -8,7 +6,7 @@ interface Props {
 }
 
 const ProtectedRoute = ({ children }: Props) => {
-  const { user } = useSelector((state: RootState) => state.auth);
+  const { user } = useAppSelector((state) => state.auth);
 
   if (!user) {
     return <Navigate to="/login" />;

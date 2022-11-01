@@ -33,7 +33,7 @@ const Footer = () => {
       <div className="container">
         <div className="row footer__info">
           <div className="col-12 col-sm-12 col-md-4 footer__detail">
-            <p id="footerTitleTix" className="footer__title">
+            <p className="footer__title">
               TIX
             </p>
             <div className="row">
@@ -161,7 +161,7 @@ const Footer = () => {
               }}
             />
           </div>
-          <div className="col-12 col-sm-12 col-md-8 pr-0 address__detail">
+          <div className="col-12 col-sm-12 col-md-8 pr-0">
             <p className="footer__title">
               TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION
             </p>
