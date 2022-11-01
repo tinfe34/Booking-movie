@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-
-import { useAppDispatch, useAppSelector } from "hooks/store";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import moment from "moment";
-
-import { Navigate, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 //slice
 import {
@@ -19,11 +17,14 @@ import {
 //scss
 import "./FormGetSticket.scss";
 
-import Swal from "sweetalert2";
+//hooks
+import { useAppDispatch, useAppSelector } from "hooks/store";
 
 //antd
 import { Dropdown, Menu, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+
+//ui
 import ButtonCustom from "ui/ButtonCustom/ButtonCustom";
 import Image from "ui/Image/Image";
 

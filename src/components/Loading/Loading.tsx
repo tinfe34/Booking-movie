@@ -1,6 +1,9 @@
-import { RootState } from "configStore";
-import { useAppSelector } from "hooks/store";
 import { Fragment } from "react";
+
+//hooks
+import { useAppSelector } from "hooks/store";
+
+//css
 import "./Loading.scss";
 
 const Loading = () => {

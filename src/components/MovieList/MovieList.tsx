@@ -2,9 +2,13 @@ import MovieItem from "components/MovieItem/MovieItem";
 import { useCallback, useEffect, useState } from "react";
 import ModalVideo from "react-modal-video";
 
-//store
+//slices
 import { getMovieShowing } from "slices/movie";
+
+//hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";
+
+//antd
 import { Pagination } from "antd";
 
 const MovieList = () => {

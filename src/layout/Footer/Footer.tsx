@@ -1,3 +1,4 @@
+//img
 import cgv from "./../../assets/images/icons/cgv.png";
 import bhd from "./../../assets/images/icons/bhd.png";
 import galaxycine from "./../../assets/images/icons/galaxycine.png";

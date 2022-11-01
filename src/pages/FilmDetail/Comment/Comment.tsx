@@ -15,7 +15,7 @@ import star12 from "../../../assets/images/icons/star1.2.png";
 import { Fragment, useRef, useState } from "react";
 
 //scss
-import './Comment.scss'
+import "./Comment.scss";
 type Props = {
   reviewer: number;
 };

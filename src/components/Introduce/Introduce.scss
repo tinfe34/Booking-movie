@@ -1,91 +1,89 @@
-.intro__app {
-    width: 100%;
-    background-size: contain;
-    padding: 120px 0 60px 60px;
-  }
-  
-  .intro__app .intro__content .intro__info {
+.intro {
+  width: 100%;
+  background-size: contain;
+  padding: 120px 0 60px 60px;
+
+  &__info {
     padding-top: 60px;
     color: #fff;
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+
+    > button {
+      padding: 10px;
+      font-size: 1.3rem;
+      background-color: #fb4226;
+      font-weight: 500;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
   }
-  
-  .intro__app .intro__content .intro__info h2 {
-    font-size: 3rem;
-  }
-  
-  .intro__app .intro__content .intro__info p {
-    font-size: 1.3rem;
-  }
-  
-  .intro__app .intro__content .intro__info>button {
-    padding: 10px;
-    font-size: 1.3rem;
-    background-color: #fb4226;
-    font-weight: 500;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .intro__app .intro__content .intro__carousel {
+
+  &__carousel {
     position: relative;
+
+    > img {
+      padding: 0.8% 26.9% 0 26.9%;
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .slick-list {
+      border-radius: 30px;
+    }
   }
-  
-  .intro__app .intro__content .intro__carousel #carousel__app {
+
+  #carousel__app {
     position: absolute;
     padding: 1.5% 29.3% 0 29.3%;
     top: 0;
     left: 0;
     width: 100%;
+
+    .slick-next:before,
+    .slick-prev:before {
+      opacity: 0;
+    }
+
+    .slick-dots li button:before {
+      font-size: 0;
+    }
   }
-  
-  .intro__app .intro__content .intro__carousel #carousel__app .carousel__img__item {
+
+  .carousel__img__item {
     height: auto;
     width: 100%;
   }
-  
-  .intro__app .intro__content .intro__carousel #carousel__app .slick-list {
+
+  #carousel__app .slick-list {
     position: relative;
     display: block;
     overflow: hidden !important;
     margin: 0;
     padding: 0;
   }
-  
-  .intro__app .intro__content .intro__carousel #carousel__app .slick-next:before,
-  .intro__app .intro__content .intro__carousel #carousel__app .slick-prev:before {
-    opacity: 0;
-  }
-  
-  .intro__app .intro__content .intro__carousel #carousel__app .slick-dots li button:before {
-    font-size: 0;
-  }
-  
-  .intro__app .intro__content .intro__carousel>img {
-    padding: 0.8% 26.9% 0 26.9%;
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .intro__app .intro__content .intro__carousel .slick-list {
-    border-radius: 30px;
-  }
-  
+
   @media screen and (max-width: 768px) {
-    .intro__app {
-      padding: 20px 0 60px 0 !important;
-    }
-  
-    .intro__app .intro__info {
+    padding: 20px 0 60px 0;
+
+    &__info {
       text-align: center;
+
+      h2 {
+        font-size: 2.5rem !important;
+      }
     }
-  
-    .intro__app .intro__info h2 {
-      font-size: 2.5rem !important;
-    }
-  
-    .intro__carousel .slick-list {
+
+    &__carousel .slick-list {
       border-radius: 20px !important;
     }
   }
+}

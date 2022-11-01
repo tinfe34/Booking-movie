@@ -1,7 +1,7 @@
-import { AppDispatch, RootState } from "configStore";
 import { useEffect } from "react";
+
+//hooks
 import { useAppSelector, useAppDispatch } from "hooks/store";
-import cn from "classnames";
 
 //scss
 import "./Carousel.scss";
@@ -9,10 +9,6 @@ import "./Carousel.scss";
 //slice
 import { getBanner } from "slices/bannerSlice";
 import Slider from "react-slick";
-
-//img
-import imgPlay from '../../assets/images/play-video.png'
-import Image from "ui/Image/Image";
 
 const Carousel = () => {
   const { banners, isLoading, error } = useAppSelector((state) => state.banner);

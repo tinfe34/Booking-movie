@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import moment from "moment";
 
@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 // hook
 import { useAppDispatch, useAppSelector } from "hooks/store";
-import { useDesktop, useTablet } from "hooks/media";
+import { useDesktop } from "hooks/media";
 
 //slice
 import { getSystemCinemas } from "slices/cinemaSlice";
@@ -135,7 +135,7 @@ const ListCinemas = () => {
   };
 
   return (
-    <section className="movie__listCinemas my-5" id="listCinema">
+    <section className="list-cinemas my-5" id="listCinema">
       <div className="container">
         <Tabs
           className="tab-list"
