@@ -1,50 +1,55 @@
-import { Dropdown, Menu, Modal, Tabs } from "antd";
-import { AppDispatch, RootState } from "configStore";
-import React, { Fragment, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Fragment, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Navigate, useParams } from "react-router-dom";
+import { RootState } from "configStore";
+import Swal from "sweetalert2";
+import _ from "lodash";
+import { USERLOGIN } from "ultis/setting";
+
+//component
+import ListBooked from "../../components/ListBooked/ListBooked";
+
+//slices
 import {
   bookTicket,
   changeTab,
   getBookingSticket,
-  getInfoBooked,
   getSticketAction,
 } from "slices/bookingSlice";
-import { STICKETINFO, TOKEN, TYPE_USER, USERLOGIN } from "ultis/setting";
+import { userLogout } from "slices/auth";
+import { hideLoading, showLoading } from "slices/loadingSlice";
+
+//img
+import logoCGV from "./../../assets/images/logo.png";
+import screen from "./../../assets/images/screen.png";
+
+
+//hooks
+import { useAppDispatch, useAppSelector } from "hooks/store";
+
+//scss
+import "./BookingStickets.scss";
+
+//antd
+import { Dropdown, Menu, Modal, Tabs } from "antd";
 
 import {
   OrderedListOutlined,
   UserOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-
-import logoCGV from "./../../assets/images/logo.png";
-import screen from "./../../assets/images/screen.png";
-import ListBooked from "./ListBooked/ListBooked";
-import Swal from "sweetalert2";
-
-import { userLogout } from "slices/auth";
-import _ from "lodash";
-import { hideLoading, showLoading } from "slices/loadingSlice";
-//scss
-import "./BookingStickets.scss";
 const { TabPane } = Tabs;
 
-const onChange = (key: string) => {
-  console.log(key);
-};
 
 const BookingStickets = () => {
   const { maLichChieu } = useParams();
 
-  const { bookingSticket, listSeatBooked, isLoading, tabActive } = useSelector(
-    (state: RootState) => state.booking
-  );
-  const { user } = useSelector((state: RootState) => state.auth);
-  const { logo } = useSelector((state: RootState) => state.cinema);
+  const { bookingSticket, listSeatBooked, isLoading, tabActive } =
+    useAppSelector((state) => state.booking);
+  const { user } = useAppSelector((state: RootState) => state.auth);
+  const { logo } = useAppSelector((state: RootState) => state.cinema);
 
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const [minutes, setMinutes] = useState(5);
@@ -57,9 +62,10 @@ const BookingStickets = () => {
   console.log(listSeatBooked);
 
   // for modal
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isModalVisibleGetSticket, setIsModalVisibleGetSticket] =
-    useState(false);
+  const [
+      isModalVisibleGetSticket, 
+      setIsModalVisibleGetSticket
+  ] = useState(false);
 
   const handleOkGetSticket = () => {
     setIsModalVisibleGetSticket(false);
@@ -91,24 +97,12 @@ const BookingStickets = () => {
       });
     }
   };
+
   const handleCancelGetSticket = () => {
     setIsModalVisibleGetSticket(false);
   };
-  const handleOk = () => {
-    setIsModalVisible(false);
-    window.location.reload();
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-    navigate("/", { replace: true });
-  };
 
   const handleMenuClick = () => {
-    // localStorage.removeItem(USERLOGIN);
-    // localStorage.removeItem(TOKEN);
-    // localStorage.removeItem(STICKETINFO);
-    // localStorage.removeItem(TYPE_USER);
     dispatch(userLogout(null));
     navigate("/");
   };
@@ -169,14 +163,13 @@ const BookingStickets = () => {
 
   if (localStorage.getItem(USERLOGIN)) {
     if (isLoading) {
-      // return <Loading />;
       dispatch(showLoading());
       return <div></div>;
     } else {
       dispatch(hideLoading());
       return (
         <div>
-          <Tabs defaultActiveKey="1" activeKey={tabActive} onChange={onChange}>
+          <Tabs defaultActiveKey="1" activeKey={tabActive}>
             <TabPane
               tab={
                 <NavLink to="/">

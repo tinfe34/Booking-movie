@@ -1,41 +1,49 @@
-import { AppDispatch, RootState } from "configStore";
 import moment from "moment";
 import { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+//component
+import Comment from "../../components/Comment/Comment";
+
+//slices
+import { setCurrentLogoCinema } from "slices/cinemaSlice";
+import { hideLoading, showLoading } from "slices/loadingSlice";
+import { getListCinemaForm } from "slices/getSticketSlice";
 import { getMovieDetail } from "slices/movie";
 
+//img
 import star1 from "./../../assets/images/icons/star1.png";
 import star12 from "./../../assets/images/icons/star1.2.png";
 import avatar from "./../../assets/images/avatar.png";
 import starList from "./../../assets/images/icons/listStar.png";
-import Comment from "./Comment/Comment";
-import { getListCinemaForm } from "slices/getSticketSlice";
-import { Collapse, Tabs } from "antd";
-import { NavLink } from "react-router-dom";
-import { setCurrentLogoCinema } from "slices/cinemaSlice";
-import { hideLoading, showLoading } from "slices/loadingSlice";
 
 //scss
 import "./FilmDetail.scss";
-import CollapsePanel from "antd/lib/collapse/CollapsePanel";
+
 //hooks
-import { useDesktop, useTablet } from "hooks/media";
+import { useDesktop } from "hooks/media";
+import { useAppDispatch, useAppSelector } from "hooks/store";
+
 //antd
+import { Collapse, Tabs } from "antd";
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
 
+
 const FilmDetail = () => {
+  const { filmDetail, isLoading } = useAppSelector((state) => state.movie);
+  const { listCinema } = useAppSelector((state) => state.getSticket);
+
+  const dispatch = useAppDispatch();
+
   const { maPhim } = useParams();
-  const { filmDetail, isLoading } = useSelector(
-    (state: RootState) => state.movie
-  );
-  const { listCinema } = useSelector((state: RootState) => state.getSticket);
 
   const myRef = useRef<HTMLAnchorElement>(null);
-  const executeScroll = () => myRef.current?.scrollIntoView();
+
   const isDesktop = useDesktop();
-  const dispatch = useDispatch<AppDispatch>();
+
+  const executeScroll = () => myRef.current?.scrollIntoView();
 
   useEffect(() => {
     dispatch(getMovieDetail(maPhim!));

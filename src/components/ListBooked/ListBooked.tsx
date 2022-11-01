@@ -1,21 +1,22 @@
-import { Table, Tag } from "antd";
-import { AppDispatch, RootState } from "configStore";
+import { useEffect } from "react";
 import _ from "lodash";
 import moment from "moment";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
+//slices
 import { getInfoBooked } from "slices/bookingSlice";
 
-const ListBooked = () => {
-  const { infoBooked } = useSelector((state: RootState) => state.booking);
+//hooks
+import { useAppDispatch, useAppSelector } from "hooks/store";
 
-  const dispatch = useDispatch<AppDispatch>();
+const ListBooked = () => {
+  const { infoBooked } = useAppSelector((state) => state.booking);
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getInfoBooked());
   }, []);
-  console.log(infoBooked);
-
+  
   return (
     <div className="container">
       <table className="table table-hover table-bordered">
