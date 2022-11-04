@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { TOKEN } from "ultis/setting";
-import store from "../configStore";
+import store from "../store/configStore";
 
 const axiosClient = axios.create({
   baseURL: "https://movienew.cybersoft.edu.vn/api",

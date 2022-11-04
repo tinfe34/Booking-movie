@@ -3,7 +3,7 @@ import _ from "lodash";
 import moment from "moment";
 
 //slices
-import { getInfoBooked } from "slices/bookingSlice";
+import { getInfoBooked } from "store/modules/bookingSlice";
 
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";

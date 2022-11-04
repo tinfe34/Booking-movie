@@ -12,7 +12,7 @@ import {
   getShowTimeWatch,
   getShowTime,
   getShowTimes,
-} from "slices/getSticketSlice";
+} from "store/modules/getSticketSlice";
 
 //scss
 import "./FormGetSticket.scss";

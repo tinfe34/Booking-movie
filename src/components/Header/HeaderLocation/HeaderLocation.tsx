@@ -2,7 +2,7 @@
 import { useAppDispatch, useAppSelector } from "../../../hooks/store";
 
 //slice
-import { setLocation } from "../../../slices/locationSlice";
+import { setLocation } from "../../../store/modules/locationSlice";
 
 //img
 import locationImg from "../../../assets/images/location-header.png";

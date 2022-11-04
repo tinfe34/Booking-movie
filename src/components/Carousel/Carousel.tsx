@@ -7,7 +7,7 @@ import { useAppSelector, useAppDispatch } from "hooks/store";
 import "./Carousel.scss";
 
 //slice
-import { getBanner } from "slices/bannerSlice";
+import { getBanner } from "store/modules/bannerSlice";
 import Slider from "react-slick";
 
 const Carousel = () => {

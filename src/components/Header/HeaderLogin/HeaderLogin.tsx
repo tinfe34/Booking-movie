@@ -12,7 +12,7 @@ import { Dropdown, Menu, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
 //slices
-import { userLogout } from "slices/auth";
+import { userLogout } from "store/modules/auth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 

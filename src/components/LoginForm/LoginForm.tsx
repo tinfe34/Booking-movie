@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { LoginValues } from "interface/login";
 
 //slice
-import { getLogin } from "slices/auth";
+import { getLogin } from "store/modules/auth";
 
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";

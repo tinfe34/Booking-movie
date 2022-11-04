@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { number } from "yup";
-import { Movie } from "../interface/movie";
-import movieAPI from "../services/movieAPI";
+import { Movie } from "../../interface/movie";
+import movieAPI from "../../services/movieAPI";
 
 interface State {
   movies: Movie[];

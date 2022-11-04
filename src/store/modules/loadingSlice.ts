@@ -14,7 +14,6 @@ const loadingSlice = createSlice({
   reducers: {
     showLoading: (state) => {
       state.isLoading = true;
-      console.log(1233);
     },
     hideLoading: (state) => {
       state.isLoading = false;

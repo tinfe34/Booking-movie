@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import movie from "./slices/movie";
-import auth from "./slices/auth";
-import location from "./slices/locationSlice";
-import banner from "./slices/bannerSlice";
-import cinema from "./slices/cinemaSlice";
-import getSticket from "./slices/getSticketSlice";
-import booking from "./slices/bookingSlice";
-import loading from "./slices/loadingSlice";
+import movie from "./modules/movie";
+import auth from "./modules/auth";
+import location from "./modules/locationSlice";
+import banner from "./modules/bannerSlice";
+import cinema from "./modules/cinemaSlice";
+import getSticket from "./modules/getSticketSlice";
+import booking from "./modules/bookingSlice";
+import loading from "./modules/loadingSlice";
 
 const store = configureStore({
   reducer: {

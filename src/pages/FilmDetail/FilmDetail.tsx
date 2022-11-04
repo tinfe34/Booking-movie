@@ -7,10 +7,10 @@ import { NavLink } from "react-router-dom";
 import Comment from "../../components/Comment/Comment";
 
 //slices
-import { setCurrentLogoCinema } from "slices/cinemaSlice";
-import { hideLoading, showLoading } from "slices/loadingSlice";
-import { getListCinemaForm } from "slices/getSticketSlice";
-import { getMovieDetail } from "slices/movie";
+import { setCurrentLogoCinema } from "store/modules/cinemaSlice";
+import { hideLoading, showLoading } from "store/modules/loadingSlice";
+import { getListCinemaForm } from "store/modules/getSticketSlice";
+import { getMovieDetail } from "store/modules/movie";
 
 //img
 import star1 from "./../../assets/images/icons/star1.png";

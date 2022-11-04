@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Navigate, useParams } from "react-router-dom";
-import { RootState } from "configStore";
+import { RootState } from "store/configStore";
 import Swal from "sweetalert2";
 import _ from "lodash";
 import { USERLOGIN } from "ultis/setting";
@@ -15,9 +15,9 @@ import {
   changeTab,
   getBookingSticket,
   getSticketAction,
-} from "slices/bookingSlice";
-import { userLogout } from "slices/auth";
-import { hideLoading, showLoading } from "slices/loadingSlice";
+} from "store/modules/bookingSlice";
+import { userLogout } from "store/modules/auth";
+import { hideLoading, showLoading } from "store/modules/loadingSlice";
 
 //img
 import logoCGV from "./../../assets/images/logo.png";

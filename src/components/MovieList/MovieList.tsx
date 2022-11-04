@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import ModalVideo from "react-modal-video";
 
 //slices
-import { getMovieShowing } from "slices/movie";
+import { getMovieShowing } from "store/modules/movie";
 
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";

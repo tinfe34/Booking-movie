@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import { RegisterValues } from "interface/login";
 
 //slices
-import { registerUser } from "slices/auth";
+import { registerUser } from "store/modules/auth";
 
 //hooks
 import { useAppDispatch } from "hooks/store";
@@ -197,7 +197,6 @@ const RegisterForm = (props: Props) => {
           }}
         >
           <NavLink to="/login" className="register-link">
-            {" "}
             Sign in now!
           </NavLink>
         </div>

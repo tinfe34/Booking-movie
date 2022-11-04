@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from "hooks/store";
 import { useDesktop } from "hooks/media";
 
 //slice
-import { getSystemCinemas } from "slices/cinemaSlice";
+import { getSystemCinemas } from "store/modules/cinemaSlice";
 
 //ultil
 import { createRandomNumber } from "../../ultis";
