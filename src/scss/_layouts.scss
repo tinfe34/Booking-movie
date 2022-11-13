@@ -1,44 +1,44 @@
 * {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  html,
-  body {
-    font-family: "SF Regular" !important;
-    font-size: 14px;
-    scroll-behavior: smooth;
-  }
-  
-  html,
-  body,
-  #root,
-  .App {
-    height: 100%;
-  }
-  
-  /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: #666363 #ffffff;
-  }
-  
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 20px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: #ffffff;
-    width: 15px;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: #fb4226d7;
-    width: 10px;
-    border-radius: 10px;
-    border: 3px solid #ffffff;
-  }
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "SF Regular" !important;
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #666363 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 20px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+  width: 15px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #fb4226d7;
+  width: 10px;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}

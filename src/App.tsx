@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
 //css
-import 'antd/dist/antd.min.css';
+import "antd/dist/antd.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-modal-video/scss/modal-video.scss";
 import "./scss/main.scss";

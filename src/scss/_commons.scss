@@ -1,10 +1,16 @@
 a {
   text-decoration: none !important;
   color: initial;
+
+  &:hover {
+    color: #fb4226d7;
+  }
 }
+
 img {
   object-fit: cover;
 }
+
 .text-primary {
   color: #fb4226 !important;
 }

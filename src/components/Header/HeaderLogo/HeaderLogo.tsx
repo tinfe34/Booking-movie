@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Image from "ui/Image/Image";
 import logo from "../../../assets/images/logo.png";
 
@@ -14,9 +14,9 @@ type HeaderLogoProps = typeof defaultProps & {
 const HeaderLogo = ({ logo, ...props }: HeaderLogoProps) => {
   return (
     <div className="header__logo" {...props}>
-      <NavLink to="/">
+      <Link to="/">
         <Image src={logo} />
-      </NavLink>
+      </Link>
     </div>
   );
 };

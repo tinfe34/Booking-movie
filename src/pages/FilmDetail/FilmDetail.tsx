@@ -177,7 +177,6 @@ const FilmDetail = () => {
                     {moment(filmDetail?.ngayKhoiChieu).format("DD-MM-YYYY")}
                   </div>
                   <span className="nameFilm">
-                    {" "}
                     <span className="age__type mr-2">
                       C1{createRandomNumber(8, 2)}
                     </span>

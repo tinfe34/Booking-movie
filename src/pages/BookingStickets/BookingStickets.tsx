@@ -23,7 +23,6 @@ import { hideLoading, showLoading } from "store/modules/loadingSlice";
 import logoCGV from "./../../assets/images/logo.png";
 import screen from "./../../assets/images/screen.png";
 
-
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";
 
@@ -39,7 +38,6 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 const { TabPane } = Tabs;
-
 
 const BookingStickets = () => {
   const { maLichChieu } = useParams();
@@ -62,10 +60,8 @@ const BookingStickets = () => {
   console.log(listSeatBooked);
 
   // for modal
-  const [
-      isModalVisibleGetSticket, 
-      setIsModalVisibleGetSticket
-  ] = useState(false);
+  const [isModalVisibleGetSticket, setIsModalVisibleGetSticket] =
+    useState(false);
 
   const handleOkGetSticket = () => {
     setIsModalVisibleGetSticket(false);
@@ -164,9 +160,11 @@ const BookingStickets = () => {
   if (localStorage.getItem(USERLOGIN)) {
     if (isLoading) {
       dispatch(showLoading());
+
       return <div></div>;
     } else {
       dispatch(hideLoading());
+
       return (
         <div>
           <Tabs defaultActiveKey="1" activeKey={tabActive}>
@@ -225,7 +223,6 @@ const BookingStickets = () => {
                                         <h1> 00:00</h1>
                                       ) : (
                                         <h1>
-                                          {" "}
                                           0{minutes}:
                                           {seconds < 10
                                             ? `0${seconds}`
