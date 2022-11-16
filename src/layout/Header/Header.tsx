@@ -24,30 +24,30 @@ const Header = () => {
     <header className="header">
       <div className="header__inner">
         <HeaderLogo />
-        <div className="d-none d-lg-block">
-          <HeaderNav />
-        </div>
+        <HeaderNav className="d-none d-lg-flex" />
         <div className="header__ultil d-none d-lg-flex">
           <HeaderLogin />
           <HeaderLocation />
         </div>
-        <div className="d-lg-none">
-          <AlignLeftOutlined className="heder__toggle" onClick={handleShow} />
-          <Offcanvas
-            show={show}
-            onHide={handleClose}
-            responsive="lg"
-            className="header__canvas"
-          >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title></Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <HeaderLogin />
-              <HeaderNav />
-            </Offcanvas.Body>
-          </Offcanvas>
-        </div>
+        {/* For sp */}
+        <AlignLeftOutlined
+          className="heder__toggle d-lg-none"
+          onClick={handleShow}
+        />
+        <Offcanvas
+          show={show}
+          onHide={handleClose}
+          responsive="lg"
+          className="header__canvas d-lg-none"
+        >
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title></Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <HeaderLogin />
+            <HeaderNav />
+          </Offcanvas.Body>
+        </Offcanvas>
       </div>
     </header>
   );

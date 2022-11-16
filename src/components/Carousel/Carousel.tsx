@@ -39,7 +39,7 @@ const Carousel = () => {
   return (
     <section className="movie-carousel">
       <Slider {...settings}>
-        {banners.map((banner, index) => {
+        {banners.map((banner) => {
           return (
             <div key={banner.maBanner}>
               <img src={banner.hinhAnh} className="banner w-100" />

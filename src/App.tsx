@@ -27,8 +27,7 @@ const Register = lazy(() => import("pages/Register/Register"));
 
 function App() {
   return (
-    <Suspense>
-      <Loading />
+    <Suspense fallback={<Loading />}>
       <BrowserRouter>
         <Routes>
           <Route path="" element={<HomeTemplate />}>

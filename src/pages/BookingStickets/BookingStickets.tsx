@@ -57,8 +57,6 @@ const BookingStickets = () => {
     dispatch(getBookingSticket(+maLichChieu!));
   }, []);
 
-  console.log(listSeatBooked);
-
   // for modal
   const [isModalVisibleGetSticket, setIsModalVisibleGetSticket] =
     useState(false);

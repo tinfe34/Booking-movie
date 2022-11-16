@@ -16,6 +16,7 @@ import star12 from "../../assets/images/icons/star1.2.png";
 
 //scss
 import "./Comment.scss";
+
 type Props = {
   reviewer: number;
 };

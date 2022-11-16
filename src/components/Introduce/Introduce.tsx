@@ -16,6 +16,7 @@ const Introduce = () => {
 
   const renderSlide = () => {
     let arrSlide = [];
+
     for (let i = 1; i < 17; i++) {
       let arrImng = (
         <div key={i} style={{ overflow: "hidden" }}>
@@ -25,8 +26,10 @@ const Introduce = () => {
           />
         </div>
       );
+
       arrSlide.push(arrImng);
     }
+
     return arrSlide;
   };
 

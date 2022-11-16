@@ -1,11 +1,11 @@
-import { Movie, MovieShowTimes } from "interface/movie";
+import { Movie, Film } from "interface/movie";
 import { CinemaGroup, lcFilm } from "interface/cinema";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import movieAPI from "services/movieAPI";
 import cinemaAPI from "services/cinemaAPI";
 
 export interface State {
-  film: { idFilm: number | null; nameFilm: string };
+  film: Film;
   listFilm: Movie[];
   cinema: { idCinema: string; nameCinema: string; logo: string };
   listCinema: CinemaGroup[];

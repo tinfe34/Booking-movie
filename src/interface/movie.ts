@@ -12,7 +12,10 @@ export interface Movie {
   dangChieu: boolean;
   sapChieu: boolean;
 }
-
+export interface Film {
+  idFilm: number | null;
+  nameFilm: string;
+}
 export interface MovieShowTimes {
   maLichChieu: number;
   maRap: string;

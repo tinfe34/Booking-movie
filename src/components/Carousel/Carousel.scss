@@ -30,10 +30,11 @@
 
   .slick-arrow.slick-next,
   .slick-arrow.slick-prev {
+    z-index: 5 !important;
+
     &::before {
       font-size: 40px;
     }
-    z-index: 5 !important;
   }
 
   .slick-arrow.slick-next {

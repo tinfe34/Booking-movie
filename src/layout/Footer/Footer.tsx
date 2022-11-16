@@ -34,9 +34,7 @@ const Footer = () => {
       <div className="container">
         <div className="row footer__info">
           <div className="col-12 col-sm-12 col-md-4 footer__detail">
-            <p className="footer__title">
-              TIX
-            </p>
+            <p className="footer__title">TIX</p>
             <div className="row">
               <div className="col-5 pr-0 hideOnMobile">
                 <a href="#">FAQ</a>

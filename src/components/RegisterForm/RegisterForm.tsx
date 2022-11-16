@@ -1,4 +1,3 @@
-
 import { FieldErrors, useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -12,9 +11,7 @@ import { registerUser } from "store/modules/auth";
 //hooks
 import { useAppDispatch } from "hooks/store";
 
-type Props = {};
-
-const RegisterForm = (props: Props) => {
+const RegisterForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -68,7 +65,6 @@ const RegisterForm = (props: Props) => {
         <div className="col-12 col-sm-6">
           <input
             {...register("taiKhoan", {
-              // validations
               required: {
                 value: true,
                 message: "Tài khoản không được để trống",

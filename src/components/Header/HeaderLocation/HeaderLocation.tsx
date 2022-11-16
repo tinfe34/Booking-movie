@@ -58,4 +58,5 @@ const HeaderLocation = ({}: HeaderLocationProps) => {
 };
 
 HeaderLocation.defaultProps = defaultProps;
+
 export default HeaderLocation;

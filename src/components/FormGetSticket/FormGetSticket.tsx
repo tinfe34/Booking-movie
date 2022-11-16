@@ -26,20 +26,22 @@ import { DownOutlined } from "@ant-design/icons";
 
 //ui
 import ButtonCustom from "ui/ButtonCustom/ButtonCustom";
-import Image from "ui/Image/Image";
+
+//components
+import SelectFilm from "./SelectFilm/SelectFilm";
+import SelectCinema from "./SelectCinema/SelectCinema";
+import SelectDate from "./SelectDate/SelectDate";
+import SelectShowTime from "./SelectShowTime/SelectShowTime";
 
 const FormGetSticket = () => {
   const {
     film,
     listFilm,
-    cinema,
-    listCinema,
-    showTime,
-    listShowTimes,
     showTimeWatch,
   } = useAppSelector((state) => state.getSticket);
 
-  const { user } = useAppSelector((state) => state.auth);
+  const { user: isLoggedIn } = useAppSelector((state) => state.auth);
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -51,144 +53,8 @@ const FormGetSticket = () => {
     }
   }, [film.idFilm]);
 
-  const renderFilm = () => {
-    return (
-      <Menu>
-        {listFilm.map((film) => {
-          return (
-            <Menu.Item
-              key={film.maPhim}
-              onClick={() => {
-                dispatch(
-                  getFilm({ idFilm: film.maPhim, nameFilm: film.tenPhim })
-                );
-              }}
-            >
-              <Image
-                style={{ borderRadius: "50px" }}
-                width={50}
-                height={50}
-                src={film.hinhAnh}
-              />
-              <span className="ml-3">{film.tenPhim}</span>
-            </Menu.Item>
-          );
-        })}
-      </Menu>
-    );
-  };
-
-  const renderCinema = () => {
-    return (
-      <Menu>
-        {film.nameFilm ? (
-          listCinema.map((sysCinema, index) => {
-            return sysCinema.cumRapChieu.map((cinema, idx) => {
-              return (
-                <Menu.Item
-                  key={cinema.maCumRap}
-                  onClick={() => {
-                    dispatch(
-                      getCinema({
-                        idCinema: cinema.maCumRap,
-                        nameCinema: cinema.tenCumRap,
-                        logo: cinema.hinhAnh,
-                      })
-                    );
-                    dispatch(getShowTimes(cinema.lichChieuPhim));
-                  }}
-                >
-                  <Image src={sysCinema.logo} width={50} height={50} />
-                  <span className="ml-3">{cinema.tenCumRap}</span>
-                </Menu.Item>
-              );
-            });
-          })
-        ) : (
-          <Menu.Item>Vui lòng chọn phim!</Menu.Item>
-        )}
-      </Menu>
-    );
-  };
-
-  const renderShowTimes = () => {
-    let time = "";
-    return (
-      <Menu>
-        {!film.nameFilm || !cinema.nameCinema ? (
-          film.nameFilm ? (
-            <Menu.Item>Vui lòng chọn rạp!</Menu.Item>
-          ) : (
-            <Menu.Item>Vui lòng chọn phim và rạp!</Menu.Item>
-          )
-        ) : (
-          listShowTimes.map((showTime, idx) => {
-            if (
-              time === moment(showTime.ngayChieuGioChieu).format("DD-MM-YYYY")
-            ) {
-              return;
-            }
-            time = moment(showTime.ngayChieuGioChieu).format("DD-MM-YYYY");
-            return (
-              <Menu.Item
-                key={showTime.maLichChieu}
-                onClick={() => {
-                  dispatch(getShowTime(showTime.ngayChieuGioChieu));
-                }}
-              >
-                {moment(showTime.ngayChieuGioChieu).format("DD-MM-YYYY")}
-              </Menu.Item>
-            );
-          })
-        )}
-      </Menu>
-    );
-  };
-
-  const renderShowHour = () => {
-    return (
-      <Menu>
-        {!film.nameFilm || !cinema.nameCinema || !showTime ? (
-          film.nameFilm ? (
-            cinema.nameCinema ? (
-              <Menu.Item>Vui lòng chọn ngày xem!</Menu.Item>
-            ) : (
-              <Menu.Item>Vui lòng chọn phim và rạp!</Menu.Item>
-            )
-          ) : (
-            <Menu.Item>Vui lòng chọn phim, rạp và ngày xem!</Menu.Item>
-          )
-        ) : (
-          listShowTimes.map((time, idx) => {
-            if (showTime === time.ngayChieuGioChieu) {
-              return (
-                <Menu.Item
-                  key={time.maLichChieu}
-                  onClick={() => {
-                    dispatch(
-                      getShowTimeWatch({
-                        maLichChieu: time.maLichChieu,
-                        maRap: time.maRap,
-                        ngayChieuGioChieu: `${moment(
-                          time.ngayChieuGioChieu
-                        ).format("h:mm A")} - ${time.tenRap}`,
-                      })
-                    );
-                  }}
-                >
-                  {moment(time.ngayChieuGioChieu).format("h:mm A")} -{" "}
-                  {time.tenRap}
-                </Menu.Item>
-              );
-            }
-          })
-        )}
-      </Menu>
-    );
-  };
-
   const getTicket = () => {
-    if (user) {
+    if (isLoggedIn) {
       navigate(`/datve/${showTimeWatch.maLichChieu}`, { replace: true });
     } else {
       Swal.fire({
@@ -213,59 +79,19 @@ const FormGetSticket = () => {
           className="row choose-ticket__inner"
           style={{ alignItems: "center" }}
         >
-          <div className="col-12 col-md-4 selec-film">
-            <Dropdown
-              overlay={renderFilm()}
-              placement="bottomRight"
-              trigger={["click"]}
-            >
-              <Space className="d-flex p-3 justify-content-between">
-                <span>{film.idFilm ? film.nameFilm : "Phim"}</span>
-                <DownOutlined />
-              </Space>
-            </Dropdown>
+          <div className="col-12 col-md-4 select-film">
+            <SelectFilm listFilm={ listFilm } />
           </div>
           <div className="col-12 col-md-2 select-cinema">
-            <Dropdown
-              overlay={renderCinema()}
-              placement="bottomRight"
-              trigger={["click"]}
-            >
-              <Space className="d-flex p-3 justify-content-between">
-                <span>{cinema.idCinema ? cinema.nameCinema : "Rạp Chiếu"}</span>
-                <DownOutlined />
-              </Space>
-            </Dropdown>
+            <SelectCinema />
           </div>
 
           <div className="col-12 col-md-2 select-date">
-            <Dropdown
-              overlay={renderShowTimes()}
-              placement="bottomRight"
-              trigger={["click"]}
-            >
-              <Space className="d-flex p-3 justify-content-between">
-                {showTime !== ""
-                  ? moment(showTime).format("DD-MM-YYYY")
-                  : "Ngày Xem"}
-                <DownOutlined />
-              </Space>
-            </Dropdown>
+            <SelectDate />
           </div>
 
-          <div className="col-12 col-md-2 select-movie">
-            <Dropdown
-              overlay={renderShowHour()}
-              placement="bottomRight"
-              trigger={["click"]}
-            >
-              <Space className="d-flex p-3 justify-content-between">
-                {showTimeWatch.ngayChieuGioChieu
-                  ? showTimeWatch.ngayChieuGioChieu
-                  : "Suất Chiếu"}
-                <DownOutlined />
-              </Space>
-            </Dropdown>
+          <div className="col-12 col-md-2 select-showtime">
+            <SelectShowTime />
           </div>
 
           <div className="col-12 col-md-2">
