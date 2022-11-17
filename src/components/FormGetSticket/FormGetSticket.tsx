@@ -31,7 +31,7 @@ import ButtonCustom from "ui/ButtonCustom/ButtonCustom";
 import SelectFilm from "./SelectFilm/SelectFilm";
 import SelectCinema from "./SelectCinema/SelectCinema";
 import SelectDate from "./SelectDate/SelectDate";
-import SelectShowTime from "./SelectShowTime/SelectShowTime";
+import SelectShowtime from "./SelectShowtime/SelectShowtime";
 
 const FormGetSticket = () => {
   const {
@@ -91,7 +91,7 @@ const FormGetSticket = () => {
           </div>
 
           <div className="col-12 col-md-2 select-showtime">
-            <SelectShowTime />
+            <SelectShowtime />
           </div>
 
           <div className="col-12 col-md-2">

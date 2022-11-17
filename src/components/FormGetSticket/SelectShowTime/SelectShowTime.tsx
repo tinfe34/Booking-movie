@@ -13,9 +13,9 @@ import { DownOutlined } from "@ant-design/icons";
 //interface
 import { lcFilm } from "interface/cinema";
 
-export interface ISelectShowTime {}
+export interface ISelectShowtime {}
 
-export default function SelectShowTime(props: ISelectShowTime) {
+export default function SelectShowtime(props: ISelectShowtime) {
   const { film, cinema, showTime, listShowTimes, showTimeWatch } =
     useAppSelector((state) => state.getSticket);
 
