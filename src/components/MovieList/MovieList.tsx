@@ -25,10 +25,6 @@ const MovieList = () => {
     dispatch(getMovieShowing(1));
   }, []);
 
-  const onChangePage = (page: number) => {
-    dispatch(getMovieShowing(page));
-  };
-
   const handleOpenMovie = useCallback((trailer: string) => {
     setIsOpenModal(true);
     setMovieId(trailer.replace("https://youtu.be/", "").toString());
@@ -45,13 +41,11 @@ const MovieList = () => {
           <h1 className="text-center text-primary my-5">Danh sách phim</h1>
           {movies.map((movie) => {
             return (
-              <div className="col-sm-6 col-md-4 col-lg-3 ">
-                <MovieItem
-                  key={movie.maPhim}
-                  movie={movie}
-                  openModal={() => handleOpenMovie(movie.trailer)}
-                />
-              </div>
+              <MovieItem
+                key={movie.maPhim}
+                movie={movie}
+                openModal={() => handleOpenMovie(movie.trailer)}
+              />
             );
           })}
 
@@ -64,14 +58,6 @@ const MovieList = () => {
               autoplay: 1,
               mute: 1,
             }}
-          />
-          <Pagination
-            style={{
-              textAlign: "center",
-            }}
-            current={currentPage}
-            total={totalCount}
-            onChange={(page) => onChangePage(page)}
           />
         </div>
       </div>

@@ -30,7 +30,6 @@ import { Collapse, Tabs } from "antd";
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
 
-
 const FilmDetail = () => {
   const { filmDetail, isLoading } = useAppSelector((state) => state.movie);
   const { listCinema } = useAppSelector((state) => state.getSticket);
@@ -83,20 +82,16 @@ const FilmDetail = () => {
   };
 
   const renderListCinema = () => {
-    return listCinema.length ? (
-      listCinema.map((cinema, index) => {
-        return (
-          <TabPane
-            tab={<img src={cinema.logo} width={50} height={50} />}
-            key={`cine-${index}`}
-          >
-            {menu(cinema)}
-          </TabPane>
-        );
-      })
-    ) : (
-      <div>Hiện tại chưa có rạp chiếu</div>
-    );
+    return listCinema.map((cinema, index) => {
+      return (
+        <TabPane
+          tab={<img src={cinema.logo} width={50} height={50} />}
+          key={`cine-${index}`}
+        >
+          {menu(cinema)}
+        </TabPane>
+      );
+    });
   };
 
   const menu = (cinema: any) => {
@@ -290,13 +285,17 @@ const FilmDetail = () => {
                 role="tabpanel"
                 aria-labelledby="nav-lichChieu-tab"
               >
-                <Tabs
-                  tabPosition={isDesktop ? "left" : "top"}
-                  centered={isDesktop ? false : true}
-                  destroyInactiveTabPane={true}
-                >
-                  {renderListCinema()}
-                </Tabs>
+                {listCinema.length ? (
+                  <Tabs
+                    tabPosition={isDesktop ? "left" : "top"}
+                    centered={isDesktop ? false : true}
+                    destroyInactiveTabPane={true}
+                  >
+                    {renderListCinema()}
+                  </Tabs>
+                ) : (
+                  <p>Hiện tại chưa có suất chiếu</p>
+                )}
               </div>
               <div
                 className="tab-pane fade list__film "

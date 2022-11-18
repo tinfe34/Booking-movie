@@ -1,4 +1,3 @@
-
 import { memo } from "react";
 import { NavLink } from "react-router-dom";
 import { Card } from "antd";
@@ -13,25 +12,31 @@ import "./MovieItem.scss";
 
 type MovieItemProps = {
   movie: Movie;
-  openModal: Function
+  openModal: Function;
 };
 
 const MovieItem = (props: MovieItemProps) => {
   const { movie, openModal } = props;
-  
 
   return (
-    <Card
-      className="card-custom"
-      cover={<img alt={movie.hinhAnh} src={movie.hinhAnh} />}
-    >
-      <img src={playImg} alt="" className="play-video" onClick={() => openModal()} />
-      <NavLink to={`/detail/${movie.maPhim}`}>
-        <ButtonCustom className="card-btn" width="200px">
-          Mua vé
-        </ButtonCustom>
-      </NavLink>
-    </Card>
+    <div className="col-sm-6 col-md-4 col-lg-3">
+      <Card
+        className="card-custom"
+        cover={<img alt={movie.hinhAnh} src={movie.hinhAnh} />}
+      >
+        <img
+          src={playImg}
+          alt=""
+          className="play-video"
+          onClick={() => openModal()}
+        />
+        <NavLink to={`/detail/${movie.maPhim}`}>
+          <ButtonCustom className="card-btn" width="200px">
+            Mua vé
+          </ButtonCustom>
+        </NavLink>
+      </Card>
+    </div>
   );
 };
 

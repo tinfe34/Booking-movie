@@ -77,7 +77,7 @@ const ListCinemas = () => {
               }
               key={idx}
             >
-              {menu(lstCinema, sysCinema, idx)}
+              {menu(lstCinema)}
             </TabPane>
           );
         })}
@@ -85,10 +85,10 @@ const ListCinemas = () => {
     );
   };
 
-  const menu = (lstCinema: any, sysCinema: any, idx: any) => {
+  const menu = (lstCinema: any) => {
     return (
       <Collapse>
-        {lstCinema.danhSachPhim?.map((phim: any, id: any) => {
+        {lstCinema?.danhSachPhim.map((phim: any, id: any) => {
           return (
             <Panel
               header={
@@ -114,10 +114,11 @@ const ListCinemas = () => {
               }
               key={id}
             >
-              {phim.lstLichChieuTheoPhim.map((ds: any, indexssss: any) => {
-                if (indexssss < 6) {
+              {phim.lstLichChieuTheoPhim.map((ds: any, idx: any) => {
+                if (idx < 6) {
                   return (
                     <div
+                      key={idx}
                       className="ticket-btn"
                       style={{ marginBottom: "10px" }}
                       onClick={() => clickMovie(ds.maLichChieu)}

@@ -37,6 +37,7 @@ import {
   UserOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
+
 const { TabPane } = Tabs;
 
 const BookingStickets = () => {
