@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useAppDispatch } from "hooks/store";
+import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "hooks/store";
 import Image from "ui/Image/Image";
 
 //antd
@@ -7,21 +7,27 @@ import { Dropdown, Menu, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
 // slice
-import { getFilm } from "store/modules/getSticketSlice";
+import { getFilm, getListFilmForm } from "store/modules/getSticketSlice";
 
 //interface
 import { Movie } from "interface/movie";
 
 export interface ISelectFilm {
-  listFilm: Movie[];
 }
 
-export default function SelectFilm({ listFilm }: ISelectFilm) {
-  const [nameFilm, setNameFilm] = useState("");
+export default function SelectFilm( props: ISelectFilm) {
+  const {
+    film,
+    listFilm,
+  } = useAppSelector((state) => state.getSticket);
+
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(getListFilmForm());
+  }, []);
+
   const onSelectFilm = (film: Movie) => {
-    setNameFilm(film.tenPhim);
     dispatch(getFilm({ idFilm: film.maPhim, nameFilm: film.tenPhim }));
   };
 
@@ -47,12 +53,12 @@ export default function SelectFilm({ listFilm }: ISelectFilm) {
 
   return (
     <Dropdown
-      overlay={renderMenu()}
+      overlay={renderMenu}
       placement="bottomRight"
       trigger={["click"]}
     >
       <Space className="d-flex p-3 justify-content-between">
-        <span>{!!nameFilm ? nameFilm : "Phim"}</span>
+        <span>{film.idFilm ? film.nameFilm : "Phim"}</span>
         <DownOutlined />
       </Space>
     </Dropdown>

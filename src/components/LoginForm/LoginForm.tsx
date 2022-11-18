@@ -30,7 +30,6 @@ const LoginForm = (props: Props) => {
 
   const onSubmit = (values: LoginValues) => {
     dispatch(getLogin(values));
-    console.log(values);
   };
 
   const onError = (error: FieldErrors<LoginValues>) => {

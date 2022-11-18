@@ -1,6 +1,6 @@
 const ArticleTab = () => {
   return (
-    <nav className="article__tab">
+    <nav className="article__tab my-3">
       <div
         className="nav nav-tabs article__tab-item"
         id="nav-tab"

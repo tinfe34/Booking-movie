@@ -5,13 +5,8 @@ import Swal from "sweetalert2";
 
 //slice
 import {
-  getCinema,
-  getFilm,
   getListCinemaForm,
   getListFilmForm,
-  getShowTimeWatch,
-  getShowTime,
-  getShowTimes,
 } from "store/modules/getSticketSlice";
 
 //scss
@@ -19,10 +14,6 @@ import "./FormGetSticket.scss";
 
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";
-
-//antd
-import { Dropdown, Menu, Space } from "antd";
-import { DownOutlined } from "@ant-design/icons";
 
 //ui
 import ButtonCustom from "ui/ButtonCustom/ButtonCustom";
@@ -35,23 +26,12 @@ import SelectShowtime from "./SelectShowtime/SelectShowtime";
 
 const FormGetSticket = () => {
   const {
-    film,
-    listFilm,
     showTimeWatch,
   } = useAppSelector((state) => state.getSticket);
 
   const { user: isLoggedIn } = useAppSelector((state) => state.auth);
 
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    dispatch(getListFilmForm());
-
-    if (film.idFilm) {
-      dispatch(getListCinemaForm(film.idFilm));
-    }
-  }, [film.idFilm]);
 
   const getTicket = () => {
     if (isLoggedIn) {
@@ -80,7 +60,7 @@ const FormGetSticket = () => {
           style={{ alignItems: "center" }}
         >
           <div className="col-12 col-md-4 select-film">
-            <SelectFilm listFilm={ listFilm } />
+            <SelectFilm />
           </div>
           <div className="col-12 col-md-2 select-cinema">
             <SelectCinema />

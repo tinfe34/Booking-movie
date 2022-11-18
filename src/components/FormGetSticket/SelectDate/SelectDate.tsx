@@ -37,7 +37,7 @@ export default function SelectDate(props: ISelectDate) {
             return (
               <Menu.Item
                 key={showTime.maLichChieu}
-                onClick={() => ()=> onSelectDate(showTime.ngayChieuGioChieu)}
+                onClick={() => onSelectDate(showTime.ngayChieuGioChieu)}
               >
                 {moment(showTime.ngayChieuGioChieu).format("DD-MM-YYYY")}
               </Menu.Item>

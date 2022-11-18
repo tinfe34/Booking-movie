@@ -165,46 +165,48 @@ const ArticleContent = () => {
         </div>
         <div className="row pt-2 newsMovieS">
           <div className="col-12 col-sm-8  newsMovieS__left">
-            <div className="col-12 col-sm-6  pb-2 newsMovieS_left__item ">
-              <a href="#">
-                <img
-                  className="w-100 b-block"
-                  src="./images/icons/article/9.png"
-                />
-              </a>
-              <a href="#" className="articleTitle">
-                ‘BlacKkKlansman’ - cốc nước lạnh để người Mỹ thức tỉnh
-              </a>
-              <p className="article__content">
-                Tác phẩm nhận đề cử Phim truyện xuất sắc tại Oscar 2019 của đạo
-                diễn Spike Lee là một lát cắt nữa về nạn phân biệt chủng tộc -
-                nỗi đau gây nhức nhối nước Mỹ cho tới tận hôm nay
-              </p>
-              <div className="feedBack">
-                <img src="./images/icons/like.png" />
-                <img src="./images/icons/comment.png" />
+            <div className="row">
+              <div className="col-12 col-sm-6  pb-2 newsMovieS_left__item ">
+                <a href="#">
+                  <img
+                    className="w-100 b-block"
+                    src="./images/icons/article/9.png"
+                  />
+                </a>
+                <a href="#" className="articleTitle">
+                  ‘BlacKkKlansman’ - cốc nước lạnh để người Mỹ thức tỉnh
+                </a>
+                <p className="article__content">
+                  Tác phẩm nhận đề cử Phim truyện xuất sắc tại Oscar 2019 của
+                  đạo diễn Spike Lee là một lát cắt nữa về nạn phân biệt chủng
+                  tộc - nỗi đau gây nhức nhối nước Mỹ cho tới tận hôm nay
+                </p>
+                <div className="feedBack">
+                  <img src="./images/icons/like.png" />
+                  <img src="./images/icons/comment.png" />
+                </div>
               </div>
-            </div>
-            <div className="col-12 col-sm-6  newsMovieS_left__item">
-              <a href="#">
-                <img
-                  className="w-100 b-block"
-                  src="./images/icons/article/10.png"
-                />
-              </a>
-              <a href="#" className="articleTitle">
-                American Sniper - Chính nghĩa hay phi nghĩa?
-              </a>
-              <p className="article__content">
-                American Sniper khắc họa một tay súng bắn tỉa “huyền thoại” của
-                Hải quân Mỹ với 4 lần tham chiến ở Trung Đông. Câu chuyện phim
-                chậm rãi đưa người xem qua từng thời khắc khác nhau của Kyle, từ
-                thửa nhỏ, thiếu niên, rồi gia nhập quân đội, rồi tham chiến.
-                Từng khoảnh khắc bắt đầu nhẹ nhàng...
-              </p>
-              <div className="feedBack">
-                <img src="./images/icons/like.png" />
-                <img src="./images/icons/comment.png" />
+              <div className="col-12 col-sm-6  newsMovieS_left__item">
+                <a href="#">
+                  <img
+                    className="w-100 b-block"
+                    src="./images/icons/article/10.png"
+                  />
+                </a>
+                <a href="#" className="articleTitle">
+                  American Sniper - Chính nghĩa hay phi nghĩa?
+                </a>
+                <p className="article__content">
+                  American Sniper khắc họa một tay súng bắn tỉa “huyền thoại”
+                  của Hải quân Mỹ với 4 lần tham chiến ở Trung Đông. Câu chuyện
+                  phim chậm rãi đưa người xem qua từng thời khắc khác nhau của
+                  Kyle, từ thửa nhỏ, thiếu niên, rồi gia nhập quân đội, rồi tham
+                  chiến. Từng khoảnh khắc bắt đầu nhẹ nhàng...
+                </p>
+                <div className="feedBack">
+                  <img src="./images/icons/like.png" />
+                  <img src="./images/icons/comment.png" />
+                </div>
               </div>
             </div>
           </div>
@@ -300,43 +302,45 @@ const ArticleContent = () => {
         </div>
         <div className="row py-2 newsMovieS">
           <div className="col-12 col-sm-8  newsMovieS__left">
-            <div className="col-12 col-sm-6  pb-2 newsMovieS_left__item">
-              <a href="#">
-                <img
-                  className="w-100 b-block"
-                  src="./images/icons/article/17.png"
-                />
-              </a>
-              <a href="#" className="articleTitle">
-                ĐỒNG GIÁ 1K/VÉ KHI MUA VÉ QUA TIX
-              </a>
-              <p className="article__content">
-                ĐỒNG GIÁ 1K/VÉ KHI MUA VÉ QUA TIX Hành trình tìm Ròm và Phúc chỉ
-                với 1k cả tuần + nhận thêm 02 voucher khi đặt vé qua TIX.
-              </p>
-              <div className="feedBack">
-                <img src="./images/icons/like.png" />
-                <img src="./images/icons/comment.png" />
+            <div className="row">
+              <div className="col-12 col-sm-6  pb-2 newsMovieS_left__item">
+                <a href="#">
+                  <img
+                    className="w-100 b-block"
+                    src="./images/icons/article/17.png"
+                  />
+                </a>
+                <a href="#" className="articleTitle">
+                  ĐỒNG GIÁ 1K/VÉ KHI MUA VÉ QUA TIX
+                </a>
+                <p className="article__content">
+                  ĐỒNG GIÁ 1K/VÉ KHI MUA VÉ QUA TIX Hành trình tìm Ròm và Phúc
+                  chỉ với 1k cả tuần + nhận thêm 02 voucher khi đặt vé qua TIX.
+                </p>
+                <div className="feedBack">
+                  <img src="./images/icons/like.png" />
+                  <img src="./images/icons/comment.png" />
+                </div>
               </div>
-            </div>
-            <div className="col-12 col-sm-6  newsMovieS_left__item">
-              <a href="#">
-                <img
-                  className="w-100 b-block"
-                  src="./images/icons/article/18.jpg"
-                />
-              </a>
-              <a href="#" className="articleTitle">
-                BHD STAR VÉ CHỈ 59.000Đ CẢ TUẦN!
-              </a>
-              <p className="article__content">
-                Tận hưởng Ưu Đãi lên đến 3 VÉ BHD Star mỗi tuần chỉ với giá
-                59k/vé khi mua vé trên TIX và thanh toán bằng ZaloPay hoặc Mục
-                Vé Phim trên ZaloPay.
-              </p>
-              <div className="feedBack">
-                <img src="./images/icons/like.png" />
-                <img src="./images/icons/comment.png" />
+              <div className="col-12 col-sm-6  newsMovieS_left__item">
+                <a href="#">
+                  <img
+                    className="w-100 b-block"
+                    src="./images/icons/article/18.jpg"
+                  />
+                </a>
+                <a href="#" className="articleTitle">
+                  BHD STAR VÉ CHỈ 59.000Đ CẢ TUẦN!
+                </a>
+                <p className="article__content">
+                  Tận hưởng Ưu Đãi lên đến 3 VÉ BHD Star mỗi tuần chỉ với giá
+                  59k/vé khi mua vé trên TIX và thanh toán bằng ZaloPay hoặc Mục
+                  Vé Phim trên ZaloPay.
+                </p>
+                <div className="feedBack">
+                  <img src="./images/icons/like.png" />
+                  <img src="./images/icons/comment.png" />
+                </div>
               </div>
             </div>
           </div>

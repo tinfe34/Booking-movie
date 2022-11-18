@@ -1,5 +1,5 @@
 //slice
-import { getCinema, getShowTimes } from "store/modules/getSticketSlice";
+import { getCinema, getListCinemaForm, getShowTimes } from "store/modules/getSticketSlice";
 import { CumRapChieu } from "interface/cinema";
 
 //hooks
@@ -10,15 +10,24 @@ import { Dropdown, Menu, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
 import Image from "ui/Image/Image";
+import { useEffect } from "react";
 
 export interface ISelectCinema {}
 
 export default function SelectCinema(props: ISelectCinema) {
-  const { film, cinema, listCinema } = useAppSelector(
-    (state) => state.getSticket
-  );
+  const {
+    film: { idFilm, nameFilm },
+    cinema,
+    listCinema,
+  } = useAppSelector((state) => state.getSticket);
 
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (idFilm) {
+      dispatch(getListCinemaForm(idFilm));
+    }
+  }, [idFilm]);
 
   const onSelectCinema = (cinema: CumRapChieu) => {
     dispatch(
@@ -35,7 +44,7 @@ export default function SelectCinema(props: ISelectCinema) {
   const renderMenu = () => {
     return (
       <Menu>
-        {film.nameFilm ? (
+        {nameFilm ? (
           !!listCinema.length ? (
             listCinema.map((sysCinema) => {
               return sysCinema.cumRapChieu.map((cinema) => {

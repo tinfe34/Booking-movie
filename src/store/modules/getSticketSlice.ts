@@ -71,10 +71,20 @@ const getSticketSlice = createSlice({
       state.film = payload;
       state.cinema = { idCinema: "", nameCinema: "", logo: "" };
       state.showTime = "";
+      state.showTimeWatch = {
+        maLichChieu: "",
+        maRap: "",
+        ngayChieuGioChieu: "",
+      };
     },
     getCinema: (state, { payload }) => {
       state.cinema = payload;
       state.showTime = "";
+      state.showTimeWatch = {
+        maLichChieu: "",
+        maRap: "",
+        ngayChieuGioChieu: "",
+      };
     },
     getShowTimes: (state, { payload }) => {
       state.listShowTimes = payload;
