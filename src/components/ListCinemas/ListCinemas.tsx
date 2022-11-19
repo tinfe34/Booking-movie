@@ -136,7 +136,7 @@ const ListCinemas = () => {
   };
 
   return (
-    <section className="list-cinemas" id="cumrap">
+    <section className="list-cinemas mt-5" id="cumrap">
       <div className="container">
         <Tabs
           className="tab-list"

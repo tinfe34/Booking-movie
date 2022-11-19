@@ -22,7 +22,7 @@ const defaultProps = {
 const HeaderNav = ({ menu, className }: HeaderNavProps) => {
   return (
     <div className={`header__nav ${className}`}>
-      <Anchor offsetTop={100} affix={false} targetOffset={100}>
+      <Anchor offsetTop={100} affix={false} targetOffset={100} onClick={(e)=> e.preventDefault()}>
         {menu.map((item, index) => {
           return (
             <Link key={index} href={`#${item.href}`} title={item.name}></Link>

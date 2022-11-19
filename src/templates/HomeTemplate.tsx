@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import Footer from "layout/Footer/Footer";
 import Header from "layout/Header/Header";
+import BackToTop from "components/BackToTop/BackToTop";
 
 const HomeTemplate = () => {
   return (
@@ -10,6 +11,7 @@ const HomeTemplate = () => {
       <Header />
       <Outlet />
       <Footer />
+      <BackToTop/>
     </Fragment>
   );
 };

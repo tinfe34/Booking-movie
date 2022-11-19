@@ -35,11 +35,11 @@ const Introduce = () => {
 
   return (
     <div
-      className="intro"
+      className="intro mt-5"
       id="ungdung"
       style={{ backgroundImage: "url('./images/icons/backapp.jpg')" }}
     >
-      <div className="container ">
+      <div className="container">
         <div className="row intro__content">
           <div className="col-12 col-sm-12 col-md-6 intro__info">
             <h2 className="text-white">Ứng dụng tiện lợi dành cho </h2>

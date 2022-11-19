@@ -5,6 +5,7 @@ import LoginForm from "components/LoginForm/LoginForm";
 
 //scss
 import "./Login.scss";
+import withLoader from "HOC/WrapperLoader";
 
 const Login = () => {
   return (
@@ -22,4 +23,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withLoader(Login);

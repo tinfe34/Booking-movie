@@ -8,7 +8,6 @@ import Comment from "../../components/Comment/Comment";
 
 //slices
 import { setCurrentLogoCinema } from "store/modules/cinemaSlice";
-import { hideLoading, showLoading } from "store/modules/loadingSlice";
 import { getListCinemaForm } from "store/modules/getSticketSlice";
 import { getMovieDetail } from "store/modules/movie";
 
@@ -27,6 +26,7 @@ import { useAppDispatch, useAppSelector } from "hooks/store";
 
 //antd
 import { Collapse, Tabs } from "antd";
+import withLoader from "HOC/WrapperLoader";
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
 
@@ -145,10 +145,8 @@ const FilmDetail = () => {
   };
 
   if (isLoading) {
-    dispatch(showLoading());
     return <div></div>;
   } else {
-    dispatch(hideLoading());
     return (
       <div>
         <div className="mainDetail">
@@ -364,4 +362,4 @@ const FilmDetail = () => {
   }
 };
 
-export default FilmDetail;
+export default withLoader(FilmDetail);

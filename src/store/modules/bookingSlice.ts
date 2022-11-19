@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import authAPI from "services/authAPI";
 import bookingAPI from "services/bookingAPI";
 import Swal from "sweetalert2";
-import { hideLoading, showLoading } from "./loadingSlice";
-
 interface State {
   bookingSticket: Booking | null;
   listSeatBooked: Seat[];
@@ -31,7 +29,7 @@ const initialState: State = {
 export const getBookingSticket = createAsyncThunk(
   "booking/getBookingSticket",
   async (MaLichChieu: number) => {
-    try {
+    try {      
       const bookingSticket = await bookingAPI.getBookingSticket(MaLichChieu);
       return bookingSticket;
     } catch (error) {
@@ -44,8 +42,6 @@ export const getSticketAction = createAsyncThunk(
   "booking/getSticketAction",
   async (data: any, { dispatch }) => {
     try {
-      dispatch(showLoading());
-
       const result = await bookingAPI.getSticketAction(data);
 
       await dispatch(getBookingSticket(data.maLichChieu));
@@ -54,11 +50,8 @@ export const getSticketAction = createAsyncThunk(
 
       dispatch(changeTab("2"));
 
-      dispatch(hideLoading());
-
       return result;
     } catch (error) {
-      dispatch(hideLoading());
       throw error;
     }
   }
@@ -84,7 +77,6 @@ const bookingSlice = createSlice({
         (seatBooked) => seatBooked.maGhe === payload?.maGhe
       );
       if (idx != -1) {
-        console.log(123444);
         state.listSeatBooked = state.listSeatBooked.filter(
           (seat) => seat.maGhe !== payload?.maGhe
         );
@@ -94,14 +86,13 @@ const bookingSlice = createSlice({
     },
     removeListSeatBooked: (state) => {
       state.listSeatBooked = [];
-      console.log(123123);
     },
     changeTab: (state, { payload }) => {
       state.tabActive = payload;
     },
   },
   extraReducers(builder) {
-    builder.addCase(getBookingSticket.pending, (state) => {
+    builder.addCase(getBookingSticket.pending, (state, dispatch) => {
       state.isLoading = true;
     });
     builder.addCase(getBookingSticket.fulfilled, (state, { payload }) => {

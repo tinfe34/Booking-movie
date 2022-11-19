@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 
 //css
 import "antd/dist/antd.min.css";
@@ -7,28 +7,28 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-modal-video/scss/modal-video.scss";
 import "./scss/main.scss";
 
-
 // template
 import HomeTemplate from "templates/HomeTemplate";
-
-// pages
-import HomePage from "pages/HomePage/HomePage";
-import FilmDetail from "pages/FilmDetail/FilmDetail";
 
 //component
 import ProtectedRoute from "routes/ProtectedRoute";
 import Loading from "components/Loading/Loading";
-import PageNotFound from "pages/PageNotFound/PageNotFound";
 
-const BookingStickets = lazy(
-  () => import("pages/BookingStickets/BookingStickets")
-);
-const Login = lazy(() => import("pages/Login/Login"));
-const Register = lazy(() => import("pages/Register/Register"));
+// pages
+import HomePage from "pages/HomePage/HomePage";
+import FilmDetail from "pages/FilmDetail/FilmDetail";
+import PageNotFound from "pages/PageNotFound/PageNotFound";
+import Register from "pages/Register/Register";
+import BookingStickets from "pages/BookingStickets/BookingStickets";
+import Login from "pages/Login/Login";
+
+
+
 
 function App() {
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<div>loading...</div>}>
+      <Loading />
       <BrowserRouter>
         <Routes>
           <Route path="" element={<HomeTemplate />}>

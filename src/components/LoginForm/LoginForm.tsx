@@ -1,5 +1,5 @@
 import { FieldErrors, useForm } from "react-hook-form";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //interface
 import { LoginValues } from "interface/login";
@@ -81,9 +81,9 @@ const LoginForm = (props: Props) => {
       </div>
       <div className="form-group row" style={{ alignItems: "center" }}>
         <div className="col-7">
-          <a className="forgot-password" href="#">
+          <Link className="forgot-password" to="/forgot-password">
             Forgot your password?
-          </a>
+          </Link>
         </div>
         <div className="col-12 col-sm-12 col-md-5">
           <button type="submit" className="button-login ">
@@ -98,12 +98,12 @@ const LoginForm = (props: Props) => {
             margin: "20px 0",
           }}
         >
-          <p>
-            Don't have account?
-            <NavLink to="/register" className="register-link">
+          <div>
+            <span className="mr-3">Don't have account?</span>
+            <Link to="/register" className="register-link">
               Sign up now!
-            </NavLink>
-          </p>
+            </Link>
+          </div>
         </div>
       </div>
     </form>

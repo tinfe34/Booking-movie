@@ -5,6 +5,7 @@ import RegisterForm from "components/RegisterForm/RegisterForm";
 
 //scss
 import "./Register.scss";
+import withLoader from "HOC/WrapperLoader";
 
 const Register = () => {
   return (
@@ -22,4 +23,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default withLoader(Register);
