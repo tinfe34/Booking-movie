@@ -8,7 +8,7 @@ export interface State {
   isOk: boolean;
   selectFilm: Film;
   selectCinema: { idCinema: string; nameCinema: string; logo: string };
-  selectTime: string;
+  selectDate: string;
   selectShowtime: {
     maLichChieu: string;
     maRap: string;
@@ -16,7 +16,7 @@ export interface State {
   };
   listFilm: Movie[];
   listCinema: CinemaGroup[];
-  listShowTimes: lcFilm[];
+  listViewingDate: lcFilm[];
   isLoading: boolean;
   error?: string;
 }
@@ -26,7 +26,7 @@ const initialState: State = {
   isOk: false,
   selectFilm: { idFilm: null, nameFilm: "" },
   selectCinema: { idCinema: "", nameCinema: "", logo: "" },
-  selectTime: "",
+  selectDate: "",
   selectShowtime: {
     maLichChieu: "",
     maRap: "",
@@ -34,7 +34,7 @@ const initialState: State = {
   },
   listFilm: [],
   listCinema: [],
-  listShowTimes: [],
+  listViewingDate: [],
   isLoading: false,
   error: undefined,
 };
@@ -67,12 +67,12 @@ const getSticketSlice = createSlice({
   name: "getSticket",
   initialState,
   reducers: {
-    getFilm: (state, { payload }) => {
+    changeFilm: (state, { payload }) => {
       state.selectFilm = payload;
 
       //reset
       state.selectCinema = { idCinema: "", nameCinema: "", logo: "" };
-      state.selectTime = "";
+      state.selectDate = "";
       state.selectShowtime = {
         maLichChieu: "",
         maRap: "",
@@ -80,11 +80,11 @@ const getSticketSlice = createSlice({
       };
       state.isOk = false;
     },
-    getCinema: (state, { payload }) => {
+    changeCinema: (state, { payload }) => {
       state.selectCinema = payload;
 
       //reset
-      state.selectTime = "";
+      state.selectDate = "";
       state.selectShowtime = {
         maLichChieu: "",
         maRap: "",
@@ -92,23 +92,23 @@ const getSticketSlice = createSlice({
       };
       state.isOk = false;
     },
-    getShowTimes: (state, { payload }) => {
-      state.listShowTimes = payload;
-    },
-    getShowTime: (state, { payload }) => {
-      state.selectTime = payload;
+    changeDate: (state, { payload }) => {
+      state.selectDate = payload;
 
       //reset
-      state.isOk = true;
+      state.isOk = false;
       state.selectShowtime = {
         maLichChieu: "",
         maRap: "",
         ngayChieuGioChieu: "",
       };
     },
-    getShowTimeWatch: (state, { payload }) => {
+    getViewingDate: (state, { payload }) => {
+      state.listViewingDate = payload;
+    },
+    getShowtime: (state, { payload }) => {
       state.selectShowtime = payload;
-      state.isOk = false;
+      state.isOk = true;
     },
   },
   extraReducers(builder) {
@@ -139,11 +139,11 @@ const getSticketSlice = createSlice({
 });
 
 export const {
-  getFilm,
-  getCinema,
-  getShowTimes,
-  getShowTime,
-  getShowTimeWatch,
+  changeFilm,
+  changeCinema,
+  changeDate,
+  getViewingDate,
+  getShowtime,
 } = getSticketSlice.actions;
 
 export default getSticketSlice.reducer;

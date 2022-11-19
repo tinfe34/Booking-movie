@@ -6,6 +6,7 @@ import FormGetSticket from "components/FormGetSticket/FormGetSticket";
 import Introduce from "components/Introduce/Introduce";
 import ListCinemas from "components/ListCinemas/ListCinemas";
 import MovieList from "components/MovieList/MovieList";
+import BackToTop from "components/BackToTop/BackToTop";
 
 
 const HomePage = () => {
@@ -17,6 +18,7 @@ const HomePage = () => {
       <ListCinemas />
       <Article />
       <Introduce />
+      <BackToTop/>
     </Fragment>
   );
 };

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ArticleContent = () => {
   return (
     <div className="tab-content" id="nav-tabContent">
@@ -386,7 +388,6 @@ const ArticleContent = () => {
           </div>
         </div>
       </div>
-      <button className="button-more">XEM THÊM</button>
     </div>
   );
 };

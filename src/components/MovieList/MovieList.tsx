@@ -35,7 +35,7 @@ const MovieList = () => {
   }
 
   return (
-    <section className="movie-list">
+    <section className="movie-list" id="danhsachphim">
       <div className="container">
         <div className="row">
           <h1 className="text-center text-primary my-5">Danh sách phim</h1>

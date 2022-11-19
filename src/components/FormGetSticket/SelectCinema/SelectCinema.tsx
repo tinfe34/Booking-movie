@@ -1,5 +1,5 @@
 //slice
-import { getCinema, getListCinemaForm, getShowTimes } from "store/modules/getSticketSlice";
+import { changeCinema, getListCinemaForm, getViewingDate } from "store/modules/getSticketSlice";
 import { CumRapChieu } from "interface/cinema";
 
 //hooks
@@ -29,14 +29,14 @@ export default function SelectCinema(props: ISelectCinema) {
 
   const onSelectCinema = (cinema: CumRapChieu) => {
     dispatch(
-      getCinema({
+      changeCinema({
         idCinema: cinema.maCumRap,
         nameCinema: cinema.tenCumRap,
         logo: cinema.hinhAnh,
       })
     );
 
-    dispatch(getShowTimes(cinema.lichChieuPhim));
+    dispatch(getViewingDate(cinema.lichChieuPhim));
   };
 
   const renderMenu = () => {

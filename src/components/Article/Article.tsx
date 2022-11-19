@@ -7,7 +7,7 @@ import "./Article.scss";
 
 const Article = () => {
   return (
-    <section className="article" id="article">
+    <section className="article" id="tintuc">
       <div className="container">
         <ArticleTab />
         <ArticleContent/>

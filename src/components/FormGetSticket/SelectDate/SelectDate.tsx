@@ -1,7 +1,7 @@
 import moment from "moment";
 
 //slice
-import { getShowTime } from "store/modules/getSticketSlice";
+import { changeDate } from "store/modules/getSticketSlice";
 
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";
@@ -13,14 +13,14 @@ import { DownOutlined } from "@ant-design/icons";
 export interface ISelectDate {}
 
 export default function SelectDate(props: ISelectDate) {
-  const { selectFilm, selectCinema, selectTime, listShowTimes } = useAppSelector(
+  const { selectFilm, selectCinema, selectDate, listViewingDate } = useAppSelector(
     (state) => state.getSticket
   );
 
   const dispatch = useAppDispatch();
 
   const onSelectDate = (ngayChieuGioChieu: string) => {
-    dispatch(getShowTime(ngayChieuGioChieu));
+    dispatch(changeDate(ngayChieuGioChieu));
   }
 
   const renderMenu = () => {
@@ -33,13 +33,13 @@ export default function SelectDate(props: ISelectDate) {
             <Menu.Item>Vui lòng chọn phim và rạp!</Menu.Item>
           )
         ) : (
-          listShowTimes.map((showTime) => {
+          listViewingDate.map((date) => {
             return (
               <Menu.Item
-                key={showTime.maLichChieu}
-                onClick={() => onSelectDate(showTime.ngayChieuGioChieu)}
+                key={date.maLichChieu}
+                onClick={() => onSelectDate(date.ngayChieuGioChieu)}
               >
-                {moment(showTime.ngayChieuGioChieu).format("DD-MM-YYYY")}
+                {moment(date.ngayChieuGioChieu).format("DD-MM-YYYY")}
               </Menu.Item>
             );
           })
@@ -55,7 +55,7 @@ export default function SelectDate(props: ISelectDate) {
       trigger={["click"]}
     >
       <Space className="d-flex p-3 justify-content-between">
-        {selectTime ? moment(selectTime).format("DD-MM-YYYY") : "Ngày Xem"}
+        {selectDate ? moment(selectDate).format("DD-MM-YYYY") : "Ngày Xem"}
         <DownOutlined />
       </Space>
     </Dropdown>

@@ -46,7 +46,7 @@ const FormGetSticket = () => {
   };
 
   return (
-    <section className="choose-ticket" id="formGetSticket">
+    <section className="choose-ticket">
       <div className="container">
         <div
           className="row choose-ticket__inner"

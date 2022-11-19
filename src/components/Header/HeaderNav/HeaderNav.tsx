@@ -1,3 +1,6 @@
+import { Anchor } from "antd";
+
+const { Link } = Anchor;
 
 type HeaderNavProps = typeof defaultProps & {
   menu: Array<Object>;
@@ -7,25 +10,26 @@ type HeaderNavProps = typeof defaultProps & {
 
 const defaultProps = {
   menu: [
-    { name: "Lịch Chiếu", href: "film-header" },
-    { name: "Cụm Rạp", href: "film-header" },
-    { name: "Tin Tức", href: "film-header" },
-    { name: "Ứng Dụng", href: "film-header" },
+    { name: "Lịch Chiếu", href: "lichchieu" },
+    { name: "Danh Sách Phim", href: "danhsachphim" },
+    { name: "Cụm Rạp", href: "cumrap" },
+    { name: "Tin Tức", href: "tintuc" },
+    { name: "Ứng Dụng", href: "ungdung" },
   ],
   className: "",
 };
 
 const HeaderNav = ({ menu, className }: HeaderNavProps) => {
   return (
-    <ul className={`header__nav ${className}`}>
-      {menu.map((item, index) => {
-        return (
-          <li key={index}>
-            <a href={`#${item.href}`}>{item.name}</a>
-          </li>
-        );
-      })}
-    </ul>
+    <div className={`header__nav ${className}`}>
+      <Anchor offsetTop={100} affix={false} targetOffset={100}>
+        {menu.map((item, index) => {
+          return (
+            <Link key={index} href={`#${item.href}`} title={item.name}></Link>
+          );
+        })}
+      </Anchor>
+    </div>
   );
 };
 

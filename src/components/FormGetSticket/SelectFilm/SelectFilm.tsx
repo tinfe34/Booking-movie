@@ -7,7 +7,7 @@ import { Dropdown, Menu, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
 // slice
-import { getFilm, getListFilmForm } from "store/modules/getSticketSlice";
+import { changeFilm, getListFilmForm } from "store/modules/getSticketSlice";
 
 //interface
 import { Movie } from "interface/movie";
@@ -29,7 +29,7 @@ export default function SelectFilm( props: ISelectFilm) {
   }, [selectFilm.idFilm]);
 
   const onSelectFilm = (film: Movie) => {
-    dispatch(getFilm({ idFilm: film.maPhim, nameFilm: film.tenPhim }));
+    dispatch(changeFilm({ idFilm: film.maPhim, nameFilm: film.tenPhim }));
   };
 
   const renderMenu = () => {

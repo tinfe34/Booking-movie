@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <App />
-  </Provider>
+  </Provider>,
 );
 
 reportWebVitals();

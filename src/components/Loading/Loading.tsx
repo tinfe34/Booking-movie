@@ -11,7 +11,7 @@ const Loading = () => {
 
   return (
     <Fragment>
-      {isLoading ? (
+      {isLoading && (
         <div className="loader --global">
           <div className="lds-facebook">
             <div></div>
@@ -19,8 +19,6 @@ const Loading = () => {
             <div></div>
           </div>
         </div>
-      ) : (
-        ""
       )}
     </Fragment>
   );

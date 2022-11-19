@@ -37,7 +37,7 @@ const Carousel = () => {
   };
 
   return (
-    <section className="movie-carousel">
+    <section className="movie-carousel" id="lichchieu">
       <Slider {...settings}>
         {banners.map((banner) => {
           return (

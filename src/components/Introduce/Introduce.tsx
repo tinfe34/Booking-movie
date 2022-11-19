@@ -36,6 +36,7 @@ const Introduce = () => {
   return (
     <div
       className="intro"
+      id="ungdung"
       style={{ backgroundImage: "url('./images/icons/backapp.jpg')" }}
     >
       <div className="container ">

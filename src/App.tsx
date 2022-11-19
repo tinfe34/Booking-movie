@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-modal-video/scss/modal-video.scss";
 import "./scss/main.scss";
 
+
 // template
 import HomeTemplate from "templates/HomeTemplate";
 

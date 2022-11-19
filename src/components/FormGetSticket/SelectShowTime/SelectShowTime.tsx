@@ -1,7 +1,7 @@
 import moment from "moment";
 
 //slice
-import { getShowTimeWatch } from "store/modules/getSticketSlice";
+import { getShowtime } from "store/modules/getSticketSlice";
 
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";
@@ -16,14 +16,19 @@ import { lcFilm } from "interface/cinema";
 export interface ISelectShowtime {}
 
 export default function SelectShowtime(props: ISelectShowtime) {
-  const { selectFilm, selectCinema, selectTime, listShowTimes, selectShowtime } =
-    useAppSelector((state) => state.getSticket);
+  const {
+    selectFilm,
+    selectCinema,
+    selectDate,
+    listViewingDate,
+    selectShowtime,
+  } = useAppSelector((state) => state.getSticket);
 
   const dispatch = useAppDispatch();
 
   const onSelectShowTime = (time: lcFilm) => {
     dispatch(
-      getShowTimeWatch({
+      getShowtime({
         maLichChieu: time.maLichChieu,
         maRap: time.maRap,
         ngayChieuGioChieu: `${moment(time.ngayChieuGioChieu).format(
@@ -35,7 +40,7 @@ export default function SelectShowtime(props: ISelectShowtime) {
   const renderMenu = () => {
     return (
       <Menu>
-        {!selectFilm.nameFilm || !selectCinema.nameCinema || !selectTime ? (
+        {!selectFilm.nameFilm || !selectCinema.nameCinema || !selectDate ? (
           selectFilm.nameFilm ? (
             selectCinema.nameCinema ? (
               <Menu.Item>Vui lòng chọn ngày xem!</Menu.Item>
@@ -46,14 +51,14 @@ export default function SelectShowtime(props: ISelectShowtime) {
             <Menu.Item>Vui lòng chọn phim, rạp và ngày xem!</Menu.Item>
           )
         ) : (
-          listShowTimes.map((time) => {
-            if (selectTime === time.ngayChieuGioChieu) {
+          listViewingDate.map((time) => {
+            if (selectDate === time.ngayChieuGioChieu) {
               return (
                 <Menu.Item
                   key={time.maLichChieu}
                   onClick={() => onSelectShowTime(time)}
                 >
-                  {moment(time.ngayChieuGioChieu).format("h:mm A")} -{" "}
+                  {moment(time.ngayChieuGioChieu).format("h:mm A")} -
                   {time.tenRap}
                 </Menu.Item>
               );

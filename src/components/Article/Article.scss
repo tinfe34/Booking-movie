@@ -112,7 +112,6 @@
   }
 
   .button-more {
-    text-align: center;
     font-size: 14px;
     color: #949494;
     font-family: "SF Regular";
@@ -127,7 +126,8 @@
     margin-top: 35px;
     margin-bottom: 20px;
     display: block;
-
+    width: 150px;
+    
     &:hover {
       color: #fff;
       border-color: #fb4226;
