@@ -16,7 +16,7 @@ import { lcFilm } from "interface/cinema";
 export interface ISelectShowtime {}
 
 export default function SelectShowtime(props: ISelectShowtime) {
-  const { film, cinema, showTime, listShowTimes, showTimeWatch } =
+  const { selectFilm, selectCinema, selectTime, listShowTimes, selectShowtime } =
     useAppSelector((state) => state.getSticket);
 
   const dispatch = useAppDispatch();
@@ -35,9 +35,9 @@ export default function SelectShowtime(props: ISelectShowtime) {
   const renderMenu = () => {
     return (
       <Menu>
-        {!film.nameFilm || !cinema.nameCinema || !showTime ? (
-          film.nameFilm ? (
-            cinema.nameCinema ? (
+        {!selectFilm.nameFilm || !selectCinema.nameCinema || !selectTime ? (
+          selectFilm.nameFilm ? (
+            selectCinema.nameCinema ? (
               <Menu.Item>Vui lòng chọn ngày xem!</Menu.Item>
             ) : (
               <Menu.Item>Vui lòng chọn phim và rạp!</Menu.Item>
@@ -47,7 +47,7 @@ export default function SelectShowtime(props: ISelectShowtime) {
           )
         ) : (
           listShowTimes.map((time) => {
-            if (showTime === time.ngayChieuGioChieu) {
+            if (selectTime === time.ngayChieuGioChieu) {
               return (
                 <Menu.Item
                   key={time.maLichChieu}
@@ -71,8 +71,8 @@ export default function SelectShowtime(props: ISelectShowtime) {
       trigger={["click"]}
     >
       <Space className="d-flex p-3 justify-content-between">
-        {showTimeWatch?.ngayChieuGioChieu
-          ? showTimeWatch?.ngayChieuGioChieu
+        {selectShowtime?.ngayChieuGioChieu
+          ? selectShowtime?.ngayChieuGioChieu
           : "Suất Chiếu"}
         <DownOutlined />
       </Space>

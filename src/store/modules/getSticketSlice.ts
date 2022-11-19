@@ -5,35 +5,36 @@ import movieAPI from "services/movieAPI";
 import cinemaAPI from "services/cinemaAPI";
 
 export interface State {
-  film: Film;
-  listFilm: Movie[];
-  cinema: { idCinema: string; nameCinema: string; logo: string };
-  listCinema: CinemaGroup[];
-  showTime: string;
-  listShowTimes: lcFilm[];
-  showTimeWatch: {
+  isOk: boolean;
+  selectFilm: Film;
+  selectCinema: { idCinema: string; nameCinema: string; logo: string };
+  selectTime: string;
+  selectShowtime: {
     maLichChieu: string;
     maRap: string;
     ngayChieuGioChieu: string;
   };
-
+  listFilm: Movie[];
+  listCinema: CinemaGroup[];
+  listShowTimes: lcFilm[];
   isLoading: boolean;
   error?: string;
 }
 
 //state
 const initialState: State = {
-  film: { idFilm: null, nameFilm: "" },
-  listFilm: [],
-  cinema: { idCinema: "", nameCinema: "", logo: "" },
-  listCinema: [],
-  showTime: "",
-  listShowTimes: [],
-  showTimeWatch: {
+  isOk: false,
+  selectFilm: { idFilm: null, nameFilm: "" },
+  selectCinema: { idCinema: "", nameCinema: "", logo: "" },
+  selectTime: "",
+  selectShowtime: {
     maLichChieu: "",
     maRap: "",
     ngayChieuGioChieu: "",
   },
+  listFilm: [],
+  listCinema: [],
+  listShowTimes: [],
   isLoading: false,
   error: undefined,
 };
@@ -43,8 +44,7 @@ export const getListFilmForm = createAsyncThunk(
   "getSticket/getListFilmForm",
   async () => {
     try {
-      const listFilm = await movieAPI.getListFilmForm();
-      return listFilm;
+      return await movieAPI.getListFilmForm();
     } catch (error) {
       throw error;
     }
@@ -68,37 +68,47 @@ const getSticketSlice = createSlice({
   initialState,
   reducers: {
     getFilm: (state, { payload }) => {
-      state.film = payload;
-      state.cinema = { idCinema: "", nameCinema: "", logo: "" };
-      state.showTime = "";
-      state.showTimeWatch = {
+      state.selectFilm = payload;
+
+      //reset
+      state.selectCinema = { idCinema: "", nameCinema: "", logo: "" };
+      state.selectTime = "";
+      state.selectShowtime = {
         maLichChieu: "",
         maRap: "",
         ngayChieuGioChieu: "",
       };
+      state.isOk = false;
     },
     getCinema: (state, { payload }) => {
-      state.cinema = payload;
-      state.showTime = "";
-      state.showTimeWatch = {
+      state.selectCinema = payload;
+
+      //reset
+      state.selectTime = "";
+      state.selectShowtime = {
         maLichChieu: "",
         maRap: "",
         ngayChieuGioChieu: "",
       };
+      state.isOk = false;
     },
     getShowTimes: (state, { payload }) => {
       state.listShowTimes = payload;
     },
     getShowTime: (state, { payload }) => {
-      state.showTime = payload;
-      state.showTimeWatch = {
+      state.selectTime = payload;
+
+      //reset
+      state.isOk = true;
+      state.selectShowtime = {
         maLichChieu: "",
         maRap: "",
         ngayChieuGioChieu: "",
       };
     },
     getShowTimeWatch: (state, { payload }) => {
-      state.showTimeWatch = payload;
+      state.selectShowtime = payload;
+      state.isOk = false;
     },
   },
   extraReducers(builder) {

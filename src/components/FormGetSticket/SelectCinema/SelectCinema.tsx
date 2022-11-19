@@ -16,17 +16,15 @@ export interface ISelectCinema {}
 
 export default function SelectCinema(props: ISelectCinema) {
   const {
-    film: { idFilm, nameFilm },
-    cinema,
+    selectFilm: { idFilm, nameFilm },
+    selectCinema,
     listCinema,
   } = useAppSelector((state) => state.getSticket);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (idFilm) {
-      dispatch(getListCinemaForm(idFilm));
-    }
+    idFilm && dispatch(getListCinemaForm(idFilm));
   }, [idFilm]);
 
   const onSelectCinema = (cinema: CumRapChieu) => {
@@ -76,7 +74,7 @@ export default function SelectCinema(props: ISelectCinema) {
       trigger={["click"]}
     >
       <Space className="d-flex p-3 justify-content-between">
-        <span>{cinema.idCinema ? cinema.nameCinema : "Rạp Chiếu"}</span>
+        <span>{selectCinema.nameCinema ? selectCinema.nameCinema : "Rạp Chiếu"}</span>
         <DownOutlined />
       </Space>
     </Dropdown>

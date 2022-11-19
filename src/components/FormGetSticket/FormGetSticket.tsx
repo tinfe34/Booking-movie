@@ -1,19 +1,11 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import moment from "moment";
 import Swal from "sweetalert2";
-
-//slice
-import {
-  getListCinemaForm,
-  getListFilmForm,
-} from "store/modules/getSticketSlice";
 
 //scss
 import "./FormGetSticket.scss";
 
 //hooks
-import { useAppDispatch, useAppSelector } from "hooks/store";
+import {  useAppSelector } from "hooks/store";
 
 //ui
 import ButtonCustom from "ui/ButtonCustom/ButtonCustom";
@@ -26,7 +18,8 @@ import SelectShowtime from "./SelectShowtime/SelectShowtime";
 
 const FormGetSticket = () => {
   const {
-    showTimeWatch,
+    isOk,
+    selectShowtime
   } = useAppSelector((state) => state.getSticket);
 
   const { user: isLoggedIn } = useAppSelector((state) => state.auth);
@@ -35,7 +28,7 @@ const FormGetSticket = () => {
 
   const getTicket = () => {
     if (isLoggedIn) {
-      navigate(`/datve/${showTimeWatch.maLichChieu}`, { replace: true });
+      navigate(`/datve/${selectShowtime.maLichChieu}`, { replace: true });
     } else {
       Swal.fire({
         icon: "warning",
@@ -76,7 +69,7 @@ const FormGetSticket = () => {
 
           <div className="col-12 col-md-2">
             <ButtonCustom
-              disabled={showTimeWatch.ngayChieuGioChieu ? false : true}
+              disabled={isOk ? false : true}
               onClick={() => getTicket()}
             >
               MUA VÉ NGAY

@@ -17,7 +17,7 @@ export interface ISelectFilm {
 
 export default function SelectFilm( props: ISelectFilm) {
   const {
-    film,
+    selectFilm,
     listFilm,
   } = useAppSelector((state) => state.getSticket);
 
@@ -25,7 +25,8 @@ export default function SelectFilm( props: ISelectFilm) {
 
   useEffect(() => {
     dispatch(getListFilmForm());
-  }, []);
+
+  }, [selectFilm.idFilm]);
 
   const onSelectFilm = (film: Movie) => {
     dispatch(getFilm({ idFilm: film.maPhim, nameFilm: film.tenPhim }));
@@ -58,7 +59,7 @@ export default function SelectFilm( props: ISelectFilm) {
       trigger={["click"]}
     >
       <Space className="d-flex p-3 justify-content-between">
-        <span>{film.idFilm ? film.nameFilm : "Phim"}</span>
+        <span>{selectFilm.nameFilm ? selectFilm.nameFilm : "Phim"}</span>
         <DownOutlined />
       </Space>
     </Dropdown>

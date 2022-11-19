@@ -13,7 +13,7 @@ import { DownOutlined } from "@ant-design/icons";
 export interface ISelectDate {}
 
 export default function SelectDate(props: ISelectDate) {
-  const { film, cinema, showTime, listShowTimes } = useAppSelector(
+  const { selectFilm, selectCinema, selectTime, listShowTimes } = useAppSelector(
     (state) => state.getSticket
   );
 
@@ -26,8 +26,8 @@ export default function SelectDate(props: ISelectDate) {
   const renderMenu = () => {
     return (
       <Menu>
-        {!film.nameFilm || !cinema.nameCinema ? (
-          film.nameFilm ? (
+        {!selectFilm.nameFilm || !selectCinema.nameCinema ? (
+          selectFilm.nameFilm ? (
             <Menu.Item>Vui lòng chọn rạp!</Menu.Item>
           ) : (
             <Menu.Item>Vui lòng chọn phim và rạp!</Menu.Item>
@@ -55,7 +55,7 @@ export default function SelectDate(props: ISelectDate) {
       trigger={["click"]}
     >
       <Space className="d-flex p-3 justify-content-between">
-        {showTime ? moment(showTime).format("DD-MM-YYYY") : "Ngày Xem"}
+        {selectTime ? moment(selectTime).format("DD-MM-YYYY") : "Ngày Xem"}
         <DownOutlined />
       </Space>
     </Dropdown>
