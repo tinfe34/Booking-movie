@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Booking, Seat } from "interface/booking";
-import { useNavigate } from "react-router-dom";
 import authAPI from "services/authAPI";
 import bookingAPI from "services/bookingAPI";
 import Swal from "sweetalert2";
@@ -109,7 +108,7 @@ const bookingSlice = createSlice({
     builder.addCase(getSticketAction.fulfilled, (state, { payload }) => {
       state.isLoading = false;
       Swal.fire({
-        title: "Notification",
+        title: "Thành Công",
         text: "Đặt vé thành công! Kiểm tra vé trong email!",
         icon: "success",
         confirmButtonColor: "#44c020",

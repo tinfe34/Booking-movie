@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 
 //hooks
 import { useAppSelector } from "hooks/store";
@@ -8,6 +8,14 @@ import "./Loading.scss";
 
 const Loading = () => {
   const { isLoading } = useAppSelector((state) => state.loading);
+  
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isLoading]);
 
   return (
     <Fragment>

@@ -5,13 +5,12 @@ import LoginForm from "components/LoginForm/LoginForm";
 
 //scss
 import "./Login.scss";
-import withLoader from "HOC/WrapperLoader";
 
 const Login = () => {
   return (
     <div className="login">
       <div className="login-wrap col-10 col-sm-10 col-md-6 col-lg-4">
-        <h2 className="text-center">
+        <h2 className="text-center">Register
           <NavLink to="/">
             <img src="./images/logo.png" />
           </NavLink>
@@ -23,4 +22,4 @@ const Login = () => {
   );
 };
 
-export default withLoader(Login);
+export default Login;

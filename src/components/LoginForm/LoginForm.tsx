@@ -10,11 +10,11 @@ import { getLogin } from "store/modules/auth";
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";
 
-type Props = {};
 
-const LoginForm = (props: Props) => {
+const LoginForm = () => {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -35,7 +35,7 @@ const LoginForm = (props: Props) => {
   const onError = (error: FieldErrors<LoginValues>) => {
     console.log(error);
   };
-  const navigate = useNavigate();
+
 
   if (user) {
     navigate(-1);

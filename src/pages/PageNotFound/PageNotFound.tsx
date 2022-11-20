@@ -1,5 +1,3 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
 import { Button, Result } from "antd";
 import { Link } from "react-router-dom";
 

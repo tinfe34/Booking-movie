@@ -6,8 +6,6 @@ import FormGetSticket from "components/FormGetSticket/FormGetSticket";
 import Introduce from "components/Introduce/Introduce";
 import ListCinemas from "components/ListCinemas/ListCinemas";
 import MovieList from "components/MovieList/MovieList";
-import withLoader from "HOC/WrapperLoader";
-
 const HomePage = () => {
   return (
     <Fragment>
@@ -21,4 +19,4 @@ const HomePage = () => {
   );
 };
 
-export default withLoader(HomePage);
+export default HomePage;

@@ -1,14 +1,12 @@
-import { useAppSelector } from "hooks/store";
 import { Navigate } from "react-router-dom";
 
 interface Props {
   children: JSX.Element;
+  isAuth: boolean
 }
 
-const ProtectedRoute = ({ children }: Props) => {
-  const { user } = useAppSelector((state) => state.auth);
-
-  if (!user) {
+const ProtectedRoute = ({ children, isAuth }: Props) => {
+  if (!isAuth) {
     return <Navigate to="/login" />;
   }
 

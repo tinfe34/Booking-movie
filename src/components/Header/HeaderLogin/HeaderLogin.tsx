@@ -26,8 +26,8 @@ const HeaderLogin = ({}: Props) => {
 
   const menu = (
     <Menu>
-      <Menu.Item onClick={() => handleGoToPage()}>Danh Sách Vé</Menu.Item>
-      <Menu.Item onClick={() => handleLogout()}>Đăng Xuất</Menu.Item>
+      <Menu.Item onClick={() => handleGoToPage()}>Lịch sử đặt vé</Menu.Item>
+      <Menu.Item onClick={() => handleLogout()}>Đăng xuất</Menu.Item>
     </Menu>
   );
 
@@ -41,7 +41,7 @@ const HeaderLogin = ({}: Props) => {
   };
 
   const handleGoToPage = () => {
-    navigate("/profile");
+    navigate("/booking-history");
   };
 
   return (
