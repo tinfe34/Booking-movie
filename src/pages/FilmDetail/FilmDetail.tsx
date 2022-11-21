@@ -26,7 +26,6 @@ import { useAppDispatch, useAppSelector } from "hooks/store";
 
 //antd
 import { Collapse, Tabs } from "antd";
-import withLoader from "HOC/WrapperLoader";
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
 

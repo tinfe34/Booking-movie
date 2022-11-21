@@ -1,6 +1,5 @@
 
-import { Fragment, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Fragment } from "react";
 import { RootState } from "store/configStore";
 import _ from "lodash";
 
