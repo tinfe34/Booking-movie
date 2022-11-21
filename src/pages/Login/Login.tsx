@@ -11,10 +11,12 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login-wrap col-10 col-sm-10 col-md-6 col-lg-4">
-        <NavLink to="/">
-          <Image src="./images/logo.png" />
-        </NavLink>
-        <h2 className="text-center">Login</h2>
+        <div className="text-center">
+          <NavLink to="/">
+            <Image src="./images/logo.png" />
+          </NavLink>
+          <h2>Login</h2>
+        </div>
         <LoginForm />
       </div>
     </div>

@@ -10,12 +10,12 @@ const Register = () => {
   return (
     <div className="register">
       <div className="register-wrap col-10 col-sm-10 col-md-8 col-lg-5">
-        <h2 className="text-center">
+        <div className="text-center">
           <NavLink to="/">
             <img src="./images/logo.png" />
           </NavLink>
-        </h2>
-        <h2 className="text-center">Register</h2>
+          <h2 className="text-center">Register</h2>
+        </div>
         <RegisterForm />
       </div>
     </div>
