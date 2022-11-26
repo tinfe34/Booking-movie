@@ -4,15 +4,16 @@ import Swal from "sweetalert2";
 import _ from "lodash";
 
 //slices
-import {
-  getSticketAction,
-} from "store/modules/bookingSlice";
+import { getSticketAction } from "store/modules/bookingSlice";
 
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";
 
-const BuySticketForPC = () => {
+type BuySticketForPCProps = {
+  total: string;
+};
 
+const BuySticketForPC = ({ total }: BuySticketForPCProps) => {
   const { maLichChieu } = useParams();
 
   const { bookingSticket, listSeatBooked } = useAppSelector(
@@ -25,14 +26,7 @@ const BuySticketForPC = () => {
 
   return (
     <div className="buy-sticket">
-      <div className="total">
-        {listSeatBooked
-          .reduce((tongTien, seat) => {
-            return (tongTien += seat.giaVe);
-          }, 0)
-          .toLocaleString()}
-        VNĐ
-      </div>
+      <div className="total">{`${total} VNĐ`}</div>
       <div className="film-info">
         <div className="name">
           <span className="type">C12</span>
@@ -42,7 +36,7 @@ const BuySticketForPC = () => {
       </div>
       <div className="seat-bookings">
         <div className="title ">
-          Ghế:{" "}
+          Ghế:
           {_.sortBy(listSeatBooked).map((seat, index) => {
             return (
               <span className="seat-name-booking" key={`seatB-${index}`}>
@@ -51,14 +45,7 @@ const BuySticketForPC = () => {
             );
           })}
         </div>
-        <div className="total-money ">
-          {listSeatBooked
-            .reduce((tongTien, seat) => {
-              return (tongTien += seat.giaVe);
-            }, 0)
-            .toLocaleString()}
-          VNĐ
-        </div>
+        <div className="total-money ">{`${total} VNĐ`}</div>
       </div>
       <div className="info-film ">
         <div className="title">Ngày Giờ Chiếu:</div>

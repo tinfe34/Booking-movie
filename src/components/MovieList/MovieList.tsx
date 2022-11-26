@@ -8,11 +8,8 @@ import { getMovieShowing } from "store/modules/movie";
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";
 
-//antd
-import { Pagination } from "antd";
-
 const MovieList = () => {
-  const { movies, totalCount, currentPage, error } = useAppSelector(
+  const { movies, error } = useAppSelector(
     (state) => state.movie
   );
   const dispatch = useAppDispatch();

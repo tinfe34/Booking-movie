@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RootState } from "store/configStore";
 import Swal from "sweetalert2";
@@ -9,7 +9,6 @@ import {
   getBookingSticket,
   getSticketAction,
 } from "store/modules/bookingSlice";
-
 
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";
@@ -28,14 +27,16 @@ import BookingContent from "components/BookingStickets/BookingContent";
 import BuySticketForPC from "components/BookingStickets/BuySticketForPC";
 
 const BookingStickets = () => {
+  const [isModalVisibleGetSticket, setIsModalVisibleGetSticket] =
+    useState(false);
+
   const { maLichChieu } = useParams();
 
   const { bookingSticket, listSeatBooked } = useAppSelector(
     (state) => state.booking
   );
-
-  const { user } = useAppSelector((state: RootState) => state.auth);
-  const { logo } = useAppSelector((state: RootState) => state.cinema);
+  const { user } = useAppSelector((state) => state.auth);
+  const { logo } = useAppSelector((state) => state.cinema);
 
   const dispatch = useAppDispatch();
 
@@ -43,13 +44,18 @@ const BookingStickets = () => {
     dispatch(getBookingSticket(+maLichChieu!));
   }, []);
 
-  const [isModalVisibleGetSticket, setIsModalVisibleGetSticket] =
-    useState(false);
+  const total = useMemo(() => {
+    return listSeatBooked
+      .reduce((tongTien, seat) => {
+        return (tongTien += seat.giaVe);
+      }, 0)
+      .toLocaleString();
+  }, [listSeatBooked]);
 
   const handleOkGetSticket = () => {
     setIsModalVisibleGetSticket(false);
 
-    if (!!listSeatBooked.length) {
+    if (!listSeatBooked.length) {
       Swal.fire({
         title: "Bạn Chưa Chọn Ghế!",
         text: "Vui Lòng Chọn Ghế Trước Khi Đặt!",
@@ -86,8 +92,8 @@ const BookingStickets = () => {
           <Divider />
           <BookingContent openModal={() => setIsModalVisibleGetSticket(true)} />
         </div>
-        <div className="col-3  d-none d-lg-block">
-          <BuySticketForPC />
+        <div className="col-3 d-none d-lg-block">
+          <BuySticketForPC total={total} />
         </div>
       </div>
       <Modal
@@ -104,26 +110,17 @@ const BookingStickets = () => {
         onCancel={() => setIsModalVisibleGetSticket(false)}
       >
         <div className="get-sticket-mobile">
-          <div className="total">
-            {listSeatBooked
-              .reduce((tongTien, seat) => {
-                return (tongTien += seat.giaVe);
-              }, 0)
-              .toLocaleString()}
-            VNĐ
-          </div>
+          <div className="total">{`${total} VNĐ`}</div>
           <div className="film-info">
             <div className="name">
               <span className="type">C12</span>
               {bookingSticket?.thongTinPhim?.tenPhim}
             </div>
-            <img
-              src={bookingSticket?.thongTinPhim?.hinhAnh}
-            />
+            <img src={bookingSticket?.thongTinPhim?.hinhAnh} />
           </div>
           <div className="seat-bookings">
             <div className="title ">
-              Ghế:{" "}
+              Ghế:
               {listSeatBooked.map((seat, index) => {
                 return (
                   <span className="seat-name-booking" key={`seatBd-${index}`}>
@@ -132,14 +129,7 @@ const BookingStickets = () => {
                 );
               })}
             </div>
-            <div className="total-money ">
-              {listSeatBooked
-                .reduce((tongTien, seat) => {
-                  return (tongTien += seat.giaVe);
-                }, 0)
-                .toLocaleString()}
-              VNĐ
-            </div>
+            <div className="total-money ">{`${total} VNĐ`}</div>
           </div>
           <div className="info-film ">
             <div className="title">Ngày Giờ Chiếu:</div>

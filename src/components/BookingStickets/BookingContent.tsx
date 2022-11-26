@@ -1,12 +1,10 @@
-
 import { Fragment } from "react";
 import { RootState } from "store/configStore";
 import _ from "lodash";
+import Countdown from "react-countdown";
 
 //slices
-import {
-  bookTicket,
-} from "store/modules/bookingSlice";
+import { bookTicket } from "store/modules/bookingSlice";
 
 //img
 import screen from "./../../assets/images/screen.png";
@@ -14,15 +12,17 @@ import screen from "./../../assets/images/screen.png";
 //hooks
 import { useAppDispatch, useAppSelector } from "hooks/store";
 
-
 import Image from "ui/Image/Image";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-
-const BookingContent = ({openModal} : any) => {
+const BookingContent = ({ openModal }: any) => {
+  const navigate = useNavigate();
 
   const { bookingSticket, listSeatBooked } = useAppSelector(
     (state) => state.booking
   );
+
   const { logo } = useAppSelector((state: RootState) => state.cinema);
 
   const dispatch = useAppDispatch();
@@ -66,103 +66,127 @@ const BookingContent = ({openModal} : any) => {
     });
   };
 
+  const completedCoundown = ({ hours, minutes, seconds, completed }: any) => {
+    if (completed) {
+      Swal.fire({
+        title: "Đã hết thời gian đặt vé",
+        icon: "error",
+        showCancelButton: false,
+        confirmButtonColor: "#fb4226",
+        cancelButtonColor: "rgb(167 167 167)",
+        confirmButtonText: "OK",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          navigate("/");
+        }
+      });
+    } else {
+      return (
+        <h1 className="time-coundown__time">
+          {hours}:{minutes}:{seconds}
+        </h1>
+      );
+    }
+  };
+
   return (
     <div className="booking-content">
-    <div className="booking-info my-3">
-      <div className="info-cinema d-flex">
-        <Image src={logo} width={50} />
-        <div className="mx-3">
-          <h4 className="cinema-name">
-            {bookingSticket?.thongTinPhim.tenCumRap}
-          </h4>
-          <div className="cinema-time">
-            {bookingSticket?.thongTinPhim.diaChi}
+      <div className="booking-info my-3">
+        <div className="info-cinema d-flex">
+          <Image src={logo} width={50} />
+          <div className="mx-3">
+            <h4 className="cinema-name">
+              {bookingSticket?.thongTinPhim.tenCumRap}
+            </h4>
+            <div className="cinema-time">
+              {bookingSticket?.thongTinPhim.diaChi}
+            </div>
+          </div>
+        </div>
+        <div className="time-coundown">
+          <div className="time-coundown__title">Thời Gian Giữ Ghế</div>
+          <Countdown
+            zeroPadTime={4}
+            date={Date.now() + 60000 * 5}
+            renderer={completedCoundown}
+          />
+        </div>
+      </div>
+      <div className="booking-screen">
+        <Image src={screen} width={"100%"} />
+      </div>
+      <div
+        className="booking-seats"
+        style={{
+          height: "auto",
+          width: "auto",
+          overflowX: "scroll",
+        }}
+      >
+        <div
+          style={{
+            minWidth: "580px",
+            margin: "auto",
+            textAlign: "center",
+          }}
+        >
+          {renderSeats()}
+        </div>
+      </div>
+      <div className="type-seat">
+        <div className="row justify-content-center">
+          <div className="mb-3 col-4 col-sm-4 col-md-4 col-lg-2">
+            <div
+              className="color"
+              style={{
+                backgroundColor: "#222260",
+              }}
+            ></div>
+            <div className="note">Ghế Thường</div>
+          </div>
+          <div className="mb-3 col-4 col-sm-4 col-md-4 col-lg-2">
+            <div
+              className="color"
+              style={{
+                backgroundColor: "#f7b500",
+              }}
+            ></div>
+            <div className="note">Ghế VIP</div>
+          </div>
+          <div className="mb-3 col-4 col-sm-4 col-md-4 col-lg-2">
+            <div
+              className="color"
+              style={{
+                backgroundColor: "#1e7e34",
+              }}
+            ></div>
+            <div className="note">Ghế Đang Chọn</div>
+          </div>
+          <div className="mb-3 col-4 col-sm-4 col-md-4 col-lg-2">
+            <div
+              className="color"
+              style={{
+                backgroundColor: "#ccc",
+              }}
+            ></div>
+            <div className="note">Ghế Thường Đã Bán</div>
+          </div>
+          <div className="mb-3 col-4 col-sm-4 col-md-4 col-lg-2">
+            <div
+              className="color"
+              style={{
+                backgroundColor: "#ef533b",
+              }}
+            ></div>
+            <div className="note">Ghế VIP Đã Bán</div>
           </div>
         </div>
       </div>
-      <div className="time-coundown">
-        <div className="time-coundown__title">Thời Gian Giữ Ghế</div>
-        <h1 className="time-coundown__time">05:00</h1>
-      </div>
+      <button onClick={() => openModal()} className="btn-continue">
+        TIẾP TỤC
+      </button>
     </div>
-    <div className="booking-screen">
-      <Image src={screen} width={"100%"} />
-    </div>
-    <div
-      className="booking-seats"
-      style={{
-        height: "auto",
-        width: "auto",
-        overflowX: "scroll",
-      }}
-    >
-      <div
-        style={{
-          minWidth: "580px",
-          margin: "auto",
-          textAlign: 'center'
-        }}
-      >
-        {renderSeats()}
-      </div>
-    </div>
-    <div className="type-seat">
-      <div className="row justify-content-center">
-        <div className="mb-3 col-4 col-sm-4 col-md-4 col-lg-2">
-          <div
-            className="color"
-            style={{
-              backgroundColor: "#222260",
-            }}
-          ></div>
-          <div className="note">Ghế Thường</div>
-        </div>
-        <div className="mb-3 col-4 col-sm-4 col-md-4 col-lg-2">
-          <div
-            className="color"
-            style={{
-              backgroundColor: "#f7b500",
-            }}
-          ></div>
-          <div className="note">Ghế VIP</div>
-        </div>
-        <div className="mb-3 col-4 col-sm-4 col-md-4 col-lg-2">
-          <div
-            className="color"
-            style={{
-              backgroundColor: "#1e7e34",
-            }}
-          ></div>
-          <div className="note">Ghế Đang Chọn</div>
-        </div>
-        <div className="mb-3 col-4 col-sm-4 col-md-4 col-lg-2">
-          <div
-            className="color"
-            style={{
-              backgroundColor: "#ccc",
-            }}
-          ></div>
-          <div className="note">Ghế Thường Đã Bán</div>
-        </div>
-        <div className="mb-3 col-4 col-sm-4 col-md-4 col-lg-2">
-          <div
-            className="color"
-            style={{
-              backgroundColor: "#ef533b",
-            }}
-          ></div>
-          <div className="note">Ghế VIP Đã Bán</div>
-        </div>
-      </div>
-    </div>
-    <button
-      onClick={() => openModal()}
-      className="btn-continue"
-    >
-      TIẾP TỤC
-    </button>
-  </div>
-  )
-}
+  );
+};
 
-export default BookingContent
+export default BookingContent;
